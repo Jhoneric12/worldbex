@@ -143,10 +143,10 @@ const ClientLayout = () => {
         <Footer style={footerStyle}>
           <div className="flex flex-col items-center py-2">
             <h1 className="text-center text-sm text-[#5E5E5E]">Organizers</h1>
-            <div className="flex justify-center items-center whitespace-nowrap w-full overflow-x-auto md:overflow-hidden">
+            <div className="flex justify-center items-center whitespace-nowrap w-full overflow-x-auto lg:overflow-hidden">
               <div className="flex gap-2">
                 {organizers.map((org, index) => (
-                  <div key={index} className="p-2 shrink-0">
+                  <div key={index} className="p-2 shrink-0 md:shrink-1">
                     <img
                       src={org.image}
                       loading="lazy"
