@@ -136,19 +136,26 @@ const ClientLayout = () => {
           </div>
         </Header>
         <Content>
-          <div className="mt-4 px-2 md:px-4 overflow-y-auto pb-25 md:pb-28 lg:pb-40">
+          <div className="mt-4 px-2 md:px-4 overflow-y-auto pb-36 md:pb-28 lg:pb-40">
             {<Outlet />}
           </div>
         </Content>
         <Footer style={footerStyle}>
           <div className="flex flex-col items-center py-2">
-            <h1 className="text-center text-[0.5rem] md:text-sm text-[#5E5E5E]">Organizers</h1>
-            <div className="flex justify-center items-center w-full">
-              {organizers.map((org, index) => (
-                <div key={index} className="p-2">
-                  <img src={org.image} alt={org.alt} className="hover:scale-150 duration-300" />
-                </div>
-              ))}
+            <h1 className="text-center text-sm text-[#5E5E5E]">Organizers</h1>
+            <div className="flex justify-center items-center whitespace-nowrap w-full overflow-x-auto md:overflow-hidden">
+              <div className="flex gap-2">
+                {organizers.map((org, index) => (
+                  <div key={index} className="p-2 shrink-0">
+                    <img
+                      src={org.image}
+                      loading="lazy"
+                      alt={org.alt}
+                      className="hover:scale-150 duration-300"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </Footer>
