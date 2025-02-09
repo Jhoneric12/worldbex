@@ -4,7 +4,7 @@ import PageNotFound from "../pages/PageNotFound";
 const PageNotFoundRoute = () => {
   return (
     <Routes>
-      <Route path="/*" element={<PageNotFound />} />
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 };

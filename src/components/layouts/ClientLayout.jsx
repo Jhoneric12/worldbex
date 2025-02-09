@@ -44,6 +44,7 @@ const ClientLayout = () => {
     justifyContent: "center",
     background: token.colorBgBase,
     flexShrink: 0,
+    borderTop: "1px solid #DEE2E6",
   };
 
   const headerStyle = {
@@ -77,7 +78,7 @@ const ClientLayout = () => {
           trigger={null}
           collapsedWidth={0}
           collapsed={collapsed}
-          className="drop-shadow-xl"
+          className="shadow-2xl"
           style={siderStyle}
           width={250}
         >
