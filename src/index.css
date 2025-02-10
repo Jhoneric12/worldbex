@@ -25,3 +25,13 @@
 .nav-link:hover::after {
   width: 100%;
 }
+
+.up {
+  top: -7rem;
+  transition: 0.3s;
+}
+
+.down {
+  top: 0;
+  transition: 0.3s;
+}
