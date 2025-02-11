@@ -9,10 +9,10 @@ const Hero = () => {
   const { token } = theme.useToken();
 
   return (
-    <section className="lg:px-36 lg:pt-12 lg:h-screen lg:overflow-hidden lg:grid lg:grid-cols-4 lg:grid-rows-3 lg:gap-4">
-      <div className="lg:justify-start lg:col-span-2 lg:h-full lg:row-span-2 lg:mt-16 px-8 flex flex-col justify-between min-h-screen">
+    <section className="lg:px-36 lg:pt-12 lg:h-screen lg:overflow-hidden lg:grid lg:grid-cols-4 lg:grid-rows-3 xl :gap-4">
+      <div className="md:justify-center lg:justify-start lg:col-span-2 lg:h-full lg:row-span-2 lg:mt-16 px-8 flex flex-col justify-between min-h-screen">
         <div className="flex flex-col gap-4">
-          <img src={HeaderLogo} className="py-8 lg:hidden pt-20" alt="WorldBex Logo" />
+          <img src={HeaderLogo} className="py-8 md:hidden pt-20" alt="WorldBex Logo" />
           <h1 style={{ color: token.colorPrimary }} className="text-3xl font-bold">
             WELCOME TO WORLDBEX SERVICES INTERNATIONAL
           </h1>
