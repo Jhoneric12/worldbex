@@ -28,6 +28,13 @@ createRoot(document.getElementById("root")).render(
             itemMarginBlock: 0,
             iconMarginInlineEnd: 8,
           },
+          Form: {
+            labelFontSize: 16,
+          },
+
+          // Input: {
+          //   inputFontSize: 16,
+          // },
         },
       }}
     >

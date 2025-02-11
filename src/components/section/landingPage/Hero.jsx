@@ -12,20 +12,13 @@ const Hero = () => {
     <section className="md:px-36 md:pt-12 md:h-screen md:overflow-hidden md:grid md:grid-cols-4 md:grid-rows-3 md:gap-4">
       <div className="md:justify-start md:col-span-2 md:h-full md:row-span-2 md:mt-16 px-8 flex flex-col justify-between min-h-screen">
         <div className="flex flex-col gap-4">
-          <img
-            src={HeaderLogo}
-            className="py-8 md:hidden pt-20"
-            alt="WorldBex Logo"
-          />
-          <h1
-            style={{ color: token.colorPrimary }}
-            className="text-3xl font-bold"
-          >
+          <img src={HeaderLogo} className="py-8 md:hidden pt-20" alt="WorldBex Logo" />
+          <h1 style={{ color: token.colorPrimary }} className="text-3xl font-bold">
             WELCOME TO WORLDBEX SERVICES INTERNATIONAL
           </h1>
           <p className="text-md text-gray-700 font-normal">
-            THE LEADING EXHIBITION AND EVENTS MANAGEMENT COMPANY IN THE
-            PHILIPPINES WITH OVER 25 YEARS OF EXCELLENCE
+            THE LEADING EXHIBITION AND EVENTS MANAGEMENT COMPANY IN THE PHILIPPINES WITH OVER 25
+            YEARS OF EXCELLENCE
           </p>
         </div>
 
@@ -49,9 +42,7 @@ const Hero = () => {
       {/* Organizations */}
       <div className="p-8 md:p-0 md:col-span-2 md:col-start-1 md:row-start-3">
         <hr className="border-gray-300 md:hidden" />
-        <h1 className="text-gray-500 text-center p-4 md:p-2 md:text-sm">
-          Organizer Of
-        </h1>
+        <h1 className="text-gray-500 text-center p-4 md:p-2 md:text-sm">Organizer Of</h1>
         <div className="grid grid-cols-2 place-items-center md:grid-rows-2 md:grid-cols-7">
           {organizers.map((org, index) => (
             <div key={index} className="p-2 shrink-0 md:shrink-1">
@@ -67,11 +58,7 @@ const Hero = () => {
       </div>
 
       <div className="hidden md:place-items-center md:grid md:col-span-2 md:row-span-3 md:col-start-3 md:row-start-1">
-        <img
-          src={HeroImage}
-          className="max-h-full object-cover md:max-h-[24rem]"
-          alt=""
-        />
+        <img src={HeroImage} className="max-h-full object-cover md:max-h-[24rem]" alt="" />
       </div>
     </section>
   );
