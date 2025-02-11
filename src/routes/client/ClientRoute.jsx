@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router";
 import ClientLayout from "../../components/layouts/ClientLayout";
 import Events from "../../pages/client/Events";
 import Tickets from "../../pages/client/Tickets";
+import Profile from "../../pages/client/Profile";
 
 const ClientRoute = () => {
   return (
@@ -10,6 +11,7 @@ const ClientRoute = () => {
         <Route element={<ClientLayout />}>
           <Route path="events" element={<Events />} />
           <Route path="tickets" element={<Tickets />} />
+          <Route path="profile" element={<Profile />} />
         </Route>
       </Route>
     </Routes>
