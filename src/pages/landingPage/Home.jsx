@@ -1,8 +1,14 @@
+import Hero from "../../components/section/landingPage/Hero";
+import Navbar from "../../components/navbar/Navbar";
+import Decoration from "../../components/decoration/Decoration";
+
 const Home = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center">
-      <h1>This is the landing Page</h1>
-    </div>
+    <>
+      <Navbar />
+      <Hero />
+      <Decoration />
+    </>
   );
 };
 

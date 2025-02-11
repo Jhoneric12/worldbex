@@ -1,1 +1,37 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary-color: #f4811f;
+  --color-text-color: #565656;
+}
+
+.nav-link {
+  /* color: #fff; */
+  cursor: pointer;
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  background: #f4811f;
+  transition: width 0.2s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.up {
+  top: -7rem;
+  transition: 0.3s;
+}
+
+.down {
+  top: 0;
+  transition: 0.3s;
+}

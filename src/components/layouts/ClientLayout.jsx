@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import WorldBexLogo from "../../assets/images/logo/worldbex.png";
 import WorldBexLogoWhite from "../../assets/images/logo/worldbex-logo-white.png";
 import HamburgerMenu from "../../assets/images/logo/hambergermenu.png";
 import WorldBexHeader from "../../assets/images/logo/worldbex-logo-header.png";
 import Avatar from "../../assets/images/avatar/matsu-bieber.png";
 import { UserOutlined, AppstoreOutlined } from "@ant-design/icons";
-import { Layout, Menu, theme, Button } from "antd";
+import { Layout, Menu, theme, Button, Popover, Segmented } from "antd";
 import { organizers } from "../../data/Organizer";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { NavLink, Outlet, useLocation } from "react-router";
 import { useCurrentLocation } from "../../hooks/useCurrentLocation";
+import LogoutIcon from "../../assets/images/icon/logoutcurve.png"
+import ProfileIcon from "../../assets/images/icon/profile.png"
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -20,6 +22,7 @@ const ClientLayout = () => {
   const { token } = theme.useToken();
   const currentLocation = useLocation();
   const location = useCurrentLocation(currentLocation);
+  const [arrow, setArrow] = useState('Show');
 
   const siderStyle = {
     overflow: "auto",
@@ -70,6 +73,32 @@ const ClientLayout = () => {
       icon: <UserOutlined />,
     },
   ];
+
+  const mergedArrow = useMemo(() => {
+    if (arrow === 'Hide') {
+      return false;
+    }
+    if (arrow === 'Show') {
+      return true;
+    }
+    return {
+      pointAtCenter: true,
+    };
+  }, [arrow]);
+
+  const content = (
+    <div className="flex flex-col gap-2">
+      <div className="flex gap-2 px-6 border-gray-300">
+        <img src={ProfileIcon} className="w-5 h-5" />
+        <p className="text-md">Profile</p>
+      </div> 
+      <hr className="border-gray-200" />
+      <div className="flex gap-2 px-6">
+        <img src={LogoutIcon} className="w-5 h-5"/>
+        <p>Sign Out</p>
+      </div> 
+    </div>
+  );
 
   return (
     <Layout hasSider>
@@ -131,7 +160,9 @@ const ClientLayout = () => {
               {!isMobile && (
                 <span className="text-xs md:text-sm text-white">Christopher Dungaran</span>
               )}
-              <img src={Avatar} alt="Avatar" className="w-9 h-9" />
+              <Popover placement="bottomRight" content={content} arrow={mergedArrow}>
+                <img src={Avatar} alt="Avatar" className="w-9 h-9" />
+              </Popover>
             </div>
           </div>
         </Header>
