@@ -14,7 +14,6 @@ createRoot(document.getElementById("root")).render(
           borderRadius: 0,
           fontFamily: "Poppins",
           colorBgBase: "#FFFFFF",
-          borderRadius: 20,
         },
         components: {
           Layout: {

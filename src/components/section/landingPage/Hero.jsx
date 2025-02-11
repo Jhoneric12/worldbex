@@ -1,8 +1,6 @@
 import { organizers } from "../../../data/Organizer";
 import React, { useState } from "react";
-import { theme } from "antd";
-import PrimaryButton from "../../buttons/PrimaryButton";
-import SecondaryButton from "../../buttons/SecondaryBUtton";
+import { theme, Button } from "antd";
 import HeaderLogo from "../../../assets/images/logo/worldbex-logo-header.png";
 import HeroImage from "../../../assets/images/avatar/heroimage.png";
 
@@ -11,12 +9,12 @@ const Hero = () => {
   const { token } = theme.useToken();
 
   return (
-    <section className="md:px-20 md:max-h-screen md:grid md:grid-cols-4 md:grid-rows-3 md:gap-4">
-      <div className="md:justify-start md:col-span-2 md:row-span-2 md:mt-16 px-8 flex flex-col justify-between min-h-screen">
+    <section className="md:px-36 md:pt-12 md:h-screen md:overflow-hidden md:grid md:grid-cols-4 md:grid-rows-3 md:gap-4">
+      <div className="md:justify-start md:col-span-2 md:h-full md:row-span-2 md:mt-16 px-8 flex flex-col justify-between min-h-screen">
         <div className="flex flex-col gap-4">
           <img
             src={HeaderLogo}
-            className="py-8 md:hidden"
+            className="py-8 md:hidden pt-20"
             alt="WorldBex Logo"
           />
           <h1
@@ -32,19 +30,18 @@ const Hero = () => {
         </div>
 
         {/* Buttons */}
-        <div className="md:hidden flex w-full justify-between gap-3 pb-6">
-          <PrimaryButton btnText={"Register"} />
-          <SecondaryButton btnText={"Sign In"} />
-        </div>
-
-        <div className="hidden md:flex w-full justify-between gap-3 pt-12">
+        <div className="flex flex-row w-full justify-between gap-3 pt-12 pb-6">
           <div className="flex flex-col w-full gap-3 text-[#F4811F] font-semibold">
-            <h1>Not Yet Registered?</h1>
-            <PrimaryButton btnText={"Register"} />
+            <h1 className="hidden md:flex">Not Yet Registered?</h1>
+            <Button type="primary" size="large">
+              Register
+            </Button>
           </div>
           <div className="flex flex-col w-full gap-3 text-[#F4811F] font-semibold">
-            <h1>Already Registered?</h1>
-            <PrimaryButton btnText={"Sign In"} />
+            <h1 className="hidden md:flex">Already Registered?</h1>
+            <Button type="primary" size="large">
+              Sign In
+            </Button>
           </div>
         </div>
       </div>
@@ -52,7 +49,9 @@ const Hero = () => {
       {/* Organizations */}
       <div className="p-8 md:p-0 md:col-span-2 md:col-start-1 md:row-start-3">
         <hr className="border-gray-300 md:hidden" />
-        <h1 className="text-gray-500 text-center p-4">Organizer Of</h1>
+        <h1 className="text-gray-500 text-center p-4 md:p-2 md:text-sm">
+          Organizer Of
+        </h1>
         <div className="grid grid-cols-2 place-items-center md:grid-rows-2 md:grid-cols-7">
           {organizers.map((org, index) => (
             <div key={index} className="p-2 shrink-0 md:shrink-1">
@@ -60,7 +59,7 @@ const Hero = () => {
                 src={org.image}
                 alt={org.alt}
                 loading="lazy"
-                className="hover:scale-150 duration-300"
+                className="hover:scale-150 duration-300 md:max-w-[40px]"
               />
             </div>
           ))}
@@ -68,7 +67,11 @@ const Hero = () => {
       </div>
 
       <div className="hidden md:place-items-center md:grid md:col-span-2 md:row-span-3 md:col-start-3 md:row-start-1">
-        <img src={HeroImage} alt="" />
+        <img
+          src={HeroImage}
+          className="max-h-full object-cover md:max-h-[24rem]"
+          alt=""
+        />
       </div>
     </section>
   );
