@@ -9,7 +9,7 @@ const Hero = () => {
   const { token } = theme.useToken();
 
   return (
-    <section className="xl:px-36 xl:pt-12 xl:h-screen xl:overflow-hidden xl:grid xl:grid-cols-4 xl:grid-rows-3 lg:gap-4 lg:py-10">
+    <section className="xl:px-36 xl:pt-12 xl:h-screen xl:overflow-hidden xl:grid xl:grid-cols-4 xl:grid-rows-3 lg:gap-4">
       <div className="md:justify-center xl:justify-start xl:col-span-2 xl:h-full xl:row-span-2 xl:mt-16 px-8 flex flex-col justify-between min-h-screen">
         <div className="flex flex-col gap-4">
           <img src={HeaderLogo} className="py-8 xl:hidden pt-20 md:hidden" alt="WorldBex Logo" />
