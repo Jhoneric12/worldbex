@@ -8,8 +8,8 @@ const Profile = () => {
   const { token } = theme.useToken();
 
   return (
-    <section className="flex items-center justify-center">
-      <div className="xl:w-1/2 flex flex-col bg-white rounded-lg p-6 gap-5">
+    <section className="flex items-center mt-10 lg:mt-4 justify-center">
+      <div className="xl:w-1/2 flex flex-col bg-white rounded-lg p-6 gap-5 shadow-sm">
         <div className="flex flex-col justify-center items-center w-full gap-2">
           <img src={Logo} alt="WorldBex" className="h-[6rem] w-[6rem] p-2" />
           <h1 className="text-lg font-bold">Christopher Durungan</h1>
@@ -48,9 +48,7 @@ const Profile = () => {
           </div>
         </div>
 
-        <Button
-          style={{ color: token.colorPrimary, borderColor: token.colorPrimary }}
-        >
+        <Button style={{ color: token.colorPrimary, borderColor: token.colorPrimary }}>
           Edit Profile
         </Button>
       </div>
