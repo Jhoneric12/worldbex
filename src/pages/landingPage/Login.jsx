@@ -39,7 +39,7 @@ const Login = () => {
             alt=""
             className="hidden lg:block absolute top-0 left-0 h-20 z-50"
           />
-          <div className="lg:mt-40">
+          <div className="lg:mt-96 xl:mt-40">
             <h1 className="font-bold text-3xl text-black mb-3 lg:hidden">Let's sign you in.</h1>
             <h1 className="text-primary-color font-medium text-lg max-w-[25rem] lg:text-4xl lg:max-w-full lg:leading-12">
               WELCOME TO WORLDBEX SERVICES INTERNATIONAL
