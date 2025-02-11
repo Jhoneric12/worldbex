@@ -18,7 +18,7 @@ const Registration = () => {
       <Navbar />
       <section className="min-h-screen flex relative">
         <div
-          className="hidden lg:flex lg:flex-col lg:justify-center lg:items-center lg:w-[40%] bg-cover bg-center relative"
+          className="hidden h-screen lg:flex lg:flex-col lg:justify-center lg:items-center lg:w-[40%] bg-cover bg-center fixed left-0 top-0"
           style={{ backgroundImage: `url(${Banner})` }}
         >
           <div>
@@ -33,7 +33,7 @@ const Registration = () => {
           </div>
         </div>
 
-        <div className="lg:relative py-10 flex flex-col gap-7 px-4 md:w-full md:px-30 lg:px-20 xl:px-10 lg:w-[60%] overflow-y-auto items-center justify-center min-h-screen">
+        <div className="lg:relative py-10 flex flex-col gap-7 px-4 md:w-full md:px-30 lg:px-20 xl:px-10 lg:ml-[40%] lg:w-[60%] overflow-y-auto items-center justify-center min-h-screen">
           <img
             src={DecorationBottom}
             alt=""
@@ -156,7 +156,7 @@ const Registration = () => {
                 >
                   <div className="flex flex-col gap-1">
                     <label className="text-text-color font-medium text-base">Password</label>
-                    <Input size="large" />
+                    <Input.Password size="large" />
                   </div>
                 </Form.Item>
 

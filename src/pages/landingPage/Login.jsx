@@ -13,7 +13,7 @@ const Login = () => {
       <Navbar />
       <section className="min-h-screen flex relative">
         <div
-          className="hidden lg:flex lg:flex-col lg:justify-center lg:items-center lg:w-[40%] bg-cover bg-center relative"
+          className="hidden h-screen lg:flex lg:flex-col lg:justify-center lg:items-center lg:w-[40%] bg-cover bg-center fixed"
           style={{ backgroundImage: `url(${Banner})` }}
         >
           <div>
@@ -28,7 +28,7 @@ const Login = () => {
           </div>
         </div>
 
-        <div className="relative flex flex-col gap-7 px-4 md:w-full md:px-30 lg:px-20 xl:px-40 lg:w-[60%] lg:py-10 overflow-y-auto items-center justify-center min-h-screen">
+        <div className="relative flex flex-col gap-7 px-4 md:w-full md:px-30 lg:px-20 xl:px-40 lg:ml-[40%] lg:w-[60%] lg:py-10 overflow-y-auto items-center justify-center min-h-screen">
           <img
             src={DecorationBottom}
             alt=""
