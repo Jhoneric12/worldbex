@@ -84,7 +84,9 @@ const Login = () => {
 
               <div className="mt-4 flex justify-center gap-4 items-center">
                 <span>Don't have an account?</span>
-                <span className="text-primary-color font-semibold">Register</span>
+                <NavLink>
+                  <span className="text-primary-color font-semibold hover:underline">Register</span>
+                </NavLink>
               </div>
             </Form>
           </div>

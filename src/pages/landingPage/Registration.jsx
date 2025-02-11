@@ -183,7 +183,10 @@ const Registration = () => {
               </div> */}
               <Form.Item name="student">
                 <Checkbox>
-                  I have read and accept the <span className="text-blue-500">Privacy Policy</span>
+                  I have read and accept the{" "}
+                  <NavLink>
+                    <span className="text-blue-500 hover:underline">Privacy policy</span>
+                  </NavLink>
                 </Checkbox>
               </Form.Item>
               <Form.Item name="student">
@@ -198,7 +201,9 @@ const Registration = () => {
 
               <div className="mt-4 flex justify-center gap-4 items-center">
                 <span>Already have an account?</span>
-                <span className="text-primary-color font-semibold">Login</span>
+                <NavLink>
+                  <span className="text-primary-color font-semibold hover:underline">Login</span>
+                </NavLink>
               </div>
             </Form>
           </div>
