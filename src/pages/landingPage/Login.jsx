@@ -11,7 +11,7 @@ const Login = () => {
   return (
     <>
       <Navbar />
-      <section className="h-screen flex relative">
+      <section className="min-h-screen flex relative">
         <div
           className="hidden lg:flex lg:flex-col lg:justify-center lg:items-center lg:w-[40%] bg-cover bg-center relative"
           style={{ backgroundImage: `url(${Banner})` }}
@@ -28,7 +28,7 @@ const Login = () => {
           </div>
         </div>
 
-        <div className="relative flex flex-col gap-7 px-4 md:w-full md:px-30 lg:px-20 xl:px-40 lg:w-[60%] overflow-y-auto items-center justify-center min-h-screen">
+        <div className="relative flex flex-col gap-7 px-4 md:w-full md:px-30 lg:px-20 xl:px-40 lg:w-[60%] lg:py-10 overflow-y-auto items-center justify-center min-h-screen">
           <img
             src={DecorationBottom}
             alt=""
@@ -39,7 +39,7 @@ const Login = () => {
             alt=""
             className="hidden lg:block absolute top-0 left-0 h-20 z-50"
           />
-          <div className="lg:mt-[30rem] xl:mt-[15rem]">
+          <div className="lg:mt-30 xl:mt-30 md:self-start">
             <h1 className="font-bold text-3xl text-black mb-3 lg:hidden">Let's sign you in.</h1>
             <h1 className="text-primary-color font-medium text-lg max-w-[25rem] lg:text-4xl lg:max-w-full lg:leading-12">
               WELCOME TO WORLDBEX SERVICES INTERNATIONAL
