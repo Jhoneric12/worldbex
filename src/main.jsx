@@ -12,7 +12,7 @@ createRoot(document.getElementById("root")).render(
         token: {
           colorPrimary: "#F4811F",
           borderRadius: 0,
-          fontFamily: "Poppins",
+          // fontFamily: "Poppins",
           colorBgBase: "#FFFFFF",
         },
         components: {
