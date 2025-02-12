@@ -10,8 +10,8 @@ import { organizers } from "../../data/Organizer";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { NavLink, Outlet, useLocation } from "react-router";
 import { useCurrentLocation } from "../../hooks/useCurrentLocation";
-import LogoutIcon from "../../assets/images/icon/logoutcurve.png"
-import ProfileIcon from "../../assets/images/icon/profile.png"
+import LogoutIcon from "../../assets/images/icon/logoutcurve.png";
+import ProfileIcon from "../../assets/images/icon/profile.png";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -22,7 +22,7 @@ const ClientLayout = () => {
   const { token } = theme.useToken();
   const currentLocation = useLocation();
   const location = useCurrentLocation(currentLocation);
-  const [arrow, setArrow] = useState('Show');
+  const [arrow, setArrow] = useState("Show");
 
   const siderStyle = {
     overflow: "auto",
@@ -75,10 +75,10 @@ const ClientLayout = () => {
   ];
 
   const mergedArrow = useMemo(() => {
-    if (arrow === 'Hide') {
+    if (arrow === "Hide") {
       return false;
     }
-    if (arrow === 'Show') {
+    if (arrow === "Show") {
       return true;
     }
     return {
@@ -91,12 +91,12 @@ const ClientLayout = () => {
       <div className="flex gap-2 px-6 border-gray-300">
         <img src={ProfileIcon} className="w-5 h-5" />
         <p className="text-md">Profile</p>
-      </div> 
+      </div>
       <hr className="border-gray-200" />
       <div className="flex gap-2 px-6">
-        <img src={LogoutIcon} className="w-5 h-5"/>
+        <img src={LogoutIcon} className="w-5 h-5" />
         <p>Sign Out</p>
-      </div> 
+      </div>
     </div>
   );
 
@@ -150,7 +150,7 @@ const ClientLayout = () => {
               {isMobile ? (
                 <div className="flex gap-4 items-center">
                   <img src={WorldBexLogoWhite} alt="Worldbex Header" className="w-10 h-10" />
-                  <span className="text-xs md:text-sm text-white">Christopher Dungaran</span>
+                  <span className=" text-white">Christopher Dungaran</span>
                 </div>
               ) : (
                 <img src={WorldBexHeader} alt="Worldbex Header" />
