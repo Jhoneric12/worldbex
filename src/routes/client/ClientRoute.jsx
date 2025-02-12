@@ -7,7 +7,7 @@ import Profile from "../../pages/client/Profile";
 const ClientRoute = () => {
   return (
     <Routes>
-      <Route path="citizen">
+      <Route path="visitor">
         <Route element={<ClientLayout />}>
           <Route path="events" element={<Events />} />
           <Route path="tickets" element={<Tickets />} />
