@@ -13,8 +13,8 @@ const ClientRoute = () => {
           <Route path="tickets" element={<Tickets />} />
           {/* <Route path="profile" element={<Profile />} /> */}
         </Route>
+        <Route path="profile" element={<UserProfile />} />
       </Route>
-      <Route path="profile" element={<UserProfile />} />
     </Routes>
   );
 };
