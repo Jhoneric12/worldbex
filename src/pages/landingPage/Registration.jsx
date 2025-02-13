@@ -33,7 +33,7 @@ const Registration = () => {
           </div>
         </div>
 
-        <div className="lg:relative py-10 flex flex-col gap-7 px-4 md:w-full md:px-30 lg:px-20 xl:px-10 lg:ml-[40%] lg:w-[60%] overflow-y-auto items-center justify-center min-h-screen">
+        <div className="w-full lg:relative py-10 flex flex-col gap-7 px-4 md:w-full md:px-30 lg:px-20 lg:pr-25 xl:px-10 xl:pr-30 lg:ml-[40%] lg:w-[60%] overflow-y-auto items-center justify-center min-h-screen">
           <img
             src={DecorationBottom}
             alt=""
