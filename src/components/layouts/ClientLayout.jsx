@@ -12,6 +12,7 @@ import { NavLink, Outlet, useLocation } from "react-router";
 import { useCurrentLocation } from "../../hooks/useCurrentLocation";
 import LogoutIcon from "../../assets/images/icon/logoutcurve.png";
 import ProfileIcon from "../../assets/images/icon/profile.png";
+import DownloadButtons from "../downaload/DownloadButtons";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -122,11 +123,16 @@ const ClientLayout = () => {
             items={items}
           />
           <div className="absolute bottom-0 right-1 left-1 py-6">
+            <DownloadButtons />
             <div className="flex flex-col gap-1 items-center text-xs">
-              <span className="text-[#5E5E5E]">For question and inquiries</span>
-              <span className="font-semibold">inquire@worldbexevents.com</span>
-              <span className="text-[#5E5E5E]">or contact us at</span>
-              <span className="font-semibold">86569239</span>
+              <span className="text-[#5E5E5E] font-medium">
+                For question and inquiries
+              </span>
+              <span className="font-bold">inquire@worldbexevents.com</span>
+              <span className="text-[#5E5E5E] font-medium">
+                or contact us at
+              </span>
+              <span className="font-bold">86569239</span>
             </div>
           </div>
         </Sider>
@@ -149,7 +155,11 @@ const ClientLayout = () => {
             <div>
               {isMobile ? (
                 <div className="flex gap-4 items-center">
-                  <img src={WorldBexLogoWhite} alt="Worldbex Header" className="w-10 h-10" />
+                  <img
+                    src={WorldBexLogoWhite}
+                    alt="Worldbex Header"
+                    className="w-10 h-10"
+                  />
                   <span className=" text-white">Christopher Dungaran</span>
                 </div>
               ) : (
@@ -158,9 +168,15 @@ const ClientLayout = () => {
             </div>
             <div className="flex items-center gap-4">
               {!isMobile && (
-                <span className="text-xs md:text-sm text-white">Christopher Dungaran</span>
+                <span className="text-xs md:text-sm text-white">
+                  Christopher Dungaran
+                </span>
               )}
-              <Popover placement="bottomRight" content={content} arrow={mergedArrow}>
+              <Popover
+                placement="bottomRight"
+                content={content}
+                arrow={mergedArrow}
+              >
                 <img src={Avatar} alt="Avatar" className="w-9 h-9" />
               </Popover>
             </div>
@@ -168,6 +184,7 @@ const ClientLayout = () => {
         </Header>
         <Content>
           <div className="mt-4 px-2 md:px-4 overflow-y-auto pb-36 md:pb-28 lg:pb-40">
+            <DownloadButtons styles={"xl:hidden lg:hidden md:hidden"} />
             {<Outlet />}
           </div>
         </Content>
