@@ -64,12 +64,12 @@ const ClientLayout = () => {
   const items = [
     {
       key: "events",
-      label: <NavLink to={"/citizen/events"}>Events</NavLink>,
+      label: <NavLink to={"/visitor/events"}>Events</NavLink>,
       icon: <AppstoreOutlined />,
     },
     {
       key: "tickets",
-      label: <NavLink to={"/citizen/tickets"}>Tickets</NavLink>,
+      label: <NavLink to={"/visitor/tickets"}>Tickets</NavLink>,
       icon: <UserOutlined />,
     },
   ];

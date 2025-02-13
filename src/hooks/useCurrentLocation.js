@@ -4,9 +4,9 @@ export const useCurrentLocation = (currentLocation) => {
   const { pathname } = currentLocation;
   const [location, setLocation] = useState(null);
   useEffect(() => {
-    if (pathname === "/citizen/events") {
+    if (pathname === "/visitor/events") {
       setLocation(["events"]);
-    } else if (pathname === "/citizen/tickets") {
+    } else if (pathname === "/visitor/tickets") {
       setLocation(["tickets"]);
     }
   }, [pathname]);
