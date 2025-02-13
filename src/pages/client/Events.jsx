@@ -4,7 +4,7 @@ import Event from "../../components/eventTemplate/Event";
 
 const Events = () => {
   return (
-    <div className="flex flex-col lg:grid lg:grid-cols-3 gap-4 xl:grid-cols-4">
+    <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 xl:grid-cols-4">
       {events.map((event, index) => (
         <div key={index}>
           <Event style={event.bg}>
@@ -25,7 +25,7 @@ const Events = () => {
               ) : (
                 <div className="flex justify-between  items-center">
                   <div></div>
-                  <button className="rounded-full text-black text-lg bg-white px-4 py-2 font-medium hover:opacity-90">
+                  <button className="rounded-full text-black text-lg bg-white px-4 py-2 font-medium hover:opacity-90 hover:scale-110 duration-300">
                     JOIN
                   </button>
                 </div>
