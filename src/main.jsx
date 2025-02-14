@@ -4,6 +4,10 @@ import "./index.css";
 import App from "./App.jsx";
 import { ConfigProvider } from "antd";
 import { BrowserRouter } from "react-router";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import "@ant-design/v5-patch-for-react-19";
+
+const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -39,7 +43,9 @@ createRoot(document.getElementById("root")).render(
       }}
     >
       <BrowserRouter>
-        <App />
+        <QueryClientProvider client={queryClient}>
+          <App />
+        </QueryClientProvider>
       </BrowserRouter>
     </ConfigProvider>
   </StrictMode>

@@ -6,8 +6,22 @@ import BannerLogo from "../../assets/images/logo/bannerlogo.png";
 import DecorationBottom from "../../assets/images/icon/decoration-bottom-hero.png";
 import { organizers } from "../../data/Organizer";
 import DecorationTop from "../../assets/images/icon/decoration-top-auth.png";
+import { useLogin } from "../../services/requests/client/useLoginAuth";
 
 const Login = () => {
+  const { mutate } = useLogin();
+  const [form] = Form.useForm();
+
+  const onFinish = async (values) => {
+    mutate(values);
+    console.log(values);
+  };
+
+  form.setFieldsValue({
+    email: "chrismhoi17@gmail.com",
+    password: "password@password.com",
+  });
+
   return (
     <>
       <Navbar />
@@ -46,14 +60,14 @@ const Login = () => {
             </h1>
           </div>
           <div className="w-full">
-            <Form name="basic" autoComplete="off">
+            <Form form={form} onFinish={onFinish} autoComplete="off">
               <Form.Item
-                name="username"
-                rules={[{ required: true, message: "Please input your username!" }]}
+                name="email"
+                rules={[{ required: true, message: "Please input your email!" }]}
               >
                 <div className="flex flex-col gap-1">
-                  <label className="text-text-color font-medium text-base">Username</label>
-                  <Input size="large" />
+                  <label className="text-text-color font-medium text-base">Email Address</label>
+                  <Input size="large" placeholder="chrismhoi17@gmail.com" />
                 </div>
               </Form.Item>
 
@@ -63,7 +77,7 @@ const Login = () => {
               >
                 <div className="flex flex-col gap-1">
                   <label className="text-text-color font-medium text-base">Password</label>
-                  <Input.Password size="large" />
+                  <Input.Password size="large" placeholder="password@password.com" />
                 </div>
               </Form.Item>
 
