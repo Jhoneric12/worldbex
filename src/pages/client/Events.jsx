@@ -14,7 +14,7 @@ const Events = () => {
   return (
     <>
       <div className="mb-6">
-        <Search placeholder="Search" onSearch={onSearch} />
+        <Search placeholder="Search" size="large" onSearch={onSearch} />
       </div>
       <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 xl:grid-cols-4">
         {data?.map((event, index) => (

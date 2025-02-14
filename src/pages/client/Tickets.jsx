@@ -8,7 +8,7 @@ const Tickets = () => {
   return (
     <>
       <div className="mb-6">
-        <Search placeholder="Search" onSearch={onSearch} />
+        <Search placeholder="Search" size="large" onSearch={onSearch} />
       </div>
       <Tabs
         type="card"

@@ -18,6 +18,7 @@ createRoot(document.getElementById("root")).render(
           borderRadius: 0,
           // fontFamily: "Poppins",
           colorBgBase: "#FFFFFF",
+          borderRadiusSM: 8,
         },
         components: {
           Layout: {
@@ -34,6 +35,12 @@ createRoot(document.getElementById("root")).render(
           },
           Form: {
             labelFontSize: 16,
+          },
+          Segmented: {
+            itemSelectedBg: "#F4811F",
+            itemSelectedColor: "#fff",
+            trackBg: "#fff",
+            trackPadding: 2,
           },
 
           // Input: {
