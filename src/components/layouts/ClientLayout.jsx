@@ -17,6 +17,7 @@ import { useCurrentLocation } from "../../hooks/useCurrentLocation";
 import LogoutIcon from "../../assets/images/icon/logoutcurve.png";
 import ProfileIcon from "../../assets/images/icon/profile.png";
 import DownloadButtons from "../downaload/DownloadButtons";
+import { useClientStoreAuth } from "../../store/client/useAuth";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -29,6 +30,14 @@ const ClientLayout = () => {
   const location = useCurrentLocation(currentLocation);
   const [arrow, setArrow] = useState("Show");
   const navigate = useNavigate();
+
+  const { reset, clientData } = useClientStoreAuth();
+
+  const handlesignOut = () => {
+    reset();
+    navigate("/login");
+  };
+
 
   const siderStyle = {
     overflow: "auto",
@@ -96,12 +105,14 @@ const ClientLayout = () => {
     <div className="flex flex-col gap-2">
       <div className="flex gap-2 px-6 border-gray-300">
         <img src={ProfileIcon} className="w-5 h-5" />
-        <p className="text-md">Profile</p>
+        <NavLink to={"/visitor/profile"}>
+          <span className="text-text-color">Profile</span>
+        </NavLink>
       </div>
       <hr className="border-gray-200" />
       <div className="flex gap-2 px-6">
         <img src={LogoutIcon} className="w-5 h-5" />
-        <p>Sign Out</p>
+        <button onClick={handlesignOut}>Sign out</button>
       </div>
     </div>
   );
@@ -130,13 +141,9 @@ const ClientLayout = () => {
           <div className="absolute bottom-0 right-1 left-1 py-6">
             <DownloadButtons />
             <div className="flex flex-col gap-1 items-center text-xs">
-              <span className="text-[#5E5E5E] font-medium">
-                For question and inquiries
-              </span>
+              <span className="text-[#5E5E5E] font-medium">For question and inquiries</span>
               <span className="font-bold">inquire@worldbexevents.com</span>
-              <span className="text-[#5E5E5E] font-medium">
-                or contact us at
-              </span>
+              <span className="text-[#5E5E5E] font-medium">or contact us at</span>
               <span className="font-bold">86569239</span>
             </div>
           </div>
@@ -160,12 +167,8 @@ const ClientLayout = () => {
             <div>
               {isMobile ? (
                 <div className="flex gap-4 items-center">
-                  <img
-                    src={WorldBexLogoWhite}
-                    alt="Worldbex Header"
-                    className="w-10 h-10"
-                  />
-                  <span className=" text-white">Christopher Dungaran</span>
+                  <img src={WorldBexLogoWhite} alt="Worldbex Header" className="w-10 h-10" />
+                  <span className=" text-white">{clientData?.name}</span>
                 </div>
               ) : (
                 <img src={WorldBexHeader} alt="Worldbex Header" />
@@ -173,15 +176,9 @@ const ClientLayout = () => {
             </div>
             <div className="flex items-center gap-4">
               {!isMobile && (
-                <span className="text-xs md:text-sm text-white">
-                  Christopher Dungaran
-                </span>
+                <span className="text-xs md:text-base text-white">{clientData?.name}</span>
               )}
-              <Popover
-                placement="bottomRight"
-                content={content}
-                arrow={mergedArrow}
-              >
+              <Popover placement="bottomRight" content={content} arrow={mergedArrow}>
                 <img src={Avatar} alt="Avatar" className="w-9 h-9" />
               </Popover>
             </div>
