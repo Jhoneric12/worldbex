@@ -4,11 +4,15 @@ import WorldBexLogoWhite from "../../assets/images/logo/worldbex-logo-white.png"
 import HamburgerMenu from "../../assets/images/logo/hambergermenu.png";
 import WorldBexHeader from "../../assets/images/logo/worldbex-logo-header.png";
 import Avatar from "../../assets/images/avatar/matsu-bieber.png";
-import { UserOutlined, AppstoreOutlined } from "@ant-design/icons";
-import { Layout, Menu, theme, Button, Popover } from "antd";
+import {
+  UserOutlined,
+  AppstoreOutlined,
+  BgColorsOutlined,
+} from "@ant-design/icons";
+import { Layout, Menu, theme, Button, Popover, Segmented } from "antd";
 import { organizers } from "../../data/Organizer";
 import { useWindowSize } from "../../hooks/useWindowSize";
-import { NavLink, Outlet, useLocation } from "react-router";
+import { NavLink, Outlet, useLocation, useNavigate } from "react-router";
 import { useCurrentLocation } from "../../hooks/useCurrentLocation";
 import LogoutIcon from "../../assets/images/icon/logoutcurve.png";
 import ProfileIcon from "../../assets/images/icon/profile.png";
@@ -24,6 +28,7 @@ const ClientLayout = () => {
   const currentLocation = useLocation();
   const location = useCurrentLocation(currentLocation);
   const [arrow, setArrow] = useState("Show");
+  const navigate = useNavigate();
 
   const siderStyle = {
     overflow: "auto",
@@ -185,9 +190,15 @@ const ClientLayout = () => {
         <Content>
           <div className="mt-4 px-2 md:px-4 overflow-y-auto pb-36 md:pb-28 lg:pb-40">
             <DownloadButtons styles={"xl:hidden lg:hidden md:hidden"} />
-            <div className="md:hidden">
-              <Button type="text">Events</Button>
-              <Button type="text">Tickets</Button>
+            <div className="xl:hidden lg:hidden md:hidden px-1 py-3">
+              <Segmented
+                options={["Events", "Tickets"]}
+                onChange={(value) => {
+                  const route = value.toLowerCase();
+                  navigate(`/visitor/${route}`);
+                }}
+                size="large"
+              />
             </div>
             {<Outlet />}
           </div>
