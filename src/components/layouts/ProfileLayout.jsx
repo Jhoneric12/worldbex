@@ -12,6 +12,7 @@ import { useCurrentLocation } from "../../hooks/useCurrentLocation";
 import LogoutIcon from "../../assets/images/icon/logoutcurve.png";
 import ProfileIcon from "../../assets/images/icon/profile.png";
 import Back from "../../assets/images/icon/Back_press_area.svg";
+import { useClientStoreAuth } from "../../store/client/useAuth";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -23,6 +24,12 @@ const ProfileLayout = ({ children }) => {
   const currentLocation = useLocation();
   const location = useCurrentLocation(currentLocation);
   const [arrow, setArrow] = useState("Show");
+  const { clientData, reset } = useClientStoreAuth();
+
+  const handlesignOut = () => {
+    reset();
+    navigate("/login");
+  };
 
   const siderStyle = {
     overflow: "auto",
@@ -90,12 +97,14 @@ const ProfileLayout = ({ children }) => {
     <div className="flex flex-col gap-2">
       <div className="flex gap-2 px-6 border-gray-300">
         <img src={ProfileIcon} className="w-5 h-5" />
-        <p className="text-md">Profile</p>
+        <NavLink to={"/visitor/profile"}>
+          <span className="text-text-color">Profile</span>
+        </NavLink>
       </div>
       <hr className="border-gray-200" />
       <div className="flex gap-2 px-6">
         <img src={LogoutIcon} className="w-5 h-5" />
-        <p>Sign Out</p>
+        <button onClick={handlesignOut}>Sign out</button>
       </div>
     </div>
   );
@@ -109,18 +118,16 @@ const ProfileLayout = ({ children }) => {
             height: 70,
           }}
         >
-          <img src={Back} alt="Back" />
+          <NavLink to={"/visitor/events"}>
+            <img src={Back} alt="Back" />
+          </NavLink>
         </Button>
         <div className="flex md:gap-10 justify-between px-2 lg:px-10 items-center w-full">
           <div>
             {isMobile ? (
               <div className="flex gap-4 items-center">
-                <img
-                  src={WorldBexLogoWhite}
-                  alt="Worldbex Header"
-                  className="w-10 h-10"
-                />
-                <span className=" text-white">Christopher Dungaran</span>
+                <img src={WorldBexLogoWhite} alt="Worldbex Header" className="w-10 h-10" />
+                <span className=" text-white">{clientData?.name}</span>
               </div>
             ) : (
               <img src={WorldBexHeader} alt="Worldbex Header" />
@@ -128,24 +135,16 @@ const ProfileLayout = ({ children }) => {
           </div>
           <div className="flex items-center gap-4">
             {!isMobile && (
-              <span className="text-xs md:text-sm text-white">
-                Christopher Dungaran
-              </span>
+              <span className="text-xs md:text-base text-white">{clientData?.name}</span>
             )}
-            <Popover
-              placement="bottomRight"
-              content={content}
-              arrow={mergedArrow}
-            >
+            <Popover placement="bottomRight" content={content} arrow={mergedArrow}>
               <img src={Avatar} alt="Avatar" className="w-9 h-9" />
             </Popover>
           </div>
         </div>
       </Header>
       <Content>
-        <div className="mt-4 px-2 md:px-4 overflow-y-auto pb-36 md:pb-28 lg:pb-40">
-          {children}
-        </div>
+        <div className="mt-4 px-2 md:px-4 overflow-y-auto pb-36 md:pb-28 lg:pb-40">{children}</div>
       </Content>
       <Footer style={footerStyle}>
         <div className="flex flex-col items-center py-2">

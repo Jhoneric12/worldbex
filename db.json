@@ -1,0 +1,62 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Christopher Dungaran",
+      "mobile_number": "639158007411",
+      "email": "chrismhoi17@gmail.com",
+      "password": "password@password.com",
+      "company": "Dynamic Global Soft Inc",
+      "designation": "Programmer",
+      "age_group": "Below 18",
+      "address": "123, CAINTA, RIZAL, REGION IV-A (CALABARZON)"
+    },
+    {
+      "id": "c818"
+    },
+    {
+      "id": "6fbc"
+    },
+    {
+      "id": "f0cf"
+    },
+    {
+      "id": "4a79"
+    },
+    {
+      "id": "3a6f"
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "ownerId": 1,
+      "eventName": "WORLDBEX 2025",
+      "eventTag": "WB2025",
+      "date": "MARCH 13-1, 2025",
+      "amount": 0,
+      "logo": "/src/assets/images/events/2022 WB LOGO.png",
+      "isJoin": true,
+      "alt": "Worldbex",
+      "bg": "linear-gradient(#0040FF, #ff0000)",
+      "pax": 4,
+      "isExpired": false,
+      "type": "events"
+    },
+    {
+      "id": 2,
+      "ownerId": 1,
+      "eventName": "MIAS 2025",
+      "eventTag": "MIAS2025",
+      "date": "MARCH 13-16, 2025",
+      "amount": 150,
+      "logo": "/src/assets/images/events/2022 MIAS LOGO.png",
+      "isJoin": false,
+      "alt": "Manila International Auto Show",
+      "bg": "linear-gradient(#150082, #150082)",
+      "pax": 1,
+      "isExpired": false,
+      "type": "seminar"
+    }
+  ]
+}
