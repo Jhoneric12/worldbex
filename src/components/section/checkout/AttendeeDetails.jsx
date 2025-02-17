@@ -105,12 +105,7 @@ const AttendeeDetails = ({ form }) => {
               </div>
             ))}
 
-            <Button
-              type="dashed"
-              onClick={() => add()}
-              block
-              className="border-gray-400 text-gray-600 hover:border-gray-500 hover:text-gray-800"
-            >
+            <Button type="dashed" size="large" onClick={() => add()} block>
               + Add Attendee
             </Button>
             <hr className="border-gray-300" />

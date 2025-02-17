@@ -51,9 +51,10 @@ const CheckoutLayout = () => {
       </Header>
       <Content
         style={{
-          padding: "",
+          zIndex: 10,
+          paddingBottom: "3rem",
           minHeight: "100vh",
-          backgroundColor: "#fffF",
+          backgroundColor: "#FFFF",
         }}
       >
         <Outlet />

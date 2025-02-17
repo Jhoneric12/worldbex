@@ -71,23 +71,38 @@ const EventCheckout = () => {
             {steps[current]?.content}
           </div>
 
-          <div className=" flex justify-center gap-3">
+          <div className=" z-20 w-full fixed bottom-0 left-0 right-0 backdrop-blur-xs py-4 flex justify-center gap-3">
             {current === 0 ? (
-              <Button onClick={() => navigate("/visitor/events")} className="px-4 py-2 rounded-md">
+              <Button
+                size="large"
+                onClick={() => navigate("/visitor/events")}
+                className="px-4 py-2 rounded-md"
+              >
                 Back
               </Button>
             ) : (
-              <Button onClick={prev} className="px-4 py-2 rounded-md">
+              <Button
+                size="large"
+                onClick={prev}
+                className="px-4 py-2 rounded-md"
+              >
                 Previous
               </Button>
             )}
 
             {current < steps.length - 1 ? (
-              <Button type="primary" onClick={next} className="text-white px-4 py-2 rounded-md">
+              <Button
+                size="large"
+                type="primary"
+                onClick={next}
+                className="text-white px-4 py-2 rounded-md"
+              >
                 Next
               </Button>
             ) : (
-              <Button type="primary">Submit</Button>
+              <Button size="large" type="primary">
+                Submit
+              </Button>
             )}
           </div>
         </div>
