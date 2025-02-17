@@ -4,12 +4,14 @@ import Event from "../../components/eventTemplate/Event";
 import { Input } from "antd";
 import { useGetEvents } from "../../services/requests/client/events/useGetEvents";
 import { useClientStoreAuth } from "../../store/client/useAuth";
+import { useNavigate } from "react-router";
 
 const Events = () => {
   const onSearch = (value, _e, info) => console.log(info?.source, value);
   const { Search } = Input;
   const { clientData } = useClientStoreAuth();
   const { data } = useGetEvents(clientData?.id);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -21,7 +23,11 @@ const Events = () => {
           <div key={index}>
             <Event style={event?.bg}>
               <div>
-                <img src={event?.logo} alt={event?.alt} className="h-[8rem] w-full" />
+                <img
+                  src={event?.logo}
+                  alt={event?.alt}
+                  className="h-[8rem] w-full"
+                />
                 <div className="flex flex-col text-white font-medium mt-auto">
                   <h1 className="text-lg">{event?.eventName}</h1>
                   <span className="text-lg">{event?.date}</span>
@@ -34,12 +40,21 @@ const Events = () => {
                 {event?.isJoin ? (
                   <div className="flex justify-between items-center">
                     <div></div>
-                    <span className="text-right text-lg text-white font-bold">JOINED</span>
+                    <span className="text-right text-lg text-white font-bold">
+                      JOINED
+                    </span>
                   </div>
                 ) : (
                   <div className="flex justify-between  items-center">
                     <div></div>
-                    <button className="rounded-full text-black text-lg bg-white px-4 py-2 font-medium hover:opacity-90 hover:scale-110 duration-300">
+                    <button
+                      onClick={() =>
+                        navigate("/visitor/event-checkout", {
+                          state: { event },
+                        })
+                      }
+                      className="rounded-full text-black text-lg bg-white px-4 py-2 font-medium hover:opacity-90 hover:scale-110 duration-300"
+                    >
                       JOIN
                     </button>
                   </div>
