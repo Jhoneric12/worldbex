@@ -21,6 +21,7 @@ const EventCheckout = () => {
       setCurrent((prev) => prev + 1);
     } catch (error) {
       console.log("Validation Failed:", error);
+      form.scrollToField(error.errorFields[0].name);
     }
   };
   const prev = () => setCurrent((prev) => prev - 1);
@@ -72,10 +73,7 @@ const EventCheckout = () => {
 
           <div className=" flex justify-center gap-3">
             {current === 0 ? (
-              <Button
-                onClick={() => navigate("/visitor/events")}
-                className="px-4 py-2 rounded-md"
-              >
+              <Button onClick={() => navigate("/visitor/events")} className="px-4 py-2 rounded-md">
                 Back
               </Button>
             ) : (
@@ -85,11 +83,7 @@ const EventCheckout = () => {
             )}
 
             {current < steps.length - 1 ? (
-              <Button
-                type="primary"
-                onClick={next}
-                className="text-white px-4 py-2 rounded-md"
-              >
+              <Button type="primary" onClick={next} className="text-white px-4 py-2 rounded-md">
                 Next
               </Button>
             ) : (
