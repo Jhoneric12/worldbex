@@ -11,7 +11,6 @@ const Events = () => {
   const onSearch = (value, _e, info) => console.log(info?.source, value);
   const { Search } = Input;
   const { clientData } = useClientStoreAuth();
-  const { data } = useGetEvents(clientData?.id);
   const navigate = useNavigate();
   const { data, isLoading } = useGetEvents(clientData?.id);
 
@@ -26,11 +25,7 @@ const Events = () => {
           <div key={index}>
             <Event style={event?.bg}>
               <div>
-                <img
-                  src={event?.logo}
-                  alt={event?.alt}
-                  className="h-[8rem] w-full"
-                />
+                <img src={event?.logo} alt={event?.alt} className="h-[8rem] w-full" />
                 <div className="flex flex-col text-white font-medium mt-auto">
                   <h1 className="text-lg">{event?.eventName}</h1>
                   <span className="text-lg">{event?.date}</span>
@@ -43,9 +38,7 @@ const Events = () => {
                 {event?.isJoin ? (
                   <div className="flex justify-between items-center">
                     <div></div>
-                    <span className="text-right text-lg text-white font-bold">
-                      JOINED
-                    </span>
+                    <span className="text-right text-lg text-white font-bold">JOINED</span>
                   </div>
                 ) : (
                   <div className="flex justify-between  items-center">
