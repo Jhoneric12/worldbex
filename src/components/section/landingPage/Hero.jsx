@@ -3,10 +3,20 @@ import React, { useState } from "react";
 import { theme, Button } from "antd";
 import HeaderLogo from "../../../assets/images/logo/worldbex-logo-header.png";
 import HeroImage from "../../../assets/images/avatar/heroimage.png";
+import { useNavigate } from "react-router";
 
 const Hero = () => {
-  const [size, setSize] = useState("large");
-  const { token } = theme.useToken();
+  // const [size, setSize] = useState("large");
+  // const { token } = theme.useToken();
+
+  const navigate = useNavigate();
+
+  const navigateToLogin = () => {
+    navigate("/login");
+  };
+  const navigateToRegistration = () => {
+    navigate("/registration");
+  };
 
   return (
     <section className="xl:flex xl:items-center xl:px-20">
@@ -30,13 +40,13 @@ const Hero = () => {
           <div className="flex justify-center items-center gap-2 md:gap-10 lg:gap-20 xl:gap-30">
             <div className="flex flex-col gap-3 w-full font-medium">
               <h1 className="text-primary-color hidden xl:block">Not yet registered?</h1>
-              <Button type="primary" size="large">
+              <Button onClick={navigateToRegistration} type="primary" size="large">
                 REGISTER
               </Button>
             </div>
             <div className="flex flex-col gap-3 w-full font-medium">
               <h1 className="text-primary-color hidden xl:block">Already registered?</h1>
-              <Button type="primary" size="large">
+              <Button onClick={navigateToLogin} type="primary" size="large">
                 SIGN IN
               </Button>
             </div>

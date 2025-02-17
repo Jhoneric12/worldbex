@@ -52,40 +52,32 @@ const Navbar = () => {
       </div>
       <div
         className={
-          isShow
-            ? `flex flex-col gap-4 w-full items-start shadow-sm py-10 bg-white`
-            : `hidden`
+          isShow ? `flex flex-col gap-4 w-full items-start shadow-sm py-10 bg-white` : `hidden`
         }
       >
         <NavLink className="flex items-center gap-4 px-4 font-medium">
           <img src={Information} alt="Information" />
           <span>About WSI</span>
         </NavLink>
-        <NavLink className="flex items-center gap-4 px-4 font-medium">
+        <NavLink to={"/login"} className="flex items-center gap-4 px-4 font-medium">
           <img src={Login} alt="Login" />
           <span>Login</span>
         </NavLink>
-        <NavLink className="flex items-center gap-4 px-4 font-medium">
+        <NavLink to={"/registration"} className="flex items-center gap-4 px-4 font-medium">
           <img src={SignUp} alt="Signup" />
           <span>Signup</span>
         </NavLink>
       </div>
       <div className="hidden md:flex md:items-center md:justify-between md:px-2 md:py-4 lg:px-14 xl:px-30">
         <NavLink to={"/"}>
-          <img
-            src={WorlbelLogoHeader}
-            alt="Worldbex Logo Header"
-            className="lg:w-64 xl:w-80"
-          />
+          <img src={WorlbelLogoHeader} alt="Worldbex Logo Header" className="lg:w-64 xl:w-80" />
         </NavLink>
         <div className="flex md:gap-10 lg:gap-14">
-          <NavLink className={"nav-link hover:text-primary-color font-medium"}>
-            About WSI
-          </NavLink>
-          <NavLink className={"nav-link hover:text-primary-color font-medium"}>
+          <NavLink className={"nav-link hover:text-primary-color font-medium"}>About WSI</NavLink>
+          <NavLink to={"/login"} className={"nav-link hover:text-primary-color font-medium"}>
             Login
           </NavLink>
-          <NavLink className={"nav-link hover:text-primary-color font-medium"}>
+          <NavLink to={"/registration"} className={"nav-link hover:text-primary-color font-medium"}>
             Signup
           </NavLink>
         </div>
