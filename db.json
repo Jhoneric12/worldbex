@@ -27,6 +27,19 @@
       "id": "3a6f"
     },
     {
+      "id": "9653"
+    },
+    {
+      "id": "cc3e"
+    },
+    {
+      "id": "d9eb"
+    },
+    {
+      "id": "548a"
+    },
+    {
+      "id": "8d87"
       "id": "d079"
     },
     {
@@ -45,7 +58,7 @@
       "date": "MARCH 13-16, 2025",
       "amount": 0,
       "logo": "/src/assets/images/events/2022 WB LOGO.png",
-      "isJoin": true,
+      "isJoin": false,
       "alt": "Worldbex",
       "bg": "linear-gradient(#0040FF, #ff0000)",
       "pax": 4,

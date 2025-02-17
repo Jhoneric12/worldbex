@@ -3,7 +3,7 @@ export const questions = [
     title: "1. JOB FUNCTION",
     options: [
       "Architects",
-      "CEO/Chairman/Director/President/Manager",
+      "CEO / Chairman / Director / President / Manager",
       "Company Purchaser",
       "Contractor",
       "Dealer/Agent",
@@ -44,7 +44,7 @@ export const questions = [
       "Manufacturing",
       "Mass Media Service Provider",
       "Wholesaler/Retailer",
-      "Others",
+      "Other",
     ],
   },
   {
@@ -57,7 +57,7 @@ export const questions = [
       "Interior Design & Renovation Products Service",
       "Mechanical & Electrical Engineering System",
       "Security & Fire Equipment",
-      "Others",
+      "Other",
     ],
   },
   {
@@ -73,7 +73,7 @@ export const questions = [
       "Purchase Products & Service",
       "Meet with Exhibiting Company",
       "Network with Business Partners",
-      "Others",
+      "Other",
     ],
   },
   {
@@ -89,7 +89,7 @@ export const questions = [
       "Twitter",
       "Email",
       "Website",
-      "Others",
+      "Other",
     ],
   },
   {
@@ -110,7 +110,7 @@ export const questions = [
       "Real Estate",
       "Tourism (Hospitality and Leisure)",
       "Transportation and Storage",
-      "Others",
+      "Other",
     ],
   },
   {
@@ -125,7 +125,7 @@ export const questions = [
     ],
   },
   {
-    title: "How did you know about WORLDBEX 2025",
+    title: "8. How did you know about WORLDBEX 2025",
     options: [
       "Social Media",
       "Email",

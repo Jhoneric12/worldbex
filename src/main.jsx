@@ -39,9 +39,17 @@ createRoot(document.getElementById("root")).render(
           },
           Segmented: {
             itemSelectedBg: "#F4811F",
-            itemSelectedColor: "#fff",
-            trackBg: "#fff",
+            itemSelectedColor: "#FFFFFF",
+            trackBg: "#FFFFFF",
             trackPadding: 2,
+          },
+          Input: {
+            borderRadius: 6,
+          },
+          Card: {
+            borderRadiusLG: 8,
+            lineWidth: 1,
+            colorBorderSecondary: "#D1D5DC",
           },
 
           // Input: {
