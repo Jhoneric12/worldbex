@@ -71,7 +71,7 @@ const EventCheckout = () => {
             {steps[current]?.content}
           </div>
 
-          <div className=" z-20 w-full fixed bottom-0 left-0 right-0 backdrop-blur-xs py-4 flex justify-center gap-3">
+          <div className=" w-full fixed bottom-0 left-0 right-0 backdrop-blur-xs py-4 flex justify-center gap-3">
             {current === 0 ? (
               <Button
                 size="large"
@@ -81,11 +81,7 @@ const EventCheckout = () => {
                 Back
               </Button>
             ) : (
-              <Button
-                size="large"
-                onClick={prev}
-                className="px-4 py-2 rounded-md"
-              >
+              <Button size="large" onClick={prev} className="px-4 py-2 rounded-md">
                 Previous
               </Button>
             )}

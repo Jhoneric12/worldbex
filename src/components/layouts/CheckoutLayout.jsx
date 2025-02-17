@@ -32,26 +32,19 @@ const CheckoutLayout = () => {
           <div className="flex justify-between w-full">
             {isMobile ? (
               <div className="flex gap-4 items-center">
-                <img
-                  src={WorldBexLogoWhite}
-                  alt="Worldbex Header"
-                  className="w-10 h-10"
-                />
+                <img src={WorldBexLogoWhite} alt="Worldbex Header" className="w-10 h-10" />
               </div>
             ) : (
               <img src={WorldBexHeader} alt="Worldbex Header" />
             )}
           </div>
           <div className="flex justify-end items-center w-full">
-            <h2 className="text-white text-lg">
-              {event?.eventName || "No Event Data"}
-            </h2>
+            <h2 className="text-white text-lg">{event?.eventName || "No Event Data"}</h2>
           </div>
         </div>
       </Header>
       <Content
         style={{
-          zIndex: 10,
           paddingBottom: "3rem",
           minHeight: "100vh",
           backgroundColor: "#FFFF",
