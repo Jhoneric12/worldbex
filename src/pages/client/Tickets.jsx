@@ -1,9 +1,19 @@
 import React from "react";
 import { Tabs, Input } from "antd";
+import { useClientStoreAuth } from "../../store/client/useAuth";
+import {
+  useGetExpireTickets,
+  useGetUnusedTicket,
+} from "../../services/requests/tickets/useGetTicket";
+import Ticket from "../../components/ticketTemplate/Ticket";
+import SkeletonTicket from "../../components/ticketTemplate/SkeletonTicket";
 
 const Tickets = () => {
   const onSearch = (value, _e, info) => console.log(info?.source, value);
   const { Search } = Input;
+  const { clientData } = useClientStoreAuth();
+  const { data: UnusedTickets, isLoading: LoadingUnused } = useGetUnusedTicket(clientData?.id);
+  const { data: ExpiredTickets, isLoading: LoadingExpired } = useGetExpireTickets(clientData?.id);
 
   return (
     <>
@@ -17,29 +27,71 @@ const Tickets = () => {
             key: 1,
             label: "UNUSED",
             children: (
-              <div className="grid grid-cols-3 gap-4">
-                {Array.from({ length: 50 }, (_, index) => (
-                  <div
-                    key={index}
-                    className="px-4 py-10 border border-red-600 text-xs md:text-sm"
-                  >
-                    Sample UNUSED TICKETS No.{index + 1}
-                  </div>
-                ))}
-              </div>
+              <>
+                {LoadingUnused && <SkeletonTicket />}
+                <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 xl:grid-cols-4">
+                  {UnusedTickets?.map((event, index) => (
+                    <div key={index}>
+                      <Ticket style={event?.bg}>
+                        <div>
+                          <img src={event?.logo} alt={event?.alt} className="h-[8rem] w-full" />
+                          <div className="flex flex-col text-white font-medium mt-auto">
+                            <h1 className="text-lg">{event?.eventName}</h1>
+                            <span className="text-lg">{event?.date}</span>
+                            <div className="flex items-center justify-between mt-3">
+                              <span className="text-lg">
+                                {event?.amount === 0 ? "FREE" : `PHP ${event?.amount}`}
+                              </span>
+                              <span className="bg-white rounded-full px-4 py-1 text-black font-medium">
+                                {event?.pax === 1 ? "Single" : "Multiple"}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="text-center mt-4">
+                          <h1 className=" text-white font-medium text-lg">{clientData?.name}</h1>
+                          <button className="border-white text-white border text-center px-4 py-2 mt-2 hover:bg-white hover:text-black duration-200">
+                            DOWNLOAD QR CODE
+                          </button>
+                        </div>
+                      </Ticket>
+                    </div>
+                  ))}
+                </div>
+              </>
             ),
           },
           {
             key: 2,
             label: "EXPIRED",
             children: (
-              <div className="grid grid-cols-3 gap-4">
-                {Array.from({ length: 50 }, (_, index) => (
-                  <div
-                    key={index}
-                    className="px-4 py-10 border border-red-600 text-xs md:text-sm"
-                  >
-                    Sample EXPIRED TICKETS No.{index + 1}
+              <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 xl:grid-cols-4">
+                {LoadingExpired && <SkeletonTicket />}
+                {ExpiredTickets?.map((event, index) => (
+                  <div key={index}>
+                    <Ticket isExpired={event?.isExpired} style={event?.bg}>
+                      <div>
+                        <img src={event?.logo} alt={event?.alt} className="h-[8rem] w-full" />
+                        <div className="flex flex-col text-white font-medium mt-auto">
+                          <h1 className="text-lg">{event?.eventName}</h1>
+                          <span className="text-lg">{event?.date}</span>
+                          <div className="flex items-center justify-between mt-3">
+                            <span className="text-lg">
+                              {event?.amount === 0 ? "FREE" : `PHP ${event?.amount}`}
+                            </span>
+                            <span className="bg-white rounded-full px-4 py-1 text-black font-medium">
+                              {event?.pax === 1 ? "Single" : "Multiple"}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="text-center mt-4">
+                        <h1 className=" text-white font-medium text-lg">{clientData?.name}</h1>
+                        <button className="border-white text-white border text-center px-4 py-2 mt-2 hover:bg-white hover:text-black duration-200">
+                          DOWNLOAD QR CODE
+                        </button>
+                      </div>
+                    </Ticket>
                   </div>
                 ))}
               </div>

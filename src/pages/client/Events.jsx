@@ -5,6 +5,7 @@ import { Input } from "antd";
 import { useGetEvents } from "../../services/requests/client/events/useGetEvents";
 import { useClientStoreAuth } from "../../store/client/useAuth";
 import { useNavigate } from "react-router";
+import SkeletonEvent from "../../components/eventTemplate/SkeletonEvent";
 
 const Events = () => {
   const onSearch = (value, _e, info) => console.log(info?.source, value);
@@ -12,12 +13,14 @@ const Events = () => {
   const { clientData } = useClientStoreAuth();
   const { data } = useGetEvents(clientData?.id);
   const navigate = useNavigate();
+  const { data, isLoading } = useGetEvents(clientData?.id);
 
   return (
     <>
       <div className="mb-6">
         <Search placeholder="Search" size="large" onSearch={onSearch} />
       </div>
+      {isLoading && <SkeletonEvent />}
       <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 xl:grid-cols-4">
         {data?.map((event, index) => (
           <div key={index}>

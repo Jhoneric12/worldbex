@@ -40,6 +40,13 @@
     },
     {
       "id": "8d87"
+      "id": "d079"
+    },
+    {
+      "id": "4aca"
+    },
+    {
+      "id": "267b"
     }
   ],
   "events": [
@@ -48,7 +55,7 @@
       "ownerId": 1,
       "eventName": "WORLDBEX 2025",
       "eventTag": "WB2025",
-      "date": "MARCH 13-1, 2025",
+      "date": "MARCH 13-16, 2025",
       "amount": 0,
       "logo": "/src/assets/images/events/2022 WB LOGO.png",
       "isJoin": false,
@@ -72,6 +79,36 @@
       "pax": 1,
       "isExpired": false,
       "type": "seminar"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "1",
+      "ownerId": 1,
+      "eventName": "MIAS 2025",
+      "eventTag": "MIAS2025",
+      "date": "MARCH 13-16, 2025",
+      "amount": 150,
+      "logo": "/src/assets/images/events/2022 MIAS LOGO.png",
+      "bg": "linear-gradient(#150082, #150082)",
+      "pax": 1,
+      "isExpired": true,
+      "isUsed": false,
+      "type": "event"
+    },
+    {
+      "id": "1",
+      "ownerId": 1,
+      "eventName": "WORLDBEX 2025",
+      "eventTag": "WB2025",
+      "date": "MARCH 13-16, 2025",
+      "amount": 0,
+      "logo": "/src/assets/images/events/2022 WB LOGO.png",
+      "bg": "linear-gradient(#0040FF, #ff0000)",
+      "pax": 5,
+      "isExpired": false,
+      "isUsed": false,
+      "type": "event"
     }
   ]
 }
