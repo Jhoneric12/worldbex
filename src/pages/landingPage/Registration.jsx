@@ -122,13 +122,17 @@ const Registration = () => {
               </div>
               <div>
                 <h1 className="font-medium text-base">Age group</h1>
-                <div className="py-4 flex flex-col gap-4 lg:grid lg:grid-cols-2">
-                  <Radio>Below 18</Radio>
-                  <Radio>18 to 24</Radio>
-                  <Radio>25 to 34</Radio>
-                  <Radio>35 to 44</Radio>
-                  <Radio>above 60</Radio>
-                </div>
+                <Form.Item>
+                  <Radio.Group>
+                    <div className="py-4 flex flex-col gap-4 lg:grid lg:grid-cols-2">
+                      <Radio value={"Below 18"}>Below 18</Radio>
+                      <Radio value={"18 to 24"}>18 to 24</Radio>
+                      <Radio value={"25 to 34"}>25 to 34</Radio>
+                      <Radio value={"35 to 44"}>35 to 44</Radio>
+                      <Radio value={"above 60"}>above 60</Radio>
+                    </div>
+                  </Radio.Group>
+                </Form.Item>
               </div>
               <hr className="border border-gray-100 w-full mb-4" />
               <div className="grid xl:grid-cols-2 xl:gap-4 ">
@@ -201,7 +205,7 @@ const Registration = () => {
 
               <div className="mt-4 flex justify-center gap-4 items-center">
                 <span>Already have an account?</span>
-                <NavLink>
+                <NavLink to={"/login"}>
                   <span className="text-primary-color font-semibold hover:underline">Login</span>
                 </NavLink>
               </div>

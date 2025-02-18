@@ -4,11 +4,7 @@ import WorldBexLogoWhite from "../../assets/images/logo/worldbex-logo-white.png"
 import HamburgerMenu from "../../assets/images/logo/hambergermenu.png";
 import WorldBexHeader from "../../assets/images/logo/worldbex-logo-header.png";
 import Avatar from "../../assets/images/avatar/matsu-bieber.png";
-import {
-  UserOutlined,
-  AppstoreOutlined,
-  BgColorsOutlined,
-} from "@ant-design/icons";
+import { UserOutlined, AppstoreOutlined, BgColorsOutlined } from "@ant-design/icons";
 import { Layout, Menu, theme, Button, Popover, Segmented } from "antd";
 import { organizers } from "../../data/Organizer";
 import { useWindowSize } from "../../hooks/useWindowSize";
@@ -18,6 +14,7 @@ import LogoutIcon from "../../assets/images/icon/logoutcurve.png";
 import ProfileIcon from "../../assets/images/icon/profile.png";
 import DownloadButtons from "../downaload/DownloadButtons";
 import { useClientStoreAuth } from "../../store/client/useAuth";
+import DGSILOGO from "../../assets/images/organizers/DGSI LOGO.png";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -38,7 +35,6 @@ const ClientLayout = () => {
     navigate("/login");
   };
 
-
   const siderStyle = {
     overflow: "auto",
     height: "100vh",
@@ -57,12 +53,10 @@ const ClientLayout = () => {
     bottom: 0,
     zIndex: 1,
     width: isMobile ? "100%" : collapsed ? "100%" : "calc(100% - 250px)",
-    padding: 10,
-    display: "flex",
-    justifyContent: "center",
     background: token.colorBgBase,
-    flexShrink: 0,
     borderTop: "1px solid #DEE2E6",
+    paddingLeft: isMobile ? "0.9rem" : "2.5rem",
+    paddingRight: isMobile ? "0.9rem" : "2.5rem",
   };
 
   const headerStyle = {
@@ -201,20 +195,28 @@ const ClientLayout = () => {
           </div>
         </Content>
         <Footer style={footerStyle}>
-          <div className="flex flex-col items-center py-2">
-            <h1 className="text-center text-sm text-[#5E5E5E]">Organizers</h1>
-            <div className="flex justify-center items-center whitespace-nowrap w-full overflow-x-auto lg:overflow-hidden">
-              <div className="flex gap-2">
-                {organizers.map((org, index) => (
-                  <div key={index} className="p-2 shrink-0 md:shrink-1">
-                    <img
-                      src={org.image}
-                      loading="lazy"
-                      alt={org.alt}
-                      className="hover:scale-150 duration-300"
-                    />
-                  </div>
-                ))}
+          <div className="flex justify-center gap-6">
+            <div className="flex flex-col items-center">
+              <h1 className="text-center text-sm text-gray-400 font-medium whitespace-nowrap">
+                Powered by
+              </h1>
+              <img src={DGSILOGO} alt="Dynamic Global Soft Inc." className="w-20 h-14" />
+            </div>
+            <div className="flex flex-col items-center">
+              <h1 className="text-center text-sm text-gray-400 font-medium">Organizers</h1>
+              <div className="flex justify-center items-center whitespace-nowrap w-full overflow-x-auto lg:overflow-hidden ">
+                <div className="flex gap-3">
+                  {organizers.map((org, index) => (
+                    <div key={index} className=" shrink-0 xl:shrink-1">
+                      <img
+                        src={org.image}
+                        loading="lazy"
+                        alt={org.alt}
+                        className="hover:scale-150 duration-300"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
