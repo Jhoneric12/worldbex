@@ -19,10 +19,10 @@ const Hero = () => {
   };
 
   return (
-    <section className="xl:flex xl:items-center xl:px-10">
+    <section className="xl:flex xl:items-center xl:justify-center xl:px-10">
       <div className="xl:mt-20 xl:max-w-[55%] lg:mt-14">
-        <div className=" flex flex-col justify-center lg:gap-10 py-6 px-4  md:px-20 lg:min-h-screen xl:h-screen">
-          <div className="flex flex-col gap-6 mt-14 xl:mt-14 md:mt-30">
+        <div className=" flex flex-col justify-center lg:gap-10 py-6 px-4  md:px-20 lg:min-h-screen">
+          <div className="flex flex-col gap-6 mt-14 xl:mt-0 md:mt-30">
             <img src={HeaderLogo} alt="worldbex Logo" className="md:hidden" />
             <h1 className="text-primary-color text-2xl font-bold leading-9 md:text-4xl md:leading-14 lg:text-6xl lg:leading-22 xl:text-4xl xl:leading-12">
               WELCOME TO WORLDBEX SERVICES INTERNATIONAL
@@ -53,14 +53,14 @@ const Hero = () => {
           </div>
           <div className="py-10 hidden lg:block w-full">
             <h1 className="text-center mb-4 font-medium">Organizer of</h1>
-            <div className="grid grid-cols-7 gap-2 place-items-center">
+            <div className="grid grid-cols-7 gap-5 place-items-center">
               {organizers.map((org) => (
                 <>
                   <img
                     src={org.image}
                     alt="Organizations"
                     loading="lazy"
-                    className="hover:scale-125 duration-300"
+                    className="hover:scale-125 duration-300 shrink-0"
                   />
                 </>
               ))}
@@ -79,7 +79,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="hidden xl:block shrink-0 xl:max-w-[45%] xl:pr-10">
+      <div className="hidden xl:block shrink- xl:max-w-[45%] xl:pr-10">
         <img src={HeroImage} alt="Hero Image" loading="lazy" />
       </div>
     </section>
