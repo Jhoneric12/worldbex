@@ -55,9 +55,9 @@ const EventCheckout = () => {
   };
 
   return (
-    <section className="px-4 py-6">
+    <section className=" relative px-4 py-6">
       <Form form={form} layout="vertical" initialValues={initialValues}>
-        <div className="w-full md:max-w-xl xl:max-w-xl mx-auto">
+        <div className="w-full sticky top-20 md:max-w-xl xl:max-w-xl mx-auto">
           <Steps
             current={current}
             items={steps.map((step) => ({
@@ -66,11 +66,9 @@ const EventCheckout = () => {
             }))}
             className="mb-2"
           />
-
           <div className="md:p-6 mb-4 lg:mb-0 xl:mb-0 md:mt-0 mt-2 bg-white">
             {steps[current]?.content}
           </div>
-
           <div className=" w-full fixed bottom-0 left-0 right-0 backdrop-blur-xs py-4 flex justify-center gap-3">
             {current === 0 ? (
               <Button
@@ -81,7 +79,11 @@ const EventCheckout = () => {
                 Back
               </Button>
             ) : (
-              <Button size="large" onClick={prev} className="px-4 py-2 rounded-md">
+              <Button
+                size="large"
+                onClick={prev}
+                className="px-4 py-2 rounded-md"
+              >
                 Previous
               </Button>
             )}
