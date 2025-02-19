@@ -39,6 +39,8 @@ const ClientLayout = () => {
     overflow: "auto",
     height: "100vh",
     position: "sticky",
+    padding: 4,
+    gap: 2,
     insetInlineStart: 0,
     top: 0,
     bottom: 0,

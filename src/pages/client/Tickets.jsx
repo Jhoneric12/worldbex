@@ -35,11 +35,7 @@ const Tickets = () => {
                       <Ticket style={event?.bg}>
                         <div>
                           <div className="flex justify-center h-[7.5rem] w-full">
-                            <img
-                              src={event?.logo}
-                              alt={event?.alt}
-                              className="max-h-full max-w-full"
-                            />
+                            <img src={event?.logo} alt={event?.alt} className="max-h-full w-full" />
                           </div>
                           <div className="flex flex-col text-white font-medium mt-auto">
                             <h1 className="text-lg">{event?.eventName}</h1>
@@ -82,11 +78,7 @@ const Tickets = () => {
                       <Ticket style={event?.bg}>
                         <div>
                           <div className="flex justify-center h-[7.5rem] w-full">
-                            <img
-                              src={event?.logo}
-                              alt={event?.alt}
-                              className="max-h-full max-w-full"
-                            />
+                            <img src={event?.logo} alt={event?.alt} className="max-h-full w-full" />
                           </div>
                           <div className="flex flex-col text-white font-medium mt-auto">
                             <h1 className="text-lg">{event?.eventName}</h1>
