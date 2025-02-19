@@ -1,4 +1,4 @@
-import org1 from "../assets/images/organizers/org1.png";
+import org1 from "../assets/images/organizers/org1.svg";
 import org2 from "../assets/images/organizers/org2.png";
 import org3 from "../assets/images/organizers/org3.png";
 import org4 from "../assets/images/organizers/org4.png";
