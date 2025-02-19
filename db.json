@@ -71,15 +71,6 @@
     {
       "id": "9163"
     },
-    {
-      "id": "fba3"
-    },
-    {
-      "id": "4a22"
-    },
-    {
-      "id": "07fc"
-    }
   ],
   "events": [
     {
@@ -89,7 +80,7 @@
       "eventTag": "WB2025",
       "date": "MARCH 13-16, 2025",
       "amount": 0,
-      "logo": "/src/assets/images/events/2022 WB LOGO.png",
+      "logo": "/src/assets/images/events/2022 WB LOGO1.png",
       "isJoin": false,
       "alt": "Worldbex",
       "bg": "linear-gradient(#0040FF, #ff0000)",
@@ -126,7 +117,8 @@
       "pax": 1,
       "isExpired": true,
       "isUsed": false,
-      "type": "event"
+      "type": "event",
+      "paymentStatus": "Paid"
     },
     {
       "id": "1",
@@ -135,12 +127,13 @@
       "eventTag": "WB2025",
       "date": "MARCH 13-16, 2025",
       "amount": 0,
-      "logo": "/src/assets/images/events/2022 WB LOGO.png",
+      "logo": "/src/assets/images/events/2022 WB LOGO1.png",
       "bg": "linear-gradient(#0040FF, #ff0000)",
       "pax": 5,
       "isExpired": false,
       "isUsed": false,
-      "type": "event"
+      "type": "event",
+      "paymentStatus": "Free"
     }
   ]
 }

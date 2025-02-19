@@ -1,5 +1,5 @@
 import WorldBexLogoWhite from "../../assets/images/logo/worldbex-logo-white.png";
-import WorldBexHeader from "../../assets/images/logo/worldbex-logo-header.png";
+import WorldBexHeader from "../../assets/images/logo/worldbex-logo-header.svg";
 import { Layout, theme } from "antd";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { Outlet, useLocation, useNavigate } from "react-router";
