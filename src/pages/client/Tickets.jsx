@@ -1,5 +1,5 @@
 import React from "react";
-import { Tabs, Input } from "antd";
+import { Tabs, Input, Badge } from "antd";
 import { useClientStoreAuth } from "../../store/client/useAuth";
 import {
   useGetExpireTickets,
@@ -34,7 +34,13 @@ const Tickets = () => {
                     <div key={index}>
                       <Ticket style={event?.bg}>
                         <div>
-                          <img src={event?.logo} alt={event?.alt} className="h-[8rem] w-full" />
+                          <div className="flex justify-center h-[7.5rem] w-full">
+                            <img
+                              src={event?.logo}
+                              alt={event?.alt}
+                              className="max-h-full max-w-full"
+                            />
+                          </div>
                           <div className="flex flex-col text-white font-medium mt-auto">
                             <h1 className="text-lg">{event?.eventName}</h1>
                             <span className="text-lg">{event?.date}</span>
@@ -48,11 +54,14 @@ const Tickets = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="text-center mt-4">
+                        <div className="text-center mt-auto pt-4">
                           <h1 className=" text-white font-medium text-lg">{clientData?.name}</h1>
                           <button className="border-white text-white border text-center px-4 py-2 mt-2 hover:bg-white hover:text-black duration-200">
                             DOWNLOAD QR CODE
                           </button>
+                        </div>
+                        <div className="bg-green-500/70 #0opacity-60 rounded-full text-center absolute top-4 left-2 px-6">
+                          <span className="text-white">{event?.paymentStatus}</span>
                         </div>
                       </Ticket>
                     </div>
@@ -69,29 +78,35 @@ const Tickets = () => {
                 {LoadingExpired && <SkeletonTicket />}
                 {ExpiredTickets?.map((event, index) => (
                   <div key={index}>
-                    <Ticket isExpired={event?.isExpired} style={event?.bg}>
-                      <div>
-                        <img src={event?.logo} alt={event?.alt} className="h-[8rem] w-full" />
-                        <div className="flex flex-col text-white font-medium mt-auto">
-                          <h1 className="text-lg">{event?.eventName}</h1>
-                          <span className="text-lg">{event?.date}</span>
-                          <div className="flex items-center justify-between mt-3">
-                            <span className="text-lg">
-                              {event?.amount === 0 ? "FREE" : `PHP ${event?.amount}`}
-                            </span>
-                            <span className="bg-white rounded-full px-4 py-1 text-black font-medium">
-                              {event?.pax === 1 ? "Single" : "Multiple"}
-                            </span>
+                    <Badge.Ribbon text="Expired" color="red">
+                      <Ticket style={event?.bg}>
+                        <div>
+                          <div className="flex justify-center h-[7.5rem] w-full">
+                            <img
+                              src={event?.logo}
+                              alt={event?.alt}
+                              className="max-h-full max-w-full"
+                            />
+                          </div>
+                          <div className="flex flex-col text-white font-medium mt-auto">
+                            <h1 className="text-lg">{event?.eventName}</h1>
+                            <span className="text-lg">{event?.date}</span>
+                            <div className="flex items-center justify-between mt-3">
+                              <span className="text-lg">
+                                {event?.amount === 0 ? "FREE" : `PHP ${event?.amount}`}
+                              </span>
+                              <span className="bg-white rounded-full px-4 py-1 text-black font-medium">
+                                {event?.pax === 1 ? "Single" : "Multiple"}
+                              </span>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div className="text-center mt-4">
-                        <h1 className=" text-white font-medium text-lg">{clientData?.name}</h1>
-                        <button className="border-white text-white border text-center px-4 py-2 mt-2 hover:bg-white hover:text-black duration-200">
-                          DOWNLOAD QR CODE
-                        </button>
-                      </div>
-                    </Ticket>
+                        <div className="text-center mt-4">
+                          <h1 className=" text-white font-medium text-lg">{clientData?.name}</h1>
+                        </div>
+                        <div className="bg-gray-400 opacity-50 absolute w-full h-full inset-0 "></div>
+                      </Ticket>
+                    </Badge.Ribbon>
                   </div>
                 ))}
               </div>

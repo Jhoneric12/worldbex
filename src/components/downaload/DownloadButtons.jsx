@@ -4,14 +4,12 @@ import Huawei from "../../assets/images/logo/huawei.png";
 
 const DownloadButtons = ({ styles }) => {
   return (
-    <div
-      className={`flex flex-col justify-center items-center gap-2 mb-4 px-2 border-b border-gray-300 pb-4 ${styles}`}
-    >
-      <h1 className="md:text-sm xl:text-sm lg:text-sm font-bold text-xl">
+    <div className={`flex flex-col justify-center items-center gap-2 mb-4 px-2 pb-4 ${styles}`}>
+      <h1 className="md:text-sm xl:text-sm lg:text-sm font-bold text-xl whitespace-nowrap">
         AVAILABLE IN MOBILE APP
       </h1>
       <div className="md:flex-col md:gap-2 xl:flex-col xl:gap-2 lg:flex-col lg:gap-2 flex justify-center items-center gap-3">
-        <button className="hover:scale-110 duration-200">
+        <button className="hover:scale-110 duration-200 whitespace-nowrap">
           <img
             src={Google}
             className="w-70 h-12 xl:w-40 xl:h-12 lg:w-40 lg:h-12 md:w-40 md:h-12"

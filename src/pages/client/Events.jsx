@@ -25,8 +25,10 @@ const Events = () => {
           <div key={index}>
             <Event style={event?.bg}>
               <div>
-                <img src={event?.logo} alt={event?.alt} className="h-[8rem] w-full" />
-                <div className="flex flex-col text-white font-medium mt-auto">
+                <div className="flex justify-center w-full mt-auto">
+                  <img src={event?.logo} alt={event?.alt} className="max-h-full max-w-full" />
+                </div>
+                <div className="flex flex-col text-white font-medium">
                   <h1 className="text-lg">{event?.eventName}</h1>
                   <span className="text-lg">{event?.date}</span>
                   <span className="text-lg">

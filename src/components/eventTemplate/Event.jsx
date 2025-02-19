@@ -4,7 +4,7 @@ const Event = ({ children, style }) => {
   return (
     <div
       style={{ backgroundImage: style }}
-      className="flex flex-col justify-between rounded-lg px-4 py-3 h-[20rem] shadow-lg"
+      className="flex flex-col justify-between rounded-lg px-4 pb-3 h-full shadow-lg"
     >
       {children}
     </div>

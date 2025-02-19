@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import WorldBexLogo from "../../assets/images/logo/worldbex.png";
 import WorldBexLogoWhite from "../../assets/images/logo/worldbex-logo-white.png";
 import HamburgerMenu from "../../assets/images/logo/hambergermenu.png";
-import WorldBexHeader from "../../assets/images/logo/worldbex-logo-header.png";
+import WorldBexHeader from "../../assets/images/logo/worldbex-logo-header.svg";
 import Avatar from "../../assets/images/avatar/matsu-bieber.png";
 import { UserOutlined, AppstoreOutlined, BgColorsOutlined } from "@ant-design/icons";
 import { Layout, Menu, theme, Button, Popover, Segmented } from "antd";
@@ -132,7 +132,7 @@ const ClientLayout = () => {
             defaultSelectedKeys={location}
             items={items}
           />
-          <div className="absolute bottom-0 right-1 left-1 py-6">
+          <div className="absolute bottom-0 right-1 left-1 py-6 whitespace-nowrap">
             <DownloadButtons />
             <div className="flex flex-col gap-1 items-center text-xs">
               <span className="text-[#5E5E5E] font-medium">For question and inquiries</span>
@@ -157,7 +157,7 @@ const ClientLayout = () => {
               <img src={HamburgerMenu} alt="" />
             </Button>
           )}
-          <div className="flex md:gap-10 justify-between px-2 lg:px-10 items-center w-full">
+          <div className="flex md:gap-10 justify-between px-2 items-center w-full">
             <div>
               {isMobile ? (
                 <div className="flex gap-4 items-center">
@@ -180,7 +180,6 @@ const ClientLayout = () => {
         </Header>
         <Content>
           <div className="mt-4 px-2 md:px-4 overflow-y-auto pb-36 md:pb-28 lg:pb-40">
-            <DownloadButtons styles={"xl:hidden lg:hidden md:hidden"} />
             <div className="xl:hidden lg:hidden md:hidden px-1 py-3">
               <Segmented
                 options={["Events", "Tickets"]}
@@ -192,18 +191,17 @@ const ClientLayout = () => {
               />
             </div>
             {<Outlet />}
+            <DownloadButtons styles={"xl:hidden lg:hidden md:hidden mt-6"} />
           </div>
         </Content>
         <Footer style={footerStyle}>
           <div className="flex justify-center gap-6">
             <div className="flex flex-col items-center">
-              <h1 className="text-center text-sm text-gray-400 font-medium whitespace-nowrap">
-                Powered by
-              </h1>
-              <img src={DGSILOGO} alt="Dynamic Global Soft Inc." className="w-20 h-14" />
+              <h1 className="text-center text-xs text-gray-400 whitespace-nowrap">Powered by</h1>
+              <img src={DGSILOGO} alt="Dynamic Global Soft Inc." className="max-w-20 h-14" />
             </div>
             <div className="flex flex-col items-center">
-              <h1 className="text-center text-sm text-gray-400 font-medium">Organizers</h1>
+              <h1 className="text-center text-xs text-gray-400">Organizers</h1>
               <div className="flex justify-center items-center whitespace-nowrap w-full overflow-x-auto lg:overflow-hidden ">
                 <div className="flex gap-3">
                   {organizers.map((org, index) => (

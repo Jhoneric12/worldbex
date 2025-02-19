@@ -1,7 +1,7 @@
 import { organizers } from "../../../data/Organizer";
 import React, { useState } from "react";
 import { theme, Button } from "antd";
-import HeaderLogo from "../../../assets/images/logo/worldbex-logo-header.png";
+import HeaderLogo from "../../../assets/images/logo/worldbex-logo-header.svg";
 import HeroImage from "../../../assets/images/avatar/heroimage.png";
 import { useNavigate } from "react-router";
 
@@ -19,11 +19,11 @@ const Hero = () => {
   };
 
   return (
-    <section className="xl:flex xl:items-center xl:px-20">
-      <div className="xl:mt-10 xl:w-[60%] lg:mt-14">
-        <div className="h-screen flex flex-col lg:gap-10 justify-between py-6 px-4 md:justify-around md:px-20 lg:min-h-screen">
-          <div className="flex flex-col gap-6 mt-14">
-            <img src={HeaderLogo} alt="worldbex Logo" className="lg:hidden" />
+    <section className="xl:flex xl:items-center xl:px-10">
+      <div className="xl:mt-20 xl:max-w-[55%] lg:mt-14">
+        <div className=" flex flex-col justify-center lg:gap-10 py-6 px-4  md:px-20 lg:min-h-screen xl:h-screen">
+          <div className="flex flex-col gap-6 mt-14 xl:mt-14 md:mt-30">
+            <img src={HeaderLogo} alt="worldbex Logo" className="md:hidden" />
             <h1 className="text-primary-color text-2xl font-bold leading-9 md:text-4xl md:leading-14 lg:text-6xl lg:leading-22 xl:text-4xl xl:leading-12">
               WELCOME TO WORLDBEX SERVICES INTERNATIONAL
             </h1>
@@ -37,7 +37,7 @@ const Hero = () => {
               <img src={HeroImage} alt="Hero Image" loading="lazy" />
             </div>
           </div>
-          <div className="flex justify-center items-center gap-2 md:gap-10 lg:gap-20 xl:gap-30">
+          <div className="flex justify-center items-center gap-2 md:gap-10 lg:gap-20 xl:gap-30 mt-14 xl:mt-0">
             <div className="flex flex-col gap-3 w-full font-medium">
               <h1 className="text-primary-color hidden xl:block">Not yet registered?</h1>
               <Button onClick={navigateToRegistration} type="primary" size="large">
@@ -67,8 +67,8 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <hr className="border-gray-200 mt-4 mb-4 m-10 lg:hidden" />
-        <div className="py-10 lg:hidden">
+        <hr className="border-gray-200 mt-4 mb-4 m-4 md:m-10 lg:hidden" />
+        <div className="py-10 lg:hidden w-full">
           <h1 className="text-center mb-4 font-medium">Organizer of</h1>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 place-items-center">
             {organizers.map((org) => (
@@ -79,7 +79,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="hidden xl:block shrink-0 xl:w-[40%]">
+      <div className="hidden xl:block shrink-0 xl:max-w-[45%] xl:pr-10">
         <img src={HeroImage} alt="Hero Image" loading="lazy" />
       </div>
     </section>

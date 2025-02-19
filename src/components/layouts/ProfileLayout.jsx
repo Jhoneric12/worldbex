@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import WorldBexLogoWhite from "../../assets/images/logo/worldbex-logo-white.png";
 import HamburgerMenu from "../../assets/images/logo/hambergermenu.png";
-import WorldBexHeader from "../../assets/images/logo/worldbex-logo-header.png";
+import WorldBexHeader from "../../assets/images/logo/worldbex-logo-header.svg";
 import Avatar from "../../assets/images/avatar/matsu-bieber.png";
 import { UserOutlined, AppstoreOutlined } from "@ant-design/icons";
 import { Layout, Menu, theme, Button, Popover, Segmented } from "antd";
