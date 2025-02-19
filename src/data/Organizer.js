@@ -1,17 +1,17 @@
 import org1 from "../assets/images/organizers/org1.png";
-import org2 from "../assets/images/organizers/org2.png";
-import org3 from "../assets/images/organizers/org3.png";
-import org4 from "../assets/images/organizers/org4.png";
-import org5 from "../assets/images/organizers/org5.png";
-import org6 from "../assets/images/organizers/org6.png";
-import org7 from "../assets/images/organizers/org7.png";
-import org8 from "../assets/images/organizers/org8.png";
-import org9 from "../assets/images/organizers/org9.png";
-import org10 from "../assets/images/organizers/org10.png";
-import org11 from "../assets/images/organizers/org11.png";
-import org12 from "../assets/images/organizers/org12.png";
-import org13 from "../assets/images/organizers/org13.png";
-import org14 from "../assets/images/organizers/org14.png";
+import org2 from "../assets/images/organizers/org2.svg";
+import org3 from "../assets/images/organizers/org3.svg";
+import org4 from "../assets/images/organizers/org4.svg";
+import org5 from "../assets/images/organizers/org5.svg";
+import org6 from "../assets/images/organizers/org6.svg";
+import org7 from "../assets/images/organizers/org7.svg";
+import org8 from "../assets/images/organizers/org8.svg";
+import org9 from "../assets/images/organizers/org9.svg";
+import org10 from "../assets/images/organizers/org10.svg";
+import org11 from "../assets/images/organizers/org11.svg";
+import org12 from "../assets/images/organizers/org12.svg";
+import org13 from "../assets/images/organizers/org13.svg";
+import org14 from "../assets/images/organizers/org14.svg";
 
 export const organizers = [
   {
