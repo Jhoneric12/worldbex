@@ -25,8 +25,8 @@ const Events = () => {
           <div key={index}>
             <Event style={event?.bg}>
               <div>
-                <div className="flex justify-center w-full mt-auto">
-                  <img src={event?.logo} alt={event?.alt} className="max-h-full w-full" />
+                <div className="flex justify-center w-full mt-auto h-[10rem]">
+                  <img src={event?.logo} alt={event?.alt} className=" w-auto object-contain" />
                 </div>
                 <div className="flex flex-col text-white font-medium">
                   <h1 className="text-lg">{event?.eventName}</h1>

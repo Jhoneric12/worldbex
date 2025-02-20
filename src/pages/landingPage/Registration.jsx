@@ -52,8 +52,8 @@ const Registration = () => {
           </div>
           <hr className="border border-gray-100 w-full" />
           <div className="w-full">
-            <Form name="basic" autoComplete="off">
-              <div className="grid xl:grid-cols-2 xl:gap-4">
+            <Form autoComplete="off">
+              <div className="grid xl:grid-cols-2 xl:gap-2">
                 <Form.Item
                   name="firstname"
                   rules={[{ required: true, message: "Please input your first name!" }]}
@@ -135,7 +135,7 @@ const Registration = () => {
                 </Form.Item>
               </div>
               <hr className="border border-gray-100 w-full mb-4" />
-              <div className="grid xl:grid-cols-2 xl:gap-4 ">
+              <div className="grid xl:grid-cols-2 xl:gap-2 ">
                 <Form.Item
                   name="company"
                   rules={[{ required: true, message: "Please input your company!" }]}
@@ -198,7 +198,14 @@ const Registration = () => {
               </Form.Item>
 
               <Form.Item label={null} className="mt-6">
-                <Button block size="large" className="w-full" type="primary" htmlType="submit">
+                <Button
+                  style={{ borderRadius: "4px" }}
+                  block
+                  size="large"
+                  className="w-full"
+                  type="primary"
+                  htmlType="submit"
+                >
                   SUBMIT
                 </Button>
               </Form.Item>

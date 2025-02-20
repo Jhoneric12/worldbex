@@ -91,7 +91,14 @@ const Login = () => {
               </div>
 
               <Form.Item label={null} className="mt-6">
-                <Button block size="large" className="w-full" type="primary" htmlType="submit">
+                <Button
+                  style={{ borderRadius: "4px" }}
+                  block
+                  size="large"
+                  className="w-full"
+                  type="primary"
+                  htmlType="submit"
+                >
                   LOGIN
                 </Button>
               </Form.Item>

@@ -73,6 +73,21 @@
     },
     {
       "id": "bb86"
+    },
+    {
+      "id": "0d8a"
+    },
+    {
+      "id": "74ac"
+    },
+    {
+      "id": "0930"
+    },
+    {
+      "id": "5545"
+    },
+    {
+      "id": "cbdd"
     }
   ],
   "events": [
@@ -83,7 +98,7 @@
       "eventTag": "WB2025",
       "date": "MARCH 13-16, 2025",
       "amount": 0,
-      "logo": "/src/assets/images/events/2022 WB LOGO1.png",
+      "logo": "/src/assets/images/events/2022 WB LOGO.png",
       "isJoin": false,
       "alt": "Worldbex",
       "bg": "linear-gradient(#0040FF, #ff0000)",

@@ -19,7 +19,7 @@ createRoot(document.getElementById("root")).render(
           borderRadius: 0,
           // fontFamily: "Poppins",
           colorBgBase: "#FFFFFF",
-          borderRadiusLG: 8,
+          // borderRadiusLG: 8,
         },
         components: {
           Layout: {
@@ -33,6 +33,8 @@ createRoot(document.getElementById("root")).render(
             itemPaddingInline: 0,
             itemMarginBlock: 0,
             iconMarginInlineEnd: 8,
+            paddingContentVertical: 100,
+            // itemPaddingInline: 30,
           },
           Form: {
             labelFontSize: 16,

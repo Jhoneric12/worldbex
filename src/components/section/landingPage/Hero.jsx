@@ -19,9 +19,9 @@ const Hero = () => {
   };
 
   return (
-    <section className="xl:flex xl:items-center xl:justify-center xl:px-10">
+    <section className="xl:flex xl:items-center xl:justify-center xl:px-10 min-h-screen">
       <div className="xl:mt-20 xl:max-w-[55%] lg:mt-14">
-        <div className=" flex flex-col justify-center lg:gap-10 py-6 px-4  md:px-20 lg:min-h-screen">
+        <div className=" flex flex-col justify-center lg:gap-10 py-6 px-4  md:px-20">
           <div className="flex flex-col gap-6 mt-14 xl:mt-0 md:mt-30">
             <img src={HeaderLogo} alt="worldbex Logo" className="md:hidden" />
             <h1 className="text-primary-color text-2xl font-bold leading-9 md:text-4xl md:leading-14 lg:text-6xl lg:leading-22 xl:text-4xl xl:leading-12">
@@ -40,13 +40,23 @@ const Hero = () => {
           <div className="flex justify-center items-center gap-2 md:gap-10 lg:gap-20 xl:gap-30 mt-14 xl:mt-0">
             <div className="flex flex-col gap-3 w-full font-medium">
               <h1 className="text-primary-color hidden xl:block">Not yet registered?</h1>
-              <Button onClick={navigateToRegistration} type="primary" size="large">
+              <Button
+                style={{ borderRadius: "4px" }}
+                onClick={navigateToRegistration}
+                type="primary"
+                size="large"
+              >
                 REGISTER
               </Button>
             </div>
             <div className="flex flex-col gap-3 w-full font-medium">
               <h1 className="text-primary-color hidden xl:block">Already registered?</h1>
-              <Button onClick={navigateToLogin} type="primary" size="large">
+              <Button
+                style={{ borderRadius: "4px" }}
+                onClick={navigateToLogin}
+                type="primary"
+                size="large"
+              >
                 SIGN IN
               </Button>
             </div>

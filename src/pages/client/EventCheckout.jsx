@@ -72,6 +72,7 @@ const EventCheckout = () => {
           <div className=" w-full fixed bottom-0 left-0 right-0 backdrop-blur-xs py-4 flex justify-center gap-3">
             {current === 0 ? (
               <Button
+                style={{ borderRadius: "4px" }}
                 size="large"
                 onClick={() => navigate("/visitor/events")}
                 className="px-4 py-2 rounded-md"
@@ -80,6 +81,7 @@ const EventCheckout = () => {
               </Button>
             ) : (
               <Button
+                style={{ borderRadius: "4px" }}
                 size="large"
                 onClick={prev}
                 className="px-4 py-2 rounded-md"
@@ -90,6 +92,7 @@ const EventCheckout = () => {
 
             {current < steps.length - 1 ? (
               <Button
+                style={{ borderRadius: "4px" }}
                 size="large"
                 type="primary"
                 onClick={next}
@@ -98,7 +101,7 @@ const EventCheckout = () => {
                 Next
               </Button>
             ) : (
-              <Button size="large" type="primary">
+              <Button style={{ borderRadius: "4px" }} size="large" type="primary">
                 Submit
               </Button>
             )}
