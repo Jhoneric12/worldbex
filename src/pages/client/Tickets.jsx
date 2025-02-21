@@ -9,8 +9,8 @@ import Ticket from "../../components/ticketTemplate/Ticket";
 import SkeletonTicket from "../../components/ticketTemplate/SkeletonTicket";
 
 const Tickets = () => {
-  const onSearch = (value, _e, info) => console.log(info?.source, value);
-  const { Search } = Input;
+  // const onSearch = (value, _e, info) => console.log(info?.source, value);
+  // const { Search } = Input;
   const { clientData } = useClientStoreAuth();
   const { data: UnusedTickets, isLoading: LoadingUnused } = useGetUnusedTicket(clientData?.id);
   const { data: ExpiredTickets, isLoading: LoadingExpired } = useGetExpireTickets(clientData?.id);

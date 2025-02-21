@@ -1,8 +1,8 @@
-import { Layout, theme, Menu, Avatar, Button } from "antd";
+import { Layout, Menu, Avatar } from "antd";
 const { Header, Footer, Sider, Content } = Layout;
 import WorldBexLogo from "../../assets/images/logo/worldbex.png";
 import { NavLink, useLocation, useNavigate } from "react-router";
-import { UserOutlined, AppstoreOutlined, LogoutOutlined } from "@ant-design/icons";
+import { UserOutlined, AppstoreOutlined } from "@ant-design/icons";
 import { useCurrentLocation } from "../../hooks/useCurrentLocation";
 import DownloadButtons from "../downaload/DownloadButtons";
 import { organizers } from "../../data/Organizer";
@@ -43,6 +43,8 @@ const VisitorLayout = () => {
     backgroundColor: "#FFFFFF",
     border: "1px solid #C9C9C9",
     padding: 0,
+    position: isMobile ? "fixed" : "static",
+    bottom: 0,
   };
   const layoutStyle = {
     overflow: "hidden",
@@ -151,7 +153,7 @@ const VisitorLayout = () => {
           </Sider>
         )}
         <Content style={contentStyle}>
-          <div className=" mt-4 px-2 md:px-4 overflow-y-auto pb-4 ">
+          <div className=" mt-4 px-2 md:px-4 overflow-y-auto pb-16 md:pb-4 ">
             {<Outlet />}
             <div className="flex flex-col gap-2 items-center mt-6 xl:hidden">
               <span className=" text-center text-gray-400">Powered by</span>
