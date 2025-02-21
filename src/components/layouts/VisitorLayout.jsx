@@ -7,10 +7,9 @@ import { useCurrentLocation } from "../../hooks/useCurrentLocation";
 import DownloadButtons from "../downaload/DownloadButtons";
 import { organizers } from "../../data/Organizer";
 import Marquee from "react-fast-marquee";
-import DGSILOGO from "../../assets/images/organizers/DGSI LOGO.png";
+import DGSILOGO from "../../assets/images/logo/DGSI_LOGO-removebg-preview.png";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { Outlet } from "react-router";
-import { span } from "framer-motion/client";
 import { useClientStoreAuth } from "../../store/client/useAuth";
 
 const VisitorLayout = () => {
@@ -128,14 +127,14 @@ const VisitorLayout = () => {
                 </div>
                 <div className="text-center">
                   <h1 className="font-medium ">{clientData.name}</h1>
-                  <span className="xl:text-xs">{clientData.email}</span>
+                  <span className="xl:text-xs text-neutral-400">{clientData.email}</span>
                 </div>
               </div>
               <div>
                 <Menu
                   style={menuStyle}
                   mode="vertical"
-                  defaultSelectedKeys={["events"]}
+                  defaultSelectedKeys={location}
                   items={items}
                 />
               </div>

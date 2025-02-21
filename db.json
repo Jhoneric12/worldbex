@@ -125,7 +125,7 @@
       "bg": "linear-gradient(#150082, #150082)",
       "pax": 1,
       "isExpired": false,
-      "type": "seminar"
+      "type": "events"
     },
     {
       "id": "2",
@@ -140,7 +140,7 @@
       "bg": "linear-gradient(#150082, #150082)",
       "pax": 1,
       "isExpired": false,
-      "type": "seminar"
+      "type": "events"
     },
     {
       "id": "2",
@@ -155,7 +155,7 @@
       "bg": "linear-gradient(#150082, #150082)",
       "pax": 1,
       "isExpired": false,
-      "type": "seminar"
+      "type": "events"
     },
     {
       "id": "2",
@@ -170,7 +170,7 @@
       "bg": "linear-gradient(#150082, #150082)",
       "pax": 1,
       "isExpired": false,
-      "type": "seminar"
+      "type": "events"
     },
     {
       "id": "2",
@@ -185,7 +185,7 @@
       "bg": "linear-gradient(#150082, #150082)",
       "pax": 1,
       "isExpired": false,
-      "type": "seminar"
+      "type": "events"
     }
   ],
   "tickets": [
@@ -201,7 +201,7 @@
       "pax": 1,
       "isExpired": true,
       "isUsed": false,
-      "type": "event",
+      "type": "events",
       "paymentStatus": "Paid"
     },
     {
@@ -211,12 +211,12 @@
       "eventTag": "WB2025",
       "date": "MARCH 13-16, 2025",
       "amount": 0,
-      "logo": "/src/assets/images/events/2022 WB LOGO1.png",
+      "logo": "/src/assets/images/events/2022 WB LOGO.png",
       "bg": "linear-gradient(#0040FF, #ff0000)",
       "pax": 5,
       "isExpired": false,
       "isUsed": false,
-      "type": "event",
+      "type": "events",
       "paymentStatus": "Free"
     }
   ]
