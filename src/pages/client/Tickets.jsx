@@ -17,8 +17,15 @@ const Tickets = () => {
 
   return (
     <>
-      <div className="mb-6">
+      {/* <div className="mb-6">
         <Search placeholder="Search" size="large" onSearch={onSearch} />
+      </div> */}
+      <div className="flex flex-col gap-1 mb-4">
+        <h1 className="text-xl font-semibold ">Your Tickets</h1>
+        <span className="text-neutral-400 text-sm leading-6">
+          If you successfully made a payment for your ticket, please wait for your purchase to be
+          reflected on your account in the next 2-3 days.
+        </span>
       </div>
       <Tabs
         type="card"

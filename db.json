@@ -88,6 +88,12 @@
     },
     {
       "id": "cbdd"
+    },
+    {
+      "id": "1b87"
+    },
+    {
+      "id": "a832"
     }
   ],
   "events": [
@@ -105,6 +111,66 @@
       "pax": 4,
       "isExpired": false,
       "type": "events"
+    },
+    {
+      "id": "2",
+      "ownerId": 1,
+      "eventName": "MIAS 2025",
+      "eventTag": "MIAS2025",
+      "date": "MARCH 13-16, 2025",
+      "amount": 150,
+      "logo": "/src/assets/images/events/2022 MIAS LOGO.png",
+      "isJoin": false,
+      "alt": "Manila International Auto Show",
+      "bg": "linear-gradient(#150082, #150082)",
+      "pax": 1,
+      "isExpired": false,
+      "type": "seminar"
+    },
+    {
+      "id": "2",
+      "ownerId": 1,
+      "eventName": "MIAS 2025",
+      "eventTag": "MIAS2025",
+      "date": "MARCH 13-16, 2025",
+      "amount": 150,
+      "logo": "/src/assets/images/events/2022 MIAS LOGO.png",
+      "isJoin": false,
+      "alt": "Manila International Auto Show",
+      "bg": "linear-gradient(#150082, #150082)",
+      "pax": 1,
+      "isExpired": false,
+      "type": "seminar"
+    },
+    {
+      "id": "2",
+      "ownerId": 1,
+      "eventName": "MIAS 2025",
+      "eventTag": "MIAS2025",
+      "date": "MARCH 13-16, 2025",
+      "amount": 150,
+      "logo": "/src/assets/images/events/2022 MIAS LOGO.png",
+      "isJoin": false,
+      "alt": "Manila International Auto Show",
+      "bg": "linear-gradient(#150082, #150082)",
+      "pax": 1,
+      "isExpired": false,
+      "type": "seminar"
+    },
+    {
+      "id": "2",
+      "ownerId": 1,
+      "eventName": "MIAS 2025",
+      "eventTag": "MIAS2025",
+      "date": "MARCH 13-16, 2025",
+      "amount": 150,
+      "logo": "/src/assets/images/events/2022 MIAS LOGO.png",
+      "isJoin": false,
+      "alt": "Manila International Auto Show",
+      "bg": "linear-gradient(#150082, #150082)",
+      "pax": 1,
+      "isExpired": false,
+      "type": "seminar"
     },
     {
       "id": "2",
