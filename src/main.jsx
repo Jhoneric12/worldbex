@@ -30,10 +30,9 @@ createRoot(document.getElementById("root")).render(
             itemSelectedBg: "#F4811F",
             itemSelectedColor: "#FFFFFF",
             itemMarginInline: 0,
-            itemPaddingInline: 0,
-            itemMarginBlock: 0,
-            iconMarginInlineEnd: 8,
-            paddingContentVertical: 100,
+            itemPaddingInline: 10,
+            iconMarginInlineEnd: 10,
+            itemBorderRadius: 4,
             // itemPaddingInline: 30,
           },
           Form: {
@@ -63,7 +62,7 @@ createRoot(document.getElementById("root")).render(
       <BrowserRouter>
         <QueryClientProvider client={queryClient}>
           <App />
-          <ReactQueryDevtools initialIsOpen={false} />
+          {/* <ReactQueryDevtools initialIsOpen={false} /> */}
         </QueryClientProvider>
       </BrowserRouter>
     </ConfigProvider>
