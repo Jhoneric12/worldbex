@@ -3,7 +3,7 @@ import LandingPageRoute from "./routes/landingPage/LandingPageRoute";
 
 function App() {
   return (
-    <div className="text-text-color">
+    <div className="text-text-color scroll-smooth">
       <LandingPageRoute />
       <ClientRoute />
     </div>

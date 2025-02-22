@@ -22,7 +22,7 @@ const Hero = () => {
   return (
     <>
       <section className="xl:flex xl:items-center xl:justify-center xl:px-10 min-h-screen">
-        <div className="xl:max-w-[55%] lg:mt-14">
+        <div className="xl:max-w-[55%]">
           <div className=" flex flex-col justify-center lg:gap-4 py-6 px-4  md:px-20">
             <div className="flex flex-col gap-6 mt-14 xl:mt-0 md:mt-30">
               {/* <img src={HeaderLogo} alt="worldbex Logo" className="md:hidden" /> */}
@@ -70,7 +70,7 @@ const Hero = () => {
           <img src={HeroImage} alt="Hero Image" loading="lazy" />
         </div>
       </section>
-      <div className="hidden xl:block py-10 w-full px-20">
+      <div className="hidden lg:block py-10 w-full px-20">
         <h1 className="text-center mb-4 font-medium">Organizer of</h1>
         <div className="grid grid-cols-7 place-items-center">
           {organizers.map((org) => (
@@ -80,8 +80,8 @@ const Hero = () => {
           ))}
         </div>
       </div>
-      <div className="flex  flex-col gap-1 justify-center items-center">
-        <h1 className=" font-medium">Powered by</h1>
+      <div className="flex flex-col gap-1 justify-center items-center">
+        <h1 className="font-medium">Powered by</h1>
         <img src={DGSILOGO} alt="Dynamic Global Soft Logo" loading="lazy" className="w-40 h-30" />
       </div>
     </>
