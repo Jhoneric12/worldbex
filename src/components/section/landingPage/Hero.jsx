@@ -4,6 +4,7 @@ import { theme, Button } from "antd";
 import HeaderLogo from "../../../assets/images/logo/worldbex-logo-header.svg";
 import HeroImage from "../../../assets/images/avatar/heroimage.png";
 import { useNavigate } from "react-router";
+import DGSILOGO from "../../../assets/images/logo/DGSI_LOGO-removebg-preview.png";
 
 const Hero = () => {
   // const [size, setSize] = useState("large");
@@ -40,23 +41,13 @@ const Hero = () => {
           <div className="flex justify-center items-center gap-2 md:gap-10 lg:gap-20 xl:gap-30 mt-14 xl:mt-0">
             <div className="flex flex-col gap-3 w-full font-medium">
               <h1 className="text-primary-color hidden xl:block">Not yet registered?</h1>
-              <Button
-                style={{ borderRadius: "4px" }}
-                onClick={navigateToRegistration}
-                type="primary"
-                size="large"
-              >
+              <Button onClick={navigateToRegistration} type="primary" size="large">
                 REGISTER
               </Button>
             </div>
             <div className="flex flex-col gap-3 w-full font-medium">
               <h1 className="text-primary-color hidden xl:block">Already registered?</h1>
-              <Button
-                style={{ borderRadius: "4px" }}
-                onClick={navigateToLogin}
-                type="primary"
-                size="large"
-              >
+              <Button onClick={navigateToLogin} type="primary" size="large">
                 SIGN IN
               </Button>
             </div>
@@ -66,12 +57,7 @@ const Hero = () => {
             <div className="grid grid-cols-7 gap-5 place-items-center">
               {organizers.map((org) => (
                 <>
-                  <img
-                    src={org.image}
-                    alt="Organizations"
-                    loading="lazy"
-                    className="hover:scale-125 duration-300 shrink-0"
-                  />
+                  <img src={org.image} alt="Organizations" loading="lazy" className="shrink-0" />
                 </>
               ))}
             </div>
