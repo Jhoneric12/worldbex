@@ -1,6 +1,6 @@
 import { Layout, Menu, Avatar } from "antd";
 const { Header, Footer, Sider, Content } = Layout;
-import WorldBexLogo from "../../assets/images/logo/worldbex.png";
+// import WorldBexLogo from "../../assets/images/logo/worldbex.png";
 import { NavLink, useLocation, useNavigate } from "react-router";
 import { UserOutlined, AppstoreOutlined } from "@ant-design/icons";
 import { useCurrentLocation } from "../../hooks/useCurrentLocation";
@@ -11,6 +11,7 @@ import DGSILOGO from "../../assets/images/logo/DGSI_LOGO-removebg-preview.png";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { Outlet } from "react-router";
 import { useClientStoreAuth } from "../../store/client/useAuth";
+import WorldBexLogoHeader from "../../assets/images/logo/worldbex-logo-header.svg";
 
 const VisitorLayout = () => {
   const { reset, clientData } = useClientStoreAuth();
@@ -73,12 +74,14 @@ const VisitorLayout = () => {
           <div>
             <NavLink to={"events"}>
               <div className="flex items-center gap-2">
-                <img src={WorldBexLogo} alt="Worldbex" className="w-10 h-10" />
-                <div className="flex flex-col">
+                {/* <img src={WorldBexLogo} alt="Worldbex" className="w-10 h-10" /> */}
+                {/* <div className="flex flex-col">
                   <span className="text-primary-color font-medium  xl:text-lg">
                     Worldbex Services International
                   </span>
-                </div>
+                </div> */}
+                <img src={WorldBexLogoHeader} alt="Worldbex" className="w-64 xl:w-80" />
+                <img src="" alt="" />
               </div>
             </NavLink>
           </div>

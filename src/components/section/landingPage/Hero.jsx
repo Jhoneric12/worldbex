@@ -23,7 +23,7 @@ const Hero = () => {
       <div className="xl:mt-20 xl:max-w-[55%] lg:mt-14">
         <div className=" flex flex-col justify-center lg:gap-10 py-6 px-4  md:px-20">
           <div className="flex flex-col gap-6 mt-14 xl:mt-0 md:mt-30">
-            <img src={HeaderLogo} alt="worldbex Logo" className="md:hidden" />
+            {/* <img src={HeaderLogo} alt="worldbex Logo" className="md:hidden" /> */}
             <h1 className="text-primary-color text-2xl font-bold leading-9 md:text-4xl md:leading-14 lg:text-6xl lg:leading-22 xl:text-4xl xl:leading-12">
               WELCOME TO WORLDBEX SERVICES INTERNATIONAL
             </h1>

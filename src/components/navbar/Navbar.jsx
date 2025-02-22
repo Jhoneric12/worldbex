@@ -33,7 +33,7 @@ const Navbar = () => {
     >
       <div className="flex md:hidden items-center justify-between">
         <NavLink to={"/"}>
-          <img src={WorldBexLogo} alt="Worldbex Logo" className="w-10 h-10" />
+          <img src={WorlbelLogoHeader} alt="Worldbex Logo" className="w-64" />
         </NavLink>
         <img onClick={handleShowMenu} src={HamburgerMain} alt="Hamburger" />
       </div>
@@ -44,7 +44,7 @@ const Navbar = () => {
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{ duration: 0.2 }}
-            className="flex flex-col gap-4 w-full items-start shadow-sm py-10 bg-white absolute top-14 left-0 right-0 -z-10"
+            className="flex flex-col gap-4 w-full items-start shadow-sm py-10 bg-white absolute top-14 left-0 right-0 z-50"
           >
             <NavLink className="flex items-center gap-4 px-4 font-medium">
               <img src={Information} alt="Information" />
