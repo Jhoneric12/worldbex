@@ -287,11 +287,17 @@ const Registration = () => {
             </Form>
           </div>
 
-          <div className=" lg:block mt-6 ">
+          {/* <div className="mt-6 ">
             <h1 className="text-center font-medium">Organizer of</h1>
             <div className="grid grid-cols-3 gap-10 md:grid-cols-4 md:gap-10 lg:grid-cols-4 lg:gap-4 xl:gap-6 xl:grid-cols-7 place-items-center mt-4">
-              {organizers.map((org) => (
-                <img key={org.alt} src={org.image} alt={org.alt} loading="lazy" />
+              {organizers.map((org, index) => (
+                <img
+                  key={index}
+                  src={org.image}
+                  alt={org.alt}
+                  loading="lazy"
+                  className="shrink-0"
+                />
               ))}
             </div>
           </div>
@@ -301,9 +307,9 @@ const Registration = () => {
               src={DGSILOGO}
               alt="Dynamic Global Soft Logo"
               loading="lazy"
-              className="w-40 h-30"
+              className="w-35 h-25"
             />
-          </div>
+          </div> */}
         </div>
       </section>
     </>

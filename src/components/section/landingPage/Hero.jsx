@@ -1,10 +1,10 @@
 import { organizers } from "../../../data/Organizer";
 import React, { useState } from "react";
-import { theme, Button } from "antd";
-import HeaderLogo from "../../../assets/images/logo/worldbex-logo-header.svg";
+import { Button } from "antd";
 import HeroImage from "../../../assets/images/avatar/heroimage.png";
 import { useNavigate } from "react-router";
 import DGSILOGO from "../../../assets/images/logo/DGSI_LOGO-removebg-preview.png";
+import Organizers from "../../organizers/Organizers";
 
 const Hero = () => {
   // const [size, setSize] = useState("large");
@@ -57,11 +57,15 @@ const Hero = () => {
           <hr className="border-gray-200 mt-4 mb-4 m-4 md:m-10 lg:hidden" />
           <div className="py-10 lg:hidden w-full">
             <h1 className="text-center mb-4 font-medium">Organizer of</h1>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 place-items-center">
-              {organizers.map((org) => (
-                <>
-                  <img src={org.image} alt="Organizations" loading="lazy" />
-                </>
+            <div className="grid grid-cols-3 md:grid-cols-4 gap-2 place-items-center">
+              {organizers.map((org, index) => (
+                <img
+                  key={index}
+                  src={org.image}
+                  alt={org.alt}
+                  loading="lazy"
+                  className="shrink-0"
+                />
               ))}
             </div>
           </div>
@@ -73,16 +77,14 @@ const Hero = () => {
       <div className="hidden lg:block py-10 w-full px-20">
         <h1 className="text-center mb-4 font-medium">Organizer of</h1>
         <div className="grid grid-cols-7 place-items-center">
-          {organizers.map((org) => (
-            <>
-              <img src={org.image} alt="Organizations" loading="lazy" />
-            </>
+          {organizers.map((org, index) => (
+            <img key={index} src={org.image} alt={org.alt} loading="lazy" className="shrink-0" />
           ))}
         </div>
       </div>
       <div className="flex flex-col gap-1 justify-center items-center">
         <h1 className="font-medium">Powered by</h1>
-        <img src={DGSILOGO} alt="Dynamic Global Soft Logo" loading="lazy" className="w-40 h-30" />
+        <img src={DGSILOGO} alt="Dynamic Global Soft Logo" loading="lazy" className="w-35 h-25" />
       </div>
     </>
   );

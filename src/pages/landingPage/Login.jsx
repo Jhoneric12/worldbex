@@ -48,7 +48,7 @@ const Login = () => {
           </div>
         </div>
 
-        <div className="w-full relative flex flex-col gap-7 px-4 md:w-full md:px-30 lg:px-20 xl:pr-30 lg:ml-[40%] lg:w-[60%] lg:py-10 overflow-y-auto items-center justify-center min-h-screen">
+        <div className="w-full relative flex flex-col overflow-y-auto items-center justify-center min-h-screen gap-7 px-4 md:w-full md:px-30 lg:px-20 xl:px-20 xl:pr-30 lg:ml-[40%] lg:w-[60%] lg:py-10 ">
           <img
             src={DecorationBottom}
             alt=""
@@ -59,7 +59,7 @@ const Login = () => {
             alt=""
             className="hidden lg:block absolute top-0 left-0 h-20 z-50"
           />
-          <div className="mt-20 lg:mt-30 xl:mt-30 self-start">
+          <div className=" lg:mt-30 xl:mt-20 self-start">
             <h1 className="font-bold text-3xl text-black mb-3 lg:hidden">Let's sign you in.</h1>
             <h1 className="text-primary-color font-medium text-lg max-w-[25rem] lg:text-4xl lg:max-w-full lg:leading-12">
               WELCOME TO WORLDBEX SERVICES INTERNATIONAL
@@ -111,12 +111,12 @@ const Login = () => {
             </Form>
           </div>
 
-          <div className=" lg:block mt-6 ">
+          {/* <div className="mt-6 ">
             <h1 className="text-text-color text-center font-medium">Organizer of</h1>
             <div className="grid grid-cols-3 gap-10 md:grid-cols-4 md:gap-10 lg:grid-cols-4 lg:gap-4 xl:gap-6 xl:grid-cols-7 place-items-center mt-4">
-              {organizers.map((org) => (
+              {organizers.map((org, index) => (
                 <img
-                  key={org.alt}
+                  key={index}
                   src={org.image}
                   alt={org.alt}
                   loading="lazy"
@@ -131,9 +131,9 @@ const Login = () => {
               src={DGSILOGO}
               alt="Dynamic Global Soft Logo"
               loading="lazy"
-              className="w-40 h-30"
+              className="w-35 h-25"
             />
-          </div>
+          </div> */}
         </div>
       </section>
       <Modal
