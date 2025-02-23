@@ -2,10 +2,10 @@ import { useState, useMemo } from "react";
 import WorldBexLogo from "../../assets/images/logo/worldbex.png";
 import WorldBexLogoWhite from "../../assets/images/logo/worldbex-logo-white.png";
 import HamburgerMenu from "../../assets/images/logo/hambergermenu.png";
-import WorldBexHeader from "../../assets/images/logo/worldbex-logo-header.png";
+import WorldBexHeader from "../../assets/images/logo/worldbex-logo-header.svg";
 import Avatar from "../../assets/images/avatar/matsu-bieber.png";
-import { UserOutlined, AppstoreOutlined } from "@ant-design/icons";
-import { Layout, Menu, theme, Button, Popover } from "antd";
+import { UserOutlined, AppstoreOutlined, BgColorsOutlined } from "@ant-design/icons";
+import { Layout, Menu, theme, Button, Popover, Segmented } from "antd";
 import { organizers } from "../../data/Organizer";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router";
@@ -14,6 +14,7 @@ import LogoutIcon from "../../assets/images/icon/logoutcurve.png";
 import ProfileIcon from "../../assets/images/icon/profile.png";
 import DownloadButtons from "../downaload/DownloadButtons";
 import { useClientStoreAuth } from "../../store/client/useAuth";
+import DGSILOGO from "../../assets/images/organizers/DGSI LOGO.png";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -26,6 +27,7 @@ const ClientLayout = () => {
   const location = useCurrentLocation(currentLocation);
   const [arrow, setArrow] = useState("Show");
   const navigate = useNavigate();
+
   const { reset, clientData } = useClientStoreAuth();
 
   const handlesignOut = () => {
@@ -37,6 +39,8 @@ const ClientLayout = () => {
     overflow: "auto",
     height: "100vh",
     position: "sticky",
+    padding: 0,
+    gap: 2,
     insetInlineStart: 0,
     top: 0,
     bottom: 0,
@@ -51,12 +55,10 @@ const ClientLayout = () => {
     bottom: 0,
     zIndex: 1,
     width: isMobile ? "100%" : collapsed ? "100%" : "calc(100% - 250px)",
-    padding: 10,
-    display: "flex",
-    justifyContent: "center",
     background: token.colorBgBase,
-    flexShrink: 0,
     borderTop: "1px solid #DEE2E6",
+    paddingLeft: isMobile ? "0.9rem" : "2.5rem",
+    paddingRight: isMobile ? "0.9rem" : "2.5rem",
   };
 
   const headerStyle = {
@@ -132,7 +134,7 @@ const ClientLayout = () => {
             defaultSelectedKeys={location}
             items={items}
           />
-          <div className="absolute bottom-0 right-1 left-1 py-6">
+          <div className="absolute bottom-0 right-1 left-1 py-6 whitespace-nowrap">
             <DownloadButtons />
             <div className="flex flex-col gap-1 items-center text-xs">
               <span className="text-[#5E5E5E] font-medium">For question and inquiries</span>
@@ -157,7 +159,7 @@ const ClientLayout = () => {
               <img src={HamburgerMenu} alt="" />
             </Button>
           )}
-          <div className="flex md:gap-10 justify-between px-2 lg:px-10 items-center w-full">
+          <div className="flex md:gap-10 justify-between px-2 items-center w-full">
             <div>
               {isMobile ? (
                 <div className="flex gap-4 items-center">
@@ -180,29 +182,41 @@ const ClientLayout = () => {
         </Header>
         <Content>
           <div className="mt-4 px-2 md:px-4 overflow-y-auto pb-36 md:pb-28 lg:pb-40">
-            <DownloadButtons styles={"xl:hidden lg:hidden md:hidden"} />
-            <div className="md:hidden">
-              <Button type="text">Events</Button>
-              <Button type="text">Tickets</Button>
+            <div className="xl:hidden lg:hidden md:hidden px-1 py-3">
+              <Segmented
+                options={["Events", "Tickets"]}
+                onChange={(value) => {
+                  const route = value.toLowerCase();
+                  navigate(`/visitor/${route}`);
+                }}
+                size="large"
+              />
             </div>
             {<Outlet />}
+            <DownloadButtons styles={"xl:hidden lg:hidden md:hidden mt-6"} />
           </div>
         </Content>
         <Footer style={footerStyle}>
-          <div className="flex flex-col items-center py-2">
-            <h1 className="text-center text-sm text-[#5E5E5E]">Organizers</h1>
-            <div className="flex justify-center items-center whitespace-nowrap w-full overflow-x-auto lg:overflow-hidden">
-              <div className="flex gap-2">
-                {organizers.map((org, index) => (
-                  <div key={index} className="p-2 shrink-0 md:shrink-1">
-                    <img
-                      src={org.image}
-                      loading="lazy"
-                      alt={org.alt}
-                      className="hover:scale-150 duration-300"
-                    />
-                  </div>
-                ))}
+          <div className="flex justify-center gap-6">
+            <div className="flex flex-col items-center">
+              <h1 className="text-center text-xs text-gray-400 whitespace-nowrap">Powered by</h1>
+              <img src={DGSILOGO} alt="Dynamic Global Soft Inc." className="max-w-20 h-14" />
+            </div>
+            <div className="flex flex-col items-center">
+              <h1 className="text-center text-xs text-gray-400">Organizers</h1>
+              <div className="flex justify-center items-center whitespace-nowrap w-full overflow-x-auto lg:overflow-hidden ">
+                <div className="flex gap-3">
+                  {organizers.map((org, index) => (
+                    <div key={index} className=" shrink-0 xl:shrink-1">
+                      <img
+                        src={org.image}
+                        loading="lazy"
+                        alt={org.alt}
+                        className="hover:scale-150 duration-300"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

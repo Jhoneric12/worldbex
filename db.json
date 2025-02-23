@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Christopher Dungaran",
       "mobile_number": "639158007411",
       "email": "chrismhoi17@gmail.com",
@@ -25,18 +25,105 @@
     },
     {
       "id": "3a6f"
+    },
+    {
+      "id": "9653"
+    },
+    {
+      "id": "cc3e"
+    },
+    {
+      "id": "d9eb"
+    },
+    {
+      "id": "548a"
+    },
+    {
+      "id": "8d87"
+    },
+    {
+      "id": "4aca"
+    },
+    {
+      "id": "267b"
+    },
+    {
+      "id": "a0ad"
+    },
+    {
+      "id": "4770"
+    },
+    {
+      "id": "f573"
+    },
+    {
+      "id": "c235"
+    },
+    {
+      "id": "9e89"
+    },
+    {
+      "id": "dbe0"
+    },
+    {
+      "id": "5f87"
+    },
+    {
+      "id": "9163"
+    },
+    {
+      "id": "bb86"
+    },
+    {
+      "id": "0d8a"
+    },
+    {
+      "id": "74ac"
+    },
+    {
+      "id": "0930"
+    },
+    {
+      "id": "5545"
+    },
+    {
+      "id": "cbdd"
+    },
+    {
+      "id": "1b87"
+    },
+    {
+      "id": "a832"
+    },
+    {
+      "id": "7330"
+    },
+    {
+      "id": "58cf"
+    },
+    {
+      "id": "6e9f"
+    },
+    {
+      "id": "3713"
+    },
+    {
+      "id": "106e"
+    },
+    {
+      "id": "ae94"
     }
   ],
   "events": [
     {
-      "id": 1,
+      "id": "1",
       "ownerId": 1,
       "eventName": "WORLDBEX 2025",
       "eventTag": "WB2025",
-      "date": "MARCH 13-1, 2025",
+      "date": "MARCH 13-16, 2025",
       "amount": 0,
       "logo": "/src/assets/images/events/2022 WB LOGO.png",
-      "isJoin": true,
+      "isJoin": false,
       "alt": "Worldbex",
       "bg": "linear-gradient(#0040FF, #ff0000)",
       "pax": 4,
@@ -44,7 +131,7 @@
       "type": "events"
     },
     {
-      "id": 2,
+      "id": "2",
       "ownerId": 1,
       "eventName": "MIAS 2025",
       "eventTag": "MIAS2025",
@@ -56,7 +143,99 @@
       "bg": "linear-gradient(#150082, #150082)",
       "pax": 1,
       "isExpired": false,
-      "type": "seminar"
+      "type": "events"
+    },
+    {
+      "id": "2",
+      "ownerId": 1,
+      "eventName": "MIAS 2025",
+      "eventTag": "MIAS2025",
+      "date": "MARCH 13-16, 2025",
+      "amount": 150,
+      "logo": "/src/assets/images/events/2022 MIAS LOGO.png",
+      "isJoin": false,
+      "alt": "Manila International Auto Show",
+      "bg": "linear-gradient(#150082, #150082)",
+      "pax": 1,
+      "isExpired": false,
+      "type": "events"
+    },
+    {
+      "id": "2",
+      "ownerId": 1,
+      "eventName": "MIAS 2025",
+      "eventTag": "MIAS2025",
+      "date": "MARCH 13-16, 2025",
+      "amount": 150,
+      "logo": "/src/assets/images/events/2022 MIAS LOGO.png",
+      "isJoin": false,
+      "alt": "Manila International Auto Show",
+      "bg": "linear-gradient(#150082, #150082)",
+      "pax": 1,
+      "isExpired": false,
+      "type": "events"
+    },
+    {
+      "id": "2",
+      "ownerId": 1,
+      "eventName": "MIAS 2025",
+      "eventTag": "MIAS2025",
+      "date": "MARCH 13-16, 2025",
+      "amount": 150,
+      "logo": "/src/assets/images/events/2022 MIAS LOGO.png",
+      "isJoin": false,
+      "alt": "Manila International Auto Show",
+      "bg": "linear-gradient(#150082, #150082)",
+      "pax": 1,
+      "isExpired": false,
+      "type": "events"
+    },
+    {
+      "id": "2",
+      "ownerId": 1,
+      "eventName": "MIAS 2025",
+      "eventTag": "MIAS2025",
+      "date": "MARCH 13-16, 2025",
+      "amount": 150,
+      "logo": "/src/assets/images/events/2022 MIAS LOGO.png",
+      "isJoin": false,
+      "alt": "Manila International Auto Show",
+      "bg": "linear-gradient(#150082, #150082)",
+      "pax": 1,
+      "isExpired": false,
+      "type": "events"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "1",
+      "ownerId": 1,
+      "eventName": "MIAS 2025",
+      "eventTag": "MIAS2025",
+      "date": "MARCH 13-16, 2025",
+      "amount": 150,
+      "logo": "/src/assets/images/events/2022 MIAS LOGO.png",
+      "bg": "linear-gradient(#150082, #150082)",
+      "pax": 1,
+      "isExpired": true,
+      "isUsed": false,
+      "type": "events",
+      "paymentStatus": "Paid"
+    },
+    {
+      "id": "1",
+      "ownerId": 1,
+      "eventName": "WORLDBEX 2025",
+      "eventTag": "WB2025",
+      "date": "MARCH 13-16, 2025",
+      "amount": 0,
+      "logo": "/src/assets/images/events/2022 WB LOGO.png",
+      "bg": "linear-gradient(#0040FF, #ff0000)",
+      "pax": 5,
+      "isExpired": false,
+      "isUsed": false,
+      "type": "events",
+      "paymentStatus": "Free"
     }
   ]
 }

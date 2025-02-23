@@ -53,6 +53,7 @@ const UserProfile = () => {
             style={{
               color: token.colorPrimary,
               borderColor: token.colorPrimary,
+              borderRadius: "4px",
             }}
           >
             Edit Profile
