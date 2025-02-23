@@ -11,16 +11,16 @@ import { useState } from "react";
 import DGSILOGO from "../../assets/images/logo/DGSI_LOGO-removebg-preview.png";
 
 const Login = () => {
-  const { mutate } = useLogin();
+  const { mutate, isPending } = useLogin();
   const [form] = Form.useForm();
   const [open, setOpen] = useState(false);
   const handleShowModal = () => {
     setOpen(!open);
   };
 
-  const onFinish = async (values) => {
+  const onFinish = (values) => {
     mutate(values);
-    console.log(values);
+    // console.log(values);
   };
 
   form.setFieldsValue({
@@ -96,8 +96,8 @@ const Login = () => {
                 </NavLink>
               </div>
 
-              <Form.Item label={null} className="mt-6">
-                <Button block size="large" className="w-full" type="primary" htmlType="submit">
+              <Form.Item>
+                <Button block size="large" type="primary" htmlType="submit" loading={isPending}>
                   LOGIN
                 </Button>
               </Form.Item>
