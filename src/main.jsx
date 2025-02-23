@@ -16,7 +16,7 @@ createRoot(document.getElementById("root")).render(
       theme={{
         token: {
           colorPrimary: "#F4811F",
-          borderRadius: 0,
+          // borderRadius: 0,
           // fontFamily: "Poppins",
           colorBgBase: "#FFFFFF",
           borderRadius: 4,

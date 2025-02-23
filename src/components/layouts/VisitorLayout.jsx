@@ -93,7 +93,9 @@ const VisitorLayout = () => {
                   color: "#ffffff",
                 }}
               >
-                CD
+                <h1>{`${clientData?.name.charAt(0)}${clientData?.name.charAt(
+                  secondLetterIndex
+                )}`}</h1>
               </Avatar>
             ) : (
               <button
@@ -125,11 +127,11 @@ const VisitorLayout = () => {
           <Sider style={siderStyle}>
             <div>
               <div className="flex flex-col gap-2 items-center justify-center py-6 xl:px-4">
-                <div className="bg-primary-color rounded-lg py-6 px-6">
-                  <h1 className="text-white text-3xl">{`${clientData.name.charAt(
-                    0
-                  )}${clientData.name.charAt(secondLetterIndex)}`}</h1>
-                </div>
+                <Avatar style={{ backgroundColor: "#F4811F" }} size={80}>
+                  <h1 className="text-2xl">{`${clientData?.name.charAt(0)}${clientData?.name.charAt(
+                    secondLetterIndex
+                  )}`}</h1>
+                </Avatar>
                 <div className="text-center">
                   <h1 className="font-medium ">{clientData.name}</h1>
                   <span className="xl:text-xs text-neutral-400">{clientData.email}</span>
@@ -174,7 +176,7 @@ const VisitorLayout = () => {
           <div className="flex flex-col">
             {/* <h1 className="text-center text-xs text-gray-400">Organizers</h1> */}
             <div className="flex justify-center items-center whitespace-nowrap w-full overflow-x-auto lg:overflow-hidden ">
-              <Marquee autoFill>
+              <Marquee autoFill speed={25} pauseOnHover>
                 <div className="flex gap-3">
                   {organizers.map((org, index) => (
                     <div key={index} className=" shrink-0 xl:shrink-1">
