@@ -1,4 +1,4 @@
-import { Layout, Menu, Avatar } from "antd";
+import { Layout, Menu, Avatar, Popover } from "antd";
 const { Header, Footer, Sider, Content } = Layout;
 // import WorldBexLogo from "../../assets/images/logo/worldbex.png";
 import { NavLink, useLocation, useNavigate } from "react-router";
@@ -12,6 +12,8 @@ import { useWindowSize } from "../../hooks/useWindowSize";
 import { Outlet } from "react-router";
 import { useClientStoreAuth } from "../../store/client/useAuth";
 import WorldBexLogoHeader from "../../assets/images/logo/worldbex-logo-header.svg";
+import LogoutIcon from "../../assets/images/icon/logoutcurve.png";
+import ProfileIcon from "../../assets/images/icon/profile.png";
 
 const VisitorLayout = () => {
   const { reset, clientData } = useClientStoreAuth();
@@ -26,6 +28,7 @@ const VisitorLayout = () => {
     reset();
     navigate("/login");
   };
+
   const headerStyle = {
     backgroundColor: "#FFFFFF",
     border: "1px solid #C9C9C9",
@@ -78,6 +81,23 @@ const VisitorLayout = () => {
       label: <NavLink to={"/visitor/tickets"}>Tickets</NavLink>,
     },
   ];
+
+  const content = (
+    <div className="flex flex-col gap-2">
+      <div className="flex gap-2 px-6 border-gray-300">
+        <img src={ProfileIcon} className="w-5 h-5" />
+        <NavLink to={"/visitor/profile"}>
+          <span className="text-text-color">Profile</span>
+        </NavLink>
+      </div>
+      <hr className="border-gray-200" />
+      <div className="flex gap-2 px-6">
+        <img src={LogoutIcon} className="w-5 h-5" />
+        <button onClick={handleSignOut}>Sign out</button>
+      </div>
+    </div>
+  );
+
   return (
     <Layout style={layoutStyle}>
       <Header style={headerStyle}>
@@ -91,22 +111,28 @@ const VisitorLayout = () => {
                     Worldbex Services International
                   </span>
                 </div> */}
-                <img src={WorldBexLogoHeader} alt="Worldbex" className="w-64 xl:w-80" />
+                <img
+                  src={WorldBexLogoHeader}
+                  alt="Worldbex"
+                  className="w-64 xl:w-80"
+                />
               </div>
             </NavLink>
           </div>
           <div className=" py-10">
             {isMobile ? (
-              <Avatar
-                style={{
-                  backgroundColor: "#f4811f",
-                  color: "#ffffff",
-                }}
-              >
-                <h1>{`${clientData?.name.charAt(0)}${clientData?.name.charAt(
-                  secondLetterIndex
-                )}`}</h1>
-              </Avatar>
+              <Popover content={content} trigger="click">
+                <Avatar
+                  style={{
+                    backgroundColor: "#f4811f",
+                    color: "#ffffff",
+                  }}
+                >
+                  <h1>{`${clientData?.name.charAt(0)}${clientData?.name.charAt(
+                    secondLetterIndex
+                  )}`}</h1>
+                </Avatar>
+              </Popover>
             ) : (
               <div className="flex flex-row">
                 <DownloadButtons />
@@ -139,15 +165,35 @@ const VisitorLayout = () => {
         {!isMobile ? (
           <Sider style={siderStyle}>
             <div>
-              <div className="flex flex-col gap-2 items-center justify-center py-6 xl:px-4">
+              <div className="relative flex flex-col gap-2 items-center justify-center py-6 xl:px-4">
+                <NavLink to="profile">
+                  <div className="absolute z-10 bottom-18 right-15 bg-white p-1 rounded-full border border-primary-color duration-300">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="size-4 text-primary-color"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125"
+                      />
+                    </svg>
+                  </div>
+                </NavLink>
                 <Avatar style={{ backgroundColor: "#F4811F" }} size={80}>
-                  <h1 className="text-2xl">{`${clientData?.name.charAt(0)}${clientData?.name.charAt(
-                    secondLetterIndex
-                  )}`}</h1>
+                  <h1 className="text-2xl">{`${clientData?.name.charAt(
+                    0
+                  )}${clientData?.name.charAt(secondLetterIndex)}`}</h1>
                 </Avatar>
                 <div className="text-center">
                   <h1 className="font-medium ">{clientData.name}</h1>
-                  <span className="xl:text-xs text-neutral-400">{clientData.email}</span>
+                  <span className="xl:text-xs text-neutral-400">
+                    {clientData.email}
+                  </span>
                 </div>
               </div>
               <div>
@@ -160,9 +206,13 @@ const VisitorLayout = () => {
               </div>
               <div className="absolute bottom-0 right-1 left-1 py-3 whitespace-nowrap">
                 <div className="flex flex-col items-center text-[0.688rem]">
-                  <span className="text-[#5E5E5E] font-medium">For question and inquiries</span>
+                  <span className="text-[#5E5E5E] font-medium">
+                    For question and inquiries
+                  </span>
                   <span className="font-bold">inquire@worldbexevents.com</span>
-                  <span className="text-[#5E5E5E] font-medium">or contact us at</span>
+                  <span className="text-[#5E5E5E] font-medium">
+                    or contact us at
+                  </span>
                   <span className="font-bold">86569239</span>
                 </div>
               </div>
@@ -176,7 +226,14 @@ const VisitorLayout = () => {
             {<Outlet />}
             <div className="flex flex-col gap-2 items-center mt-6 xl:hidden">
               <span className=" text-center text-gray-400">Powered by</span>
-              <img src={DGSILOGO} alt="Dynamic Global Soft Inc." className=" w-40 h-20 " />
+              <img
+                src={DGSILOGO}
+                alt="Dynamic Global Soft Inc."
+                className=" w-40 h-20 "
+              />
+              <DownloadButtons
+                styles={"xl:hidden lg:hidden md:hidden mt-6 border-r-0"}
+              />
             </div>
           </div>
         </Content>
@@ -184,8 +241,14 @@ const VisitorLayout = () => {
       <Footer style={footerStyle}>
         <div className="flex items-center gap-2">
           <div className="items-center hidden xl:flex xl:pl-4">
-            <span className=" text-center text-xs text-gray-400 whitespace-nowrap">Powered by</span>
-            <img src={DGSILOGO} alt="Dynamic Global Soft Inc." className=" max-w-20 h-12" />
+            <span className=" text-center text-xs text-gray-400 whitespace-nowrap">
+              Powered by
+            </span>
+            <img
+              src={DGSILOGO}
+              alt="Dynamic Global Soft Inc."
+              className=" max-w-20 h-12"
+            />
           </div>
           <div className="flex flex-col">
             {/* <h1 className="text-center text-xs text-gray-400">Organizers</h1> */}
@@ -194,7 +257,11 @@ const VisitorLayout = () => {
                 <div className="flex gap-3">
                   {organizers.map((org, index) => (
                     <div key={index} className=" shrink-0 xl:shrink-1">
-                      <img src={org.image} alt={org.alt} className=" h-12 w-12" />
+                      <img
+                        src={org.image}
+                        alt={org.alt}
+                        className=" h-12 w-12"
+                      />
                     </div>
                   ))}
                 </div>
