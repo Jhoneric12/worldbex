@@ -111,11 +111,7 @@ const VisitorLayout = () => {
                     Worldbex Services International
                   </span>
                 </div> */}
-                <img
-                  src={WorldBexLogoHeader}
-                  alt="Worldbex"
-                  className="w-64 xl:w-80"
-                />
+                <img src={WorldBexLogoHeader} alt="Worldbex" className="w-64 xl:w-80" />
               </div>
             </NavLink>
           </div>
@@ -166,7 +162,7 @@ const VisitorLayout = () => {
           <Sider style={siderStyle}>
             <div>
               <div className="relative flex flex-col gap-2 items-center justify-center py-6 xl:px-4">
-                <NavLink to="profile">
+                <NavLink to="profile" title="Edit Profile">
                   <div className="absolute z-10 bottom-18 right-15 bg-white p-1 rounded-full border border-primary-color duration-300">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -185,15 +181,13 @@ const VisitorLayout = () => {
                   </div>
                 </NavLink>
                 <Avatar style={{ backgroundColor: "#F4811F" }} size={80}>
-                  <h1 className="text-2xl">{`${clientData?.name.charAt(
-                    0
-                  )}${clientData?.name.charAt(secondLetterIndex)}`}</h1>
+                  <h1 className="text-2xl">{`${clientData?.name.charAt(0)}${clientData?.name.charAt(
+                    secondLetterIndex
+                  )}`}</h1>
                 </Avatar>
                 <div className="text-center">
                   <h1 className="font-medium ">{clientData.name}</h1>
-                  <span className="xl:text-xs text-neutral-400">
-                    {clientData.email}
-                  </span>
+                  <span className="xl:text-xs text-neutral-400">{clientData.email}</span>
                 </div>
               </div>
               <div>
@@ -206,13 +200,9 @@ const VisitorLayout = () => {
               </div>
               <div className="absolute bottom-0 right-1 left-1 py-3 whitespace-nowrap">
                 <div className="flex flex-col items-center text-[0.688rem]">
-                  <span className="text-[#5E5E5E] font-medium">
-                    For question and inquiries
-                  </span>
+                  <span className="text-[#5E5E5E] font-medium">For question and inquiries</span>
                   <span className="font-bold">inquire@worldbexevents.com</span>
-                  <span className="text-[#5E5E5E] font-medium">
-                    or contact us at
-                  </span>
+                  <span className="text-[#5E5E5E] font-medium">or contact us at</span>
                   <span className="font-bold">86569239</span>
                 </div>
               </div>
@@ -226,14 +216,8 @@ const VisitorLayout = () => {
             {<Outlet />}
             <div className="flex flex-col gap-2 items-center mt-6 xl:hidden">
               <span className=" text-center text-gray-400">Powered by</span>
-              <img
-                src={DGSILOGO}
-                alt="Dynamic Global Soft Inc."
-                className=" w-40 h-20 "
-              />
-              <DownloadButtons
-                styles={"xl:hidden lg:hidden md:hidden mt-6 border-r-0"}
-              />
+              <img src={DGSILOGO} alt="Dynamic Global Soft Inc." className=" w-40 h-20 " />
+              <DownloadButtons styles={"xl:hidden lg:hidden md:hidden mt-6 border-r-0"} />
             </div>
           </div>
         </Content>
@@ -241,14 +225,8 @@ const VisitorLayout = () => {
       <Footer style={footerStyle}>
         <div className="flex items-center gap-2">
           <div className="items-center hidden xl:flex xl:pl-4">
-            <span className=" text-center text-xs text-gray-400 whitespace-nowrap">
-              Powered by
-            </span>
-            <img
-              src={DGSILOGO}
-              alt="Dynamic Global Soft Inc."
-              className=" max-w-20 h-12"
-            />
+            <span className=" text-center text-xs text-gray-400 whitespace-nowrap">Powered by</span>
+            <img src={DGSILOGO} alt="Dynamic Global Soft Inc." className=" max-w-20 h-12" />
           </div>
           <div className="flex flex-col">
             {/* <h1 className="text-center text-xs text-gray-400">Organizers</h1> */}
@@ -257,11 +235,7 @@ const VisitorLayout = () => {
                 <div className="flex gap-3">
                   {organizers.map((org, index) => (
                     <div key={index} className=" shrink-0 xl:shrink-1">
-                      <img
-                        src={org.image}
-                        alt={org.alt}
-                        className=" h-12 w-12"
-                      />
+                      <img src={org.image} alt={org.alt} className=" h-12 w-12" />
                     </div>
                   ))}
                 </div>
