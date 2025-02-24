@@ -7,11 +7,16 @@ import DecorationBottom from "../../assets/images/icon/decoration-bottom-hero.pn
 import { organizers } from "../../data/Organizer";
 import DecorationTop from "../../assets/images/icon/decoration-top-auth.png";
 import { useState } from "react";
+import DGSILOGO from "../../assets/images/organizers/DGSI LOGO.png";
 
 const Registration = () => {
+  const [isInPh, setIsInPh] = useState(false);
   const [value, setValue] = useState(1);
   const onChange = (e) => {
     setValue(e.target.value);
+  };
+  const handleIsInPh = () => {
+    setIsInPh(!isInPh);
   };
   return (
     <>
@@ -59,14 +64,16 @@ const Registration = () => {
                   rules={[{ required: true, message: "Please input your first name!" }]}
                 >
                   <div className="flex flex-col gap-1">
-                    <label className="text-text-color font-medium text-base">First Name</label>
-                    <Input size="large" />
+                    <label className="text-text-color font-medium text-base">
+                      First Name <span className="text-red-500">*</span>
+                    </label>
+                    <Input size="large" placeholder="Enter First Name" />
                   </div>
                 </Form.Item>
                 <Form.Item name="middle_name">
                   <div className="flex flex-col gap-1">
                     <label className="text-text-color font-medium text-base">Middle Name</label>
-                    <Input size="large" />
+                    <Input size="large" placeholder="Enter Middle Name" />
                   </div>
                 </Form.Item>
                 <Form.Item
@@ -74,8 +81,10 @@ const Registration = () => {
                   rules={[{ required: true, message: "Please input your last name!" }]}
                 >
                   <div className="flex flex-col gap-1">
-                    <label className="text-text-color font-medium text-base">Last Name</label>
-                    <Input size="large" />
+                    <label className="text-text-color font-medium text-base">
+                      Last Name <span className="text-red-500">*</span>
+                    </label>
+                    <Input size="large" placeholder="Enter Last Name" />
                   </div>
                 </Form.Item>
                 <Form.Item
@@ -83,8 +92,10 @@ const Registration = () => {
                   rules={[{ required: true, message: "Please input your mobile number!" }]}
                 >
                   <div className="flex flex-col gap-1">
-                    <label className="text-text-color font-medium text-base">Mobile Number</label>
-                    <Input size="large" />
+                    <label className="text-text-color font-medium text-base">
+                      Mobile Number <span className="text-red-500">*</span>
+                    </label>
+                    <Input size="large" placeholder="Enter 10 Digit Number" />
                   </div>
                 </Form.Item>
                 <Form.Item
@@ -92,8 +103,10 @@ const Registration = () => {
                   rules={[{ required: true, message: "Please input your email address!" }]}
                 >
                   <div className="flex flex-col gap-1">
-                    <label className="text-text-color font-medium text-base">Email Address</label>
-                    <Input size="large" />
+                    <label className="text-text-color font-medium text-base">
+                      Email Address <span className="text-red-500">*</span>
+                    </label>
+                    <Input size="large" placeholder="Enter Email Address" />
                   </div>
                 </Form.Item>
                 <Form.Item
@@ -101,8 +114,10 @@ const Registration = () => {
                   rules={[{ required: true, message: "Please input your company!" }]}
                 >
                   <div className="flex flex-col gap-1">
-                    <label className="text-text-color font-medium text-base">Company</label>
-                    <Input size="large" />
+                    <label className="text-text-color font-medium text-base">
+                      Company <span className="text-red-500">*</span>
+                    </label>
+                    <Input size="large" placeholder="Enter Company" />
                   </div>
                 </Form.Item>
                 <div className="flex flex-col">
@@ -111,18 +126,25 @@ const Registration = () => {
                     rules={[{ required: true, message: "Please input your designation!" }]}
                   >
                     <div className="flex flex-col gap-1">
-                      <label className="text-text-color font-medium text-base">Designation</label>
-                      <Input size="large" />
+                      <label className="text-text-color font-medium text-base">
+                        Designation <span className="text-red-500">*</span>
+                      </label>
+                      <Input size="large" placeholder="Enter Designation" />
                     </div>
                   </Form.Item>
-                  <Form.Item name="student">
+                  {/* <Form.Item name="student">
                     <Checkbox>Student</Checkbox>
-                  </Form.Item>
+                  </Form.Item> */}
                 </div>
               </div>
               <div>
-                <h1 className="font-medium text-base">Age group</h1>
-                <Form.Item>
+                <label className="font-medium text-base">
+                  Age group <span className="text-red-500">*</span>{" "}
+                </label>
+                <Form.Item
+                  name="age_group"
+                  rules={[{ required: true, message: "Please input your age group!" }]}
+                >
                   <Radio.Group>
                     <div className="py-4 flex flex-col gap-4 lg:grid lg:grid-cols-2">
                       <Radio value={"Below 18"}>Below 18</Radio>
@@ -134,47 +156,128 @@ const Registration = () => {
                   </Radio.Group>
                 </Form.Item>
               </div>
-              <hr className="border border-gray-100 w-full mb-4" />
-              <div className="grid xl:grid-cols-2 xl:gap-2 ">
-                <Form.Item
-                  name="company"
-                  rules={[{ required: true, message: "Please input your company!" }]}
-                >
-                  <div className="flex flex-col gap-1">
-                    <label className="text-text-color font-medium text-base">Country</label>
-                    <Input size="large" />
+              <hr className="border border-gray-100 w-full mt-4 mb-4" />
+              <Form.Item name="student">
+                <Checkbox onClick={handleIsInPh}>Are you living in the Philippines</Checkbox>
+              </Form.Item>
+              <div>
+                {isInPh ? (
+                  <>
+                    <div className="xl:flex xl:flex-row gap-2">
+                      <Form.Item
+                        className="w-full"
+                        name="region"
+                        rules={[{ required: true, message: "Please input your region!" }]}
+                      >
+                        <div className="flex flex-col gap-1">
+                          <label className="text-text-color font-medium text-base">
+                            Region <span className="text-red-500">*</span>
+                          </label>
+                          <Input size="large" placeholder="Enter Region" />
+                        </div>
+                      </Form.Item>
+                      <Form.Item
+                        className="w-full"
+                        name="province"
+                        rules={[{ required: true, message: "Please input your province!" }]}
+                      >
+                        <div className="flex flex-col gap-1">
+                          <label className="text-text-color font-medium text-base">
+                            Province <span className="text-red-500">*</span>
+                          </label>
+                          <Input size="large" placeholder="Enter Province" />
+                        </div>
+                      </Form.Item>
+                      <Form.Item
+                        className="w-full"
+                        name="city"
+                        rules={[{ required: true, message: "Please input your city!" }]}
+                      >
+                        <div className="flex flex-col gap-1">
+                          <label className="text-text-color font-medium text-base">
+                            City <span className="text-red-500">*</span>
+                          </label>
+                          <Input size="large" placeholder="Enter City" />
+                        </div>
+                      </Form.Item>
+                    </div>
+                    <Form.Item
+                      name="address"
+                      rules={[{ required: true, message: "Please input your address!" }]}
+                    >
+                      <div className="flex flex-col gap-1">
+                        <label className="text-text-color font-medium text-base">
+                          Address <span className="text-red-500">*</span>
+                        </label>
+                        <Input.TextArea size="large" placeholder="Enter Address" />
+                      </div>
+                    </Form.Item>
+                  </>
+                ) : (
+                  <div className="grid xl:grid-cols-2 gap-2">
+                    <Form.Item
+                      name="country"
+                      rules={[{ required: true, message: "Please input your country!" }]}
+                    >
+                      <div className="flex flex-col gap-1">
+                        <label className="text-text-color font-medium text-base">
+                          Country <span className="text-red-500">*</span>
+                        </label>
+                        <Input size="large" placeholder="Enter Country" />
+                      </div>
+                    </Form.Item>
+                    <Form.Item
+                      name="city"
+                      rules={[{ required: true, message: "Please input your city!" }]}
+                    >
+                      <div className="flex flex-col gap-1">
+                        <label className="text-text-color font-medium text-base">
+                          City <span className="text-red-500">*</span>
+                        </label>
+                        <Input size="large" placeholder="Enter City" />
+                      </div>
+                    </Form.Item>
                   </div>
-                </Form.Item>
-                <Form.Item
-                  name="company"
-                  rules={[{ required: true, message: "Please input your company!" }]}
-                >
-                  <div className="flex flex-col gap-1">
-                    <label className="text-text-color font-medium text-base">City</label>
-                    <Input size="large" />
-                  </div>
-                </Form.Item>
-                <Form.Item
-                  name="username"
-                  rules={[{ required: true, message: "Please input your username!" }]}
-                >
-                  <div className="flex flex-col gap-1">
-                    <label className="text-text-color font-medium text-base">Password</label>
-                    <Input.Password size="large" />
-                  </div>
-                </Form.Item>
+                )}
+                <div className="grid xl:grid-cols-2 gap-2">
+                  <Form.Item
+                    name="password"
+                    rules={[{ required: true, message: "Please input your password!" }]}
+                  >
+                    <div className="flex flex-col gap-1">
+                      <label className="text-text-color font-medium text-base">
+                        Password <span className="text-red-500">*</span>
+                      </label>
+                      <Input.Password size="large" placeholder="Enter Password" />
+                    </div>
+                  </Form.Item>
 
-                <Form.Item
-                  name="password"
-                  rules={[{ required: true, message: "Please input your password!" }]}
-                >
-                  <div className="flex flex-col gap-1">
-                    <label className="text-text-color font-medium text-base">
-                      Confirm Password
-                    </label>
-                    <Input.Password size="large" />
-                  </div>
-                </Form.Item>
+                  <Form.Item
+                    name="confirm_password"
+                    dependencies={["password"]}
+                    hasFeedback
+                    rules={[
+                      { required: true, message: "The password that you entered do not match!" },
+                      ({ getFieldValue }) => ({
+                        validator(_, value) {
+                          if (!value || getFieldValue("password") === value) {
+                            return Promise.resolve();
+                          }
+                          return Promise.reject(
+                            new Error("The password that you entered do not match!")
+                          );
+                        },
+                      }),
+                    ]}
+                  >
+                    <div className="flex flex-col gap-1">
+                      <label className="text-text-color font-medium text-base">
+                        Confirm Password <span className="text-red-500">*</span>
+                      </label>
+                      <Input.Password size="large" placeholder="Confirm Passwrod" />
+                    </div>
+                  </Form.Item>
+                </div>
               </div>
 
               {/* <div className="flex justify-between mb-4">
@@ -219,14 +322,29 @@ const Registration = () => {
             </Form>
           </div>
 
-          <div className="hidden lg:block mt-6 ">
-            <h1 className="text-text-color text-center">Organizer of</h1>
-            <div className="lg:grid lg:grid-cols-4 lg:gap-4 xl:gap-6 xl:grid-cols-7 place-items-center mt-4">
-              {organizers.map((org) => (
-                <img key={org.alt} src={org.image} alt={org.alt} loading="lazy" />
+          {/* <div className="mt-6 ">
+            <h1 className="text-center font-medium">Organizer of</h1>
+            <div className="grid grid-cols-3 gap-10 md:grid-cols-4 md:gap-10 lg:grid-cols-4 lg:gap-4 xl:gap-6 xl:grid-cols-7 place-items-center mt-4">
+              {organizers.map((org, index) => (
+                <img
+                  key={index}
+                  src={org.image}
+                  alt={org.alt}
+                  loading="lazy"
+                  className="shrink-0"
+                />
               ))}
             </div>
           </div>
+          <div>
+            <h1 className="text-center font-medium">Powered by</h1>
+            <img
+              src={DGSILOGO}
+              alt="Dynamic Global Soft Logo"
+              loading="lazy"
+              className="w-35 h-25"
+            />
+          </div> */}
         </div>
       </section>
     </>

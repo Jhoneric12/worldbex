@@ -1,21 +1,17 @@
-import { Layout, theme, Menu, Avatar, Button } from "antd";
+import { Layout, Menu, Avatar } from "antd";
 const { Header, Footer, Sider, Content } = Layout;
-import WorldBexLogo from "../../assets/images/logo/worldbex.png";
+// import WorldBexLogo from "../../assets/images/logo/worldbex.png";
 import { NavLink, useLocation, useNavigate } from "react-router";
-import {
-  UserOutlined,
-  AppstoreOutlined,
-  LogoutOutlined,
-} from "@ant-design/icons";
+import { UserOutlined, AppstoreOutlined } from "@ant-design/icons";
 import { useCurrentLocation } from "../../hooks/useCurrentLocation";
 import DownloadButtons from "../downaload/DownloadButtons";
 import { organizers } from "../../data/Organizer";
 import Marquee from "react-fast-marquee";
-import DGSILOGO from "../../assets/images/organizers/DGSI LOGO.png";
+import DGSILOGO from "../../assets/images/logo/DGSI_LOGO-removebg-preview.png";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { Outlet } from "react-router";
-import { div, span } from "framer-motion/client";
 import { useClientStoreAuth } from "../../store/client/useAuth";
+import WorldBexLogoHeader from "../../assets/images/logo/worldbex-logo-header.svg";
 
 const VisitorLayout = () => {
   const { reset, clientData } = useClientStoreAuth();
@@ -48,6 +44,8 @@ const VisitorLayout = () => {
     backgroundColor: "#FFFFFF",
     border: "1px solid #C9C9C9",
     padding: 0,
+    position: isMobile ? "fixed" : "static",
+    bottom: 0,
   };
   const layoutStyle = {
     overflow: "hidden",
@@ -76,12 +74,14 @@ const VisitorLayout = () => {
           <div>
             <NavLink to={"events"}>
               <div className="flex items-center gap-2">
-                <img src={WorldBexLogo} alt="Worldbex" className="w-10 h-10" />
-                <div className="flex flex-col">
+                {/* <img src={WorldBexLogo} alt="Worldbex" className="w-10 h-10" /> */}
+                {/* <div className="flex flex-col">
                   <span className="text-primary-color font-medium  xl:text-lg">
                     Worldbex Services International
                   </span>
-                </div>
+                </div> */}
+                <img src={WorldBexLogoHeader} alt="Worldbex" className="w-64 xl:w-80" />
+                <img src="" alt="" />
               </div>
             </NavLink>
           </div>
@@ -93,7 +93,9 @@ const VisitorLayout = () => {
                   color: "#ffffff",
                 }}
               >
-                CD
+                <h1>{`${clientData?.name.charAt(0)}${clientData?.name.charAt(
+                  secondLetterIndex
+                )}`}</h1>
               </Avatar>
             ) : (
               <div className="flex flex-row">
@@ -128,21 +130,21 @@ const VisitorLayout = () => {
           <Sider style={siderStyle}>
             <div>
               <div className="flex flex-col gap-2 items-center justify-center py-6 xl:px-4">
-                <div className="bg-primary-color rounded-lg py-6 px-6">
-                  <h1 className="text-white text-3xl">{`${clientData.name.charAt(
-                    0
-                  )}${clientData.name.charAt(secondLetterIndex)}`}</h1>
-                </div>
+                <Avatar style={{ backgroundColor: "#F4811F" }} size={80}>
+                  <h1 className="text-2xl">{`${clientData?.name.charAt(0)}${clientData?.name.charAt(
+                    secondLetterIndex
+                  )}`}</h1>
+                </Avatar>
                 <div className="text-center">
                   <h1 className="font-medium ">{clientData.name}</h1>
-                  <span className="xl:text-xs">{clientData.email}</span>
+                  <span className="xl:text-xs text-neutral-400">{clientData.email}</span>
                 </div>
               </div>
               <div>
                 <Menu
                   style={menuStyle}
                   mode="vertical"
-                  defaultSelectedKeys={["events"]}
+                  defaultSelectedKeys={location}
                   items={items}
                 />
               </div>
@@ -187,7 +189,7 @@ const VisitorLayout = () => {
           </Menu>
         )}
         <Content style={contentStyle}>
-          <div className=" mt-4 px-2 md:px-4 overflow-y-auto pb-4 ">
+          <div className=" mt-4 px-2 md:px-4 overflow-y-auto pb-16 md:pb-4 ">
             {<Outlet />}
             <div className="flex flex-col gap-2 items-center mt-6 xl:hidden">
               <span className=" text-center text-gray-400">Powered by</span>
@@ -215,7 +217,7 @@ const VisitorLayout = () => {
           <div className="flex flex-col">
             {/* <h1 className="text-center text-xs text-gray-400">Organizers</h1> */}
             <div className="flex justify-center items-center whitespace-nowrap w-full overflow-x-auto lg:overflow-hidden ">
-              <Marquee autoFill>
+              <Marquee autoFill speed={25} pauseOnHover>
                 <div className="flex gap-3">
                   {organizers.map((org, index) => (
                     <div key={index} className=" shrink-0 xl:shrink-1">

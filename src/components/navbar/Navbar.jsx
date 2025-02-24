@@ -27,13 +27,13 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`navbar px-4 py-2 fixed w-full z-40 lg:block border-gray-200 backdrop-blur-xs transition-all duration-300 ${
+      className={`navbar px-4 py-2 fixed w-full z-40   border-gray-200 backdrop-blur-xs transition-all duration-300 ${
         isScrolled ? "bg-white border border-gray-200" : "bg-transparent"
       }`}
     >
       <div className="flex md:hidden items-center justify-between">
         <NavLink to={"/"}>
-          <img src={WorldBexLogo} alt="Worldbex Logo" className="w-10 h-10" />
+          <img src={WorlbelLogoHeader} alt="Worldbex Logo" className="w-64" />
         </NavLink>
         <img onClick={handleShowMenu} src={HamburgerMain} alt="Hamburger" />
       </div>
@@ -44,7 +44,7 @@ const Navbar = () => {
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{ duration: 0.2 }}
-            className="flex flex-col gap-4 w-full items-start shadow-sm py-10 bg-white absolute top-14 left-0 right-0 -z-10"
+            className="flex flex-col gap-4 w-full items-start shadow-sm py-10 bg-white absolute top-14 left-0 right-0 z-50"
           >
             <NavLink className="flex items-center gap-4 px-4 font-medium">
               <img src={Information} alt="Information" />

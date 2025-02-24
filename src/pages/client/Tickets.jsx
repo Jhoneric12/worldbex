@@ -1,5 +1,5 @@
 import React from "react";
-import { Tabs, Input, Badge } from "antd";
+import { Tabs, Input, Badge, Button } from "antd";
 import { useClientStoreAuth } from "../../store/client/useAuth";
 import {
   useGetExpireTickets,
@@ -9,8 +9,8 @@ import Ticket from "../../components/ticketTemplate/Ticket";
 import SkeletonTicket from "../../components/ticketTemplate/SkeletonTicket";
 
 const Tickets = () => {
-  const onSearch = (value, _e, info) => console.log(info?.source, value);
-  const { Search } = Input;
+  // const onSearch = (value, _e, info) => console.log(info?.source, value);
+  // const { Search } = Input;
   const { clientData } = useClientStoreAuth();
   const { data: UnusedTickets, isLoading: LoadingUnused } = useGetUnusedTicket(clientData?.id);
   const { data: ExpiredTickets, isLoading: LoadingExpired } = useGetExpireTickets(clientData?.id);
@@ -39,34 +39,54 @@ const Tickets = () => {
                 <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 xl:grid-cols-4">
                   {UnusedTickets?.map((event, index) => (
                     <div key={index}>
-                      <Ticket style={event?.bg}>
-                        <div>
-                          <div className="flex justify-center h-[7.5rem] w-full">
-                            <img src={event?.logo} alt={event?.alt} className="max-h-full w-full" />
-                          </div>
-                          <div className="flex flex-col text-white font-medium mt-auto">
-                            <h1 className="text-lg">{event?.eventName}</h1>
-                            <span className="text-lg">{event?.date}</span>
-                            <div className="flex items-center justify-between mt-3">
-                              <span className="text-lg">
-                                {event?.amount === 0 ? "FREE" : `PHP ${event?.amount}`}
+                      <Badge.Ribbon text={event?.paymentStatus} color="green">
+                        <Ticket style={event?.bg} logoSrc={event?.logo}>
+                          <div className="mt-auto">
+                            <div className="flex items-center justify-between">
+                              <span className="text-neutral-400 text-xs font-medium">
+                                {event?.type === "events" ? "Event" : "Seminar"}
                               </span>
-                              <span className="bg-white rounded-full px-4 py-1 text-black font-medium">
+                              <span className="text-xs text-[#686868] bg-[#DEDEDE] rounded-full px-4 py-1 font-medium">
                                 {event?.pax === 1 ? "Single" : "Multiple"}
                               </span>
                             </div>
+                            <div className="mb-4">
+                              <h1 className="text-lg font-medium">{event?.eventName}</h1>
+                              <div className="flex items-center gap-1 text-neutral-400">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  strokeWidth={1.5}
+                                  stroke="currentColor"
+                                  className="size-3"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+                                  />
+                                </svg>
+                                <span>{event?.date}</span>
+                              </div>
+                            </div>
+                            <div className="mt-auto">
+                              <h1 className="text-center mb-2 font-medium">{clientData?.name}</h1>
+                              <Button
+                                block
+                                style={{
+                                  borderRadius: "4px",
+                                  backgroundColor: "#FFFFFF",
+                                  borderCOlor: "black",
+                                }}
+                                className="border border-black rounded-md px-6 py-1"
+                              >
+                                DOWNLOAD QR CODE
+                              </Button>
+                            </div>
                           </div>
-                        </div>
-                        <div className="text-center mt-auto pt-4">
-                          <h1 className=" text-white font-medium text-lg">{clientData?.name}</h1>
-                          <button className="border-white text-white border text-center px-4 py-2 mt-2 hover:bg-white hover:text-black duration-200">
-                            DOWNLOAD QR CODE
-                          </button>
-                        </div>
-                        <div className="bg-green-500/70 #0opacity-60 rounded-full text-center absolute top-4 left-2 px-6">
-                          <span className="text-white">{event?.paymentStatus}</span>
-                        </div>
-                      </Ticket>
+                        </Ticket>
+                      </Badge.Ribbon>
                     </div>
                   ))}
                 </div>
@@ -81,31 +101,46 @@ const Tickets = () => {
                 {LoadingExpired && <SkeletonTicket />}
                 {ExpiredTickets?.map((event, index) => (
                   <div key={index}>
-                    <Badge.Ribbon text="Expired" color="red">
-                      <Ticket style={event?.bg}>
-                        <div>
-                          <div className="flex justify-center h-[7.5rem] w-full">
-                            <img src={event?.logo} alt={event?.alt} className="max-h-full w-full" />
-                          </div>
-                          <div className="flex flex-col text-white font-medium mt-auto">
-                            <h1 className="text-lg">{event?.eventName}</h1>
-                            <span className="text-lg">{event?.date}</span>
-                            <div className="flex items-center justify-between mt-3">
-                              <span className="text-lg">
-                                {event?.amount === 0 ? "FREE" : `PHP ${event?.amount}`}
+                    <div key={index}>
+                      <Badge.Ribbon text="Expired" color="red">
+                        <Ticket style={event?.bg} logoSrc={event?.logo}>
+                          <div className="mt-auto">
+                            <div className="flex items-center justify-between">
+                              <span className="text-neutral-400 text-xs font-medium">
+                                {event?.type === "events" ? "Event" : "Seminar"}
                               </span>
-                              <span className="bg-white rounded-full px-4 py-1 text-black font-medium">
+                              <span className="text-xs text-[#686868] bg-[#DEDEDE] rounded-full px-4 py-1 font-medium">
                                 {event?.pax === 1 ? "Single" : "Multiple"}
                               </span>
                             </div>
+                            <div className="mb-4">
+                              <h1 className="text-lg font-medium">{event?.eventName}</h1>
+                              <div className="flex items-center gap-1 text-neutral-400">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  strokeWidth={1.5}
+                                  stroke="currentColor"
+                                  className="size-3"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+                                  />
+                                </svg>
+                                <span>{event?.date}</span>
+                              </div>
+                            </div>
+                            <div className="mt-auto">
+                              <h1 className="text-center mb-2 font-medium">{clientData?.name}</h1>
+                            </div>
                           </div>
-                        </div>
-                        <div className="text-center mt-4">
-                          <h1 className=" text-white font-medium text-lg">{clientData?.name}</h1>
-                        </div>
-                        <div className="bg-gray-400 opacity-50 absolute w-full h-full inset-0 "></div>
-                      </Ticket>
-                    </Badge.Ribbon>
+                          <div className="bg-gray-200 opacity-50 absolute w-full h-full rounded-lg inset-0 "></div>
+                        </Ticket>
+                      </Badge.Ribbon>
+                    </div>
                   </div>
                 ))}
               </div>
