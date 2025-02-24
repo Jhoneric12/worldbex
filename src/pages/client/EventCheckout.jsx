@@ -55,7 +55,7 @@ const EventCheckout = () => {
   };
 
   return (
-    <section className=" relative px-4 py-6">
+    <section className="px-4 py-6">
       <Form form={form} layout="vertical" initialValues={initialValues}>
         <div className="w-full sticky top-20 md:max-w-xl xl:max-w-xl mx-auto">
           <Steps
@@ -64,8 +64,9 @@ const EventCheckout = () => {
               key: step.title,
               title: step.title,
             }))}
-            className="mb-2"
+            direction="horizontal"
           />
+
           <div className="md:p-6 mb-4 lg:mb-0 xl:mb-0 md:mt-0 mt-2 bg-white">
             {steps[current]?.content}
           </div>
@@ -101,7 +102,11 @@ const EventCheckout = () => {
                 Next
               </Button>
             ) : (
-              <Button style={{ borderRadius: "4px" }} size="large" type="primary">
+              <Button
+                style={{ borderRadius: "4px" }}
+                size="large"
+                type="primary"
+              >
                 Submit
               </Button>
             )}
