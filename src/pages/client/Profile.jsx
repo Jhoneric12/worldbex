@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router";
 import ProfileLayout from "../../components/layouts/ProfileLayout";
-import { Input, Form, Radio } from "antd";
+import { Input, Form, Radio, Avatar, Checkbox } from "antd";
 import { Button, theme } from "antd";
 import { useClientStoreAuth } from "../../store/client/useAuth";
 
 const Profile = () => {
   const { clientData } = useClientStoreAuth();
+  const [isInPh, setIsInPh] = useState(false);
+  const secondLetterIndex = clientData.name.indexOf(" ") + 1;
   const navigate = useNavigate();
   const { token } = theme.useToken();
   const [form] = Form.useForm();
+  const handleIsInPh = () => {
+    setIsInPh(!isInPh);
+  };
 
   const initialValues = {
     firstName: clientData?.name,
@@ -46,15 +51,13 @@ const Profile = () => {
     <ProfileLayout>
       <section className="flex flex-col items-center gap-4 justify-center">
         {/* Personal Information */}
-        <div className="xl:w-2/3/6 lg:w-2/3 md:w-2/3 w-full flex flex-col bg-white rounded-lg p-6 gap-5 shadow-sm">
+        <div className="xl:w-2/3/6 lg:w-2/3 md:w-2/3 w-full flex flex-col bg-white rounded-lg px-4 gap-5 shadow-sm">
           <div className="flex flex-col gap-2 items-center justify-center py-6 xl:px-4">
-            <div className="bg-primary-color rounded-lg py-6 px-6">
-              <h1 className="text-white text-3xl">{`${clientData?.name.charAt(
-                0
-              )}${clientData?.name.charAt(
-                clientData?.name.indexOf(" ") + 1
+            <Avatar style={{ backgroundColor: "#F4811F" }} size={80}>
+              <h1 className="text-2xl">{`${clientData?.name.charAt(0)}${clientData?.name.charAt(
+                secondLetterIndex
               )}`}</h1>
-            </div>
+            </Avatar>
             <div className="text-center">
               <h1 className="font-medium ">{clientData?.name}</h1>
               <span className="xl:text-xs">{clientData?.email}</span>
@@ -74,13 +77,13 @@ const Profile = () => {
                       name="firstName"
                       rules={[{ required: true, message: "Please input!" }]}
                     >
-                      <Input />
+                      <Input size="large" />
                     </Form.Item>
                   </div>
 
                   <div className="w-full">
                     <Form.Item label="Middle Name" name="middleName">
-                      <Input />
+                      <Input size="large" />
                     </Form.Item>
                   </div>
 
@@ -90,7 +93,7 @@ const Profile = () => {
                       name="lastName"
                       rules={[{ required: true, message: "Please input!" }]}
                     >
-                      <Input />
+                      <Input size="large" />
                     </Form.Item>
                   </div>
 
@@ -100,7 +103,7 @@ const Profile = () => {
                       name="mobile_number"
                       rules={[{ required: true, message: "Please input!" }]}
                     >
-                      <Input />
+                      <Input size="large" />
                     </Form.Item>
                   </div>
 
@@ -113,7 +116,7 @@ const Profile = () => {
                         { type: "email", message: "Invalid Email Format" },
                       ]}
                     >
-                      <Input />
+                      <Input size="large" />
                     </Form.Item>
                   </div>
 
@@ -122,7 +125,7 @@ const Profile = () => {
                     name="company"
                     rules={[{ required: true, message: "Please input!" }]}
                   >
-                    <Input />
+                    <Input size="large" />
                   </Form.Item>
 
                   <Form.Item
@@ -130,7 +133,7 @@ const Profile = () => {
                     name="designation"
                     rules={[{ required: true, message: "Please input!" }]}
                   >
-                    <Input />
+                    <Input size="large" />
                   </Form.Item>
                 </div>
 
@@ -149,30 +152,67 @@ const Profile = () => {
                     </div>
                   </Radio.Group>
                 </Form.Item>
-
-                <Form.Item
-                  label="Country"
-                  name="country"
-                  rules={[{ required: true, message: "Please input!" }]}
-                >
-                  <Input />
+                <Form.Item name="student">
+                  <Checkbox onClick={handleIsInPh}>Are you living in the Philippines</Checkbox>
                 </Form.Item>
-
-                <Form.Item
-                  label="City"
-                  name="city"
-                  rules={[{ required: true, message: "Please input!" }]}
-                >
-                  <Input />
-                </Form.Item>
+                {isInPh ? (
+                  <>
+                    <div className="xl:flex xl:flex-row gap-2">
+                      <Form.Item
+                        label="Region"
+                        className="w-full"
+                        name="region"
+                        rules={[{ required: true, message: "Please input your region!" }]}
+                      >
+                        <Input size="large" placeholder="Enter Region" />
+                      </Form.Item>
+                      <Form.Item
+                        label="Province"
+                        className="w-full"
+                        name="province"
+                        rules={[{ required: true, message: "Please input your province!" }]}
+                      >
+                        <Input size="large" placeholder="Enter Province" />
+                      </Form.Item>
+                      <Form.Item
+                        label="City"
+                        className="w-full"
+                        name="city"
+                        rules={[{ required: true, message: "Please input your city!" }]}
+                      >
+                        <Input size="large" placeholder="Enter City" />
+                      </Form.Item>
+                    </div>
+                    <Form.Item
+                      label="Address"
+                      name="address"
+                      rules={[{ required: true, message: "Please input your address!" }]}
+                    >
+                      <Input.TextArea size="large" placeholder="Enter Address" />
+                    </Form.Item>
+                  </>
+                ) : (
+                  <div className="grid xl:grid-cols-2 gap-2">
+                    <Form.Item
+                      label="Country"
+                      name="country"
+                      rules={[{ required: true, message: "Please input your country!" }]}
+                    >
+                      <Input size="large" placeholder="Enter Country" />
+                    </Form.Item>
+                    <Form.Item
+                      label="City"
+                      name="city"
+                      rules={[{ required: true, message: "Please input your city!" }]}
+                    >
+                      <Input size="large" placeholder="Enter City" />
+                    </Form.Item>
+                  </div>
+                )}
 
                 {/* Buttons */}
                 <div className="flex gap-3 justify-end">
-                  <Button
-                    style={{ borderRadius: "4px" }}
-                    size="large"
-                    onClick={handleReset}
-                  >
+                  <Button style={{ borderRadius: "4px" }} size="large" onClick={handleReset}>
                     Reset
                   </Button>
                   <Button
@@ -190,13 +230,9 @@ const Profile = () => {
         </div>
 
         {/* Change Password */}
-        <div className="xl:w-2/3/6 lg:w-2/3 md:w-2/3 w-full flex flex-col bg-white rounded-lg p-6 gap-5 shadow-sm">
-          <h1 className="font-bold text-xl">Set New Password</h1>
-          <Form
-            layout="vertical"
-            form={form}
-            onValuesChange={handleValuesChange}
-          >
+        <div className="xl:w-2/3/6 lg:w-2/3 md:w-2/3 w-full flex flex-col bg-white rounded-lg py-6 px-4 md:px-6 gap-5 shadow-sm">
+          <h1 className="font-bold text-lg md:text-xl">Set New Password</h1>
+          <Form layout="vertical" form={form} onValuesChange={handleValuesChange}>
             <div className="w-full">
               <Form.Item
                 label="Current Password"
@@ -208,7 +244,7 @@ const Profile = () => {
                   },
                 ]}
               >
-                <Input.Password />
+                <Input.Password size="large" />
               </Form.Item>
             </div>
 
@@ -223,7 +259,7 @@ const Profile = () => {
                   },
                 ]}
               >
-                <Input.Password />
+                <Input.Password size="large" />
               </Form.Item>
             </div>
 
@@ -238,16 +274,12 @@ const Profile = () => {
                   },
                 ]}
               >
-                <Input.Password />
+                <Input.Password size="large" />
               </Form.Item>
             </div>
 
             <div className="flex justify-end">
-              <Button
-                style={{ borderRadius: "4px" }}
-                size="large"
-                type="primary"
-              >
+              <Button style={{ borderRadius: "4px" }} size="large" type="primary">
                 Save Changes
               </Button>
             </div>
