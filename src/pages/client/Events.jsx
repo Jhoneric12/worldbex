@@ -20,7 +20,9 @@ const Events = () => {
       </div> */}
       <div className="flex flex-col gap-1 mb-4">
         <h1 className="text-xl font-semibold ">Events</h1>
-        <span className="text-neutral-400 text-sm">Discover upcoming events.</span>
+        <span className="text-neutral-400 text-sm">
+          Discover Worldbex Services International events.
+        </span>
       </div>
       {isLoading && <SkeletonEvent />}
       <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 xl:grid-cols-4">

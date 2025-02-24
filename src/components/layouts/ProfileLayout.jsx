@@ -1,170 +1,57 @@
-import { useState, useMemo } from "react";
-import WorldBexLogoWhite from "../../assets/images/logo/worldbex-logo-white.png";
-import HamburgerMenu from "../../assets/images/logo/hambergermenu.png";
-import WorldBexHeader from "../../assets/images/logo/worldbex-logo-header.svg";
-import Avatar from "../../assets/images/avatar/matsu-bieber.png";
-import { UserOutlined, AppstoreOutlined } from "@ant-design/icons";
-import { Layout, Menu, theme, Button, Popover, Segmented } from "antd";
-import { organizers } from "../../data/Organizer";
-import { useWindowSize } from "../../hooks/useWindowSize";
-import { NavLink, Outlet, useLocation } from "react-router";
+import { Layout, theme, Menu, Avatar, Button } from "antd";
+const { Header, Footer, Sider, Content } = Layout;
+import { NavLink, useLocation, useNavigate } from "react-router";
 import { useCurrentLocation } from "../../hooks/useCurrentLocation";
-import LogoutIcon from "../../assets/images/icon/logoutcurve.png";
-import ProfileIcon from "../../assets/images/icon/profile.png";
-import Back from "../../assets/images/icon/Back_press_area.svg";
+import { useWindowSize } from "../../hooks/useWindowSize";
 import { useClientStoreAuth } from "../../store/client/useAuth";
-
-const { Header, Content, Footer, Sider } = Layout;
+import WorldBexLogo from "../../assets/images/logo/worldbex-logo-header.svg";
 
 const ProfileLayout = ({ children }) => {
+  const { reset, clientData } = useClientStoreAuth();
+  const navigate = useNavigate();
   const [width] = useWindowSize();
+  const secondLetterIndex = clientData.name.indexOf(" ") + 1;
   const isMobile = width < 768;
-  const [collapsed, setCollapsed] = useState(false);
-  const { token } = theme.useToken();
   const currentLocation = useLocation();
   const location = useCurrentLocation(currentLocation);
-  const [arrow, setArrow] = useState("Show");
-  const { clientData, reset } = useClientStoreAuth();
 
-  const handlesignOut = () => {
-    reset();
-    navigate("/login");
+  const layoutStyle = {
+    overflow: "hidden",
+    minHeight: "100vh",
   };
 
-  const siderStyle = {
-    overflow: "auto",
-    height: "100vh",
-    position: "sticky",
-    insetInlineStart: 0,
-    top: 0,
-    bottom: 0,
-    scrollbarWidth: "thin",
-    scrollbarGutter: "stable",
-    zIndex: 20,
-  };
-
-  const footerStyle = {
-    textAlign: "center",
-    position: "fixed",
-    bottom: 0,
-    zIndex: 1,
-    width: "100%",
-    padding: 10,
-    display: "flex",
-    justifyContent: "center",
-    background: token.colorBgBase,
-    flexShrink: 0,
-    borderTop: "1px solid #DEE2E6",
+  const contentStyle = {
+    backgroundColor: "##C9C9C9",
+    overflowY: "auto",
+    minHeight: "calc(100vh - 64px)",
+    zIndex: 10,
   };
 
   const headerStyle = {
-    padding: 0,
-    background: token.colorPrimary,
-    position: "sticky",
-    top: 0,
-    zIndex: 1,
+    backgroundColor: "#FFFFFF",
+    border: "1px solid #C9C9C9",
     width: "100%",
-    display: "flex",
-    alignItems: "center",
+    padding: 0,
+    position: "fixed",
+    zIndex: 20,
   };
 
-  const items = [
-    {
-      key: "events",
-      label: <NavLink to={"/citizen/events"}>Events</NavLink>,
-      icon: <AppstoreOutlined />,
-    },
-    {
-      key: "tickets",
-      label: <NavLink to={"/citizen/tickets"}>Tickets</NavLink>,
-      icon: <UserOutlined />,
-    },
-  ];
-
-  const mergedArrow = useMemo(() => {
-    if (arrow === "Hide") {
-      return false;
-    }
-    if (arrow === "Show") {
-      return true;
-    }
-    return {
-      pointAtCenter: true,
-    };
-  }, [arrow]);
-
-  const content = (
-    <div className="flex flex-col gap-2">
-      <div className="flex gap-2 px-6 border-gray-300">
-        <img src={ProfileIcon} className="w-5 h-5" />
-        <NavLink to={"/visitor/profile"}>
-          <span className="text-text-color">Profile</span>
-        </NavLink>
-      </div>
-      <hr className="border-gray-200" />
-      <div className="flex gap-2 px-6">
-        <img src={LogoutIcon} className="w-5 h-5" />
-        <button onClick={handlesignOut}>Sign out</button>
-      </div>
-    </div>
-  );
   return (
-    <Layout>
+    <Layout style={layoutStyle}>
       <Header style={headerStyle}>
-        <Button
-          type="text"
-          style={{
-            width: 70,
-            height: 70,
-          }}
-        >
-          <NavLink to={"/visitor/events"}>
-            <img src={Back} alt="Back" />
-          </NavLink>
-        </Button>
-        <div className="flex md:gap-10 justify-between px-2 lg:px-10 items-center w-full">
+        <div className="flex justify-between px-4 xl:px-6 items-center xl:flex xl:items-center xl:justify-between h-full">
           <div>
-            {isMobile ? (
-              <div className="flex gap-4 items-center">
-                <img src={WorldBexLogoWhite} alt="Worldbex Header" className="w-10 h-10" />
-                <span className=" text-white">{clientData?.name}</span>
+            <NavLink>
+              <div className="flex items-center gap-2">
+                <img src={WorldBexLogo} alt="Worldbex" className="w-64 xl:w-80" />
               </div>
-            ) : (
-              <img src={WorldBexHeader} alt="Worldbex Header" />
-            )}
-          </div>
-          <div className="flex items-center gap-4">
-            {!isMobile && (
-              <span className="text-xs md:text-base text-white">{clientData?.name}</span>
-            )}
-            <Popover placement="bottomRight" content={content} arrow={mergedArrow}>
-              <img src={Avatar} alt="Avatar" className="w-9 h-9" />
-            </Popover>
+            </NavLink>
           </div>
         </div>
       </Header>
-      <Content>
-        <div className="mt-4 px-2 md:px-4 overflow-y-auto pb-36 md:pb-28 lg:pb-40">{children}</div>
+      <Content style={contentStyle}>
+        <div className="mt-20 px-2 md:px-4 overflow-y-auto pb-20 md:pb-20 lg:pb-20">{children}</div>
       </Content>
-      <Footer style={footerStyle}>
-        <div className="flex flex-col items-center py-2">
-          <h1 className="text-center text-sm text-[#5E5E5E]">Organizers</h1>
-          <div className="flex justify-center items-center whitespace-nowrap w-full overflow-x-auto lg:overflow-hidden">
-            <div className="flex gap-2">
-              {organizers.map((org, index) => (
-                <div key={index} className="p-2 shrink-0 md:shrink-1">
-                  <img
-                    src={org.image}
-                    loading="lazy"
-                    alt={org.alt}
-                    className="hover:scale-150 duration-300"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </Footer>
     </Layout>
   );
 };

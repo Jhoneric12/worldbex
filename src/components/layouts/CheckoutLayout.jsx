@@ -1,55 +1,53 @@
-import WorldBexLogoWhite from "../../assets/images/logo/worldbex-logo-white.png";
-import WorldBexHeader from "../../assets/images/logo/worldbex-logo-header.svg";
-import { Layout, theme } from "antd";
-import { useWindowSize } from "../../hooks/useWindowSize";
-import { Outlet, useLocation, useNavigate } from "react-router";
-
+import { Layout } from "antd";
 const { Header, Content } = Layout;
+import WorldBexLogo from "../../assets/images/logo/worldbex-logo-header.svg";
+import { NavLink, useLocation } from "react-router";
+import { Outlet } from "react-router";
 
 const CheckoutLayout = () => {
-  const [width] = useWindowSize();
-  const isMobile = width < 768;
-  const { token } = theme.useToken();
   const eventLocation = useLocation();
 
   const headerStyle = {
-    padding: 0,
-    background: token.colorPrimary,
-    position: "sticky",
-    top: 0,
-    zIndex: 1,
+    backgroundColor: "#FFFFFF",
+    border: "1px solid #C9C9C9",
     width: "100%",
-    display: "flex",
-    alignItems: "center",
+    padding: 0,
+  };
+
+  const layoutStyle = {
+    overflow: "hidden",
+    height: "100vh",
+  };
+
+  const contentStyle = {
+    backgroundColor: "#FFFF",
+    overflowY: "auto",
+    paddingBottom: "3rem",
   };
 
   const event = eventLocation.state?.event ?? { eventName: "Event Name" };
 
   return (
-    <Layout>
+    <Layout style={layoutStyle}>
       <Header style={headerStyle}>
-        <div className="flex md:gap-10 justify-between px-2 lg:px-10 items-center w-full">
-          <div className="flex justify-between w-full">
-            {isMobile ? (
-              <div className="flex gap-4 items-center">
-                <img src={WorldBexLogoWhite} alt="Worldbex Header" className="w-10 h-10" />
+        <div className="flex justify-between px-4 xl:px-6 items-center xl:flex xl:items-center xl:justify-between h-full">
+          <div>
+            <NavLink to={"events"}>
+              <div className="flex items-center gap-2">
+                <img src={WorldBexLogo} alt="Worldbex" className="w-64 xl:w-80" />
               </div>
-            ) : (
-              <img src={WorldBexHeader} alt="Worldbex Header" />
-            )}
+            </NavLink>
           </div>
-          <div className="flex justify-end items-center w-full">
-            <h2 className="text-white text-lg">{event?.eventName || "No Event Data"}</h2>
+          <div className=" py-10">
+            <div className="flex justify-end items-center w-full">
+              <h2 className="text-gray-700 text-md font-semibold">
+                {event?.eventName || "No Event Data"}
+              </h2>
+            </div>
           </div>
         </div>
       </Header>
-      <Content
-        style={{
-          paddingBottom: "3rem",
-          minHeight: "100vh",
-          backgroundColor: "#FFFF",
-        }}
-      >
+      <Content style={contentStyle}>
         <Outlet />
       </Content>
     </Layout>

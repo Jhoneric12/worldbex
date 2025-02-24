@@ -33,11 +33,17 @@ const Survey = ({ form }) => {
             rules={[{ required: true, message: "This question is required" }]}
           >
             <Checkbox.Group
-              onChange={(checkedValues) => handleChange(question.title, checkedValues)}
+              onChange={(checkedValues) =>
+                handleChange(question.title, checkedValues)
+              }
             >
               <div className="flex flex-col gap-2">
                 {question.options.map((option) => (
-                  <Checkbox key={option} value={option} className="text-gray-700">
+                  <Checkbox
+                    key={option}
+                    value={option}
+                    className="text-gray-700"
+                  >
                     {option}
                   </Checkbox>
                 ))}
@@ -48,7 +54,9 @@ const Survey = ({ form }) => {
           {selectedOptions[question.title]?.includes("Other") && (
             <Form.Item
               name={`${question.title}-other`}
-              rules={[{ required: true, message: "Please specify your answer" }]}
+              rules={[
+                { required: true, message: "Please specify your answer" },
+              ]}
             >
               <Input
                 placeholder="Please specify"
