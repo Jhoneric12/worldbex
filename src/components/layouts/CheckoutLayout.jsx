@@ -1,6 +1,6 @@
 import { Layout } from "antd";
 const { Header, Content } = Layout;
-import WorldBexLogo from "../../assets/images/logo/worldbex.png";
+import WorldBexLogo from "../../assets/images/logo/worldbex-logo-header.svg";
 import { NavLink, useLocation } from "react-router";
 import { Outlet } from "react-router";
 
@@ -34,12 +34,7 @@ const CheckoutLayout = () => {
           <div>
             <NavLink to={"events"}>
               <div className="flex items-center gap-2">
-                <img src={WorldBexLogo} alt="Worldbex" className="w-10 h-10" />
-                <div className="flex flex-col">
-                  <span className="text-primary-color font-medium  xl:text-lg">
-                    Worldbex Services International
-                  </span>
-                </div>
+                <img src={WorldBexLogo} alt="Worldbex" className="w-64 xl:w-80" />
               </div>
             </NavLink>
           </div>

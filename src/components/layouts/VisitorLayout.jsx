@@ -20,7 +20,7 @@ const VisitorLayout = () => {
   const secondLetterIndex = clientData.name.indexOf(" ") + 1;
   const isMobile = width < 768;
   const currentLocation = useLocation();
-  const location = useLocation();
+  const location = useCurrentLocation(currentLocation);
 
   const handleSignOut = () => {
     reset();
@@ -67,6 +67,17 @@ const VisitorLayout = () => {
       icon: <UserOutlined />,
     },
   ];
+
+  const itemsMobile = [
+    {
+      key: "events",
+      label: <NavLink to={"/visitor/events"}>Events</NavLink>,
+    },
+    {
+      key: "tickets",
+      label: <NavLink to={"/visitor/tickets"}>Tickets</NavLink>,
+    },
+  ];
   return (
     <Layout style={layoutStyle}>
       <Header style={headerStyle}>
@@ -81,7 +92,6 @@ const VisitorLayout = () => {
                   </span>
                 </div> */}
                 <img src={WorldBexLogoHeader} alt="Worldbex" className="w-64 xl:w-80" />
-                <img src="" alt="" />
               </div>
             </NavLink>
           </div>
@@ -150,54 +160,23 @@ const VisitorLayout = () => {
               </div>
               <div className="absolute bottom-0 right-1 left-1 py-3 whitespace-nowrap">
                 <div className="flex flex-col items-center text-[0.688rem]">
-                  <span className="text-[#5E5E5E] font-medium">
-                    For question and inquiries
-                  </span>
+                  <span className="text-[#5E5E5E] font-medium">For question and inquiries</span>
                   <span className="font-bold">inquire@worldbexevents.com</span>
-                  <span className="text-[#5E5E5E] font-medium">
-                    or contact us at
-                  </span>
+                  <span className="text-[#5E5E5E] font-medium">or contact us at</span>
                   <span className="font-bold">86569239</span>
                 </div>
               </div>
             </div>
           </Sider>
         ) : (
-          <Menu mode="horizontal">
-            <Menu.Item
-              key="/visitor/events"
-              onClick={() => navigate("/visitor/events")}
-              className={`px-4 font-medium ${
-                location.pathname === "/visitor/events"
-                  ? "!text-orange-500 px-5"
-                  : "!text-gray-700"
-              }`}
-            >
-              <span className="px-4">Events</span>
-            </Menu.Item>
-            <Menu.Item
-              key="/visitor/tickets"
-              onClick={() => navigate("/visitor/tickets")}
-              className={`px-4 font-medium ${
-                location.pathname === "/visitor/tickets"
-                  ? "!text-orange-500"
-                  : "!text-gray-700"
-              }`}
-            >
-              <span className="px-4">My Tickets</span>
-            </Menu.Item>
-          </Menu>
+          <Menu mode="horizontal" items={itemsMobile} selectedKeys={location} />
         )}
         <Content style={contentStyle}>
           <div className=" mt-4 px-2 md:px-4 overflow-y-auto pb-16 md:pb-4 ">
             {<Outlet />}
             <div className="flex flex-col gap-2 items-center mt-6 xl:hidden">
               <span className=" text-center text-gray-400">Powered by</span>
-              <img
-                src={DGSILOGO}
-                alt="Dynamic Global Soft Inc."
-                className=" w-40 h-20 "
-              />
+              <img src={DGSILOGO} alt="Dynamic Global Soft Inc." className=" w-40 h-20 " />
             </div>
           </div>
         </Content>
@@ -205,14 +184,8 @@ const VisitorLayout = () => {
       <Footer style={footerStyle}>
         <div className="flex items-center gap-2">
           <div className="items-center hidden xl:flex xl:pl-4">
-            <span className=" text-center text-xs text-gray-400 whitespace-nowrap">
-              Powered by
-            </span>
-            <img
-              src={DGSILOGO}
-              alt="Dynamic Global Soft Inc."
-              className=" max-w-20 h-12"
-            />
+            <span className=" text-center text-xs text-gray-400 whitespace-nowrap">Powered by</span>
+            <img src={DGSILOGO} alt="Dynamic Global Soft Inc." className=" max-w-20 h-12" />
           </div>
           <div className="flex flex-col">
             {/* <h1 className="text-center text-xs text-gray-400">Organizers</h1> */}
@@ -221,11 +194,7 @@ const VisitorLayout = () => {
                 <div className="flex gap-3">
                   {organizers.map((org, index) => (
                     <div key={index} className=" shrink-0 xl:shrink-1">
-                      <img
-                        src={org.image}
-                        alt={org.alt}
-                        className=" h-12 w-12"
-                      />
+                      <img src={org.image} alt={org.alt} className=" h-12 w-12" />
                     </div>
                   ))}
                 </div>
