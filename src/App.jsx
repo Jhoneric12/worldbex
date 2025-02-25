@@ -1,11 +1,9 @@
-import ClientRoute from "./routes/client/ClientRoute";
-import LandingPageRoute from "./routes/landingPage/LandingPageRoute";
+import RootRoutes from "./routes";
 
 function App() {
   return (
     <div className="text-text-color scroll-smooth">
-      <LandingPageRoute />
-      <ClientRoute />
+      <RootRoutes />
     </div>
   );
 }

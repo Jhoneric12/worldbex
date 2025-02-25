@@ -10,10 +10,17 @@ import CheckoutLayout from "../../components/layouts/CheckoutLayout";
 import EventCheckout from "../../pages/client/EventCheckout";
 import VisitorLayout from "../../components/layouts/VisitorLayout";
 import ProfileLayout from "../../components/layouts/ProfileLayout";
+import Home from "../../pages/landingPage/Home";
+import Login from "../../pages/landingPage/Login";
+import Registration from "../../pages/landingPage/Registration";
 
 const ClientRoute = () => {
   return (
     <Routes>
+      <Route index element={<Home />} />
+      <Route path="login" element={<Login />} />
+      <Route path="registration" element={<Registration />} />
+
       <Route element={<Auth store={useClientStoreAuth} redirect={"/login"} />}>
         <Route path="visitor">
           <Route element={<VisitorLayout />}>

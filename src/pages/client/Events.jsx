@@ -5,6 +5,7 @@ import { useGetEvents } from "../../services/requests/client/events/useGetEvents
 import { useClientStoreAuth } from "../../store/client/useAuth";
 import { useNavigate } from "react-router";
 import SkeletonEvent from "../../components/eventTemplate/SkeletonEvent";
+import { h1 } from "framer-motion/client";
 
 const Events = () => {
   // const onSearch = (value, _e, info) => console.log(info?.source, value);
@@ -60,17 +61,21 @@ const Events = () => {
                   </span>
                 </div>
                 <div>
-                  <Button
-                    onClick={() => navigate("/visitor/event-checkout", { state: { event } })}
-                    style={{
-                      borderRadius: "4px",
-                      backgroundColor: "#FFFFFF",
-                      borderCOlor: "black",
-                    }}
-                    className="border border-black rounded-md px-6 py-1"
-                  >
-                    {event?.amount === 0 ? "Join Event" : "Buy Ticket"}
-                  </Button>
+                  {event?.isJoin ? (
+                    <h1 className="font-medium">Joined</h1>
+                  ) : (
+                    <Button
+                      onClick={() => navigate("/visitor/event-checkout", { state: { event } })}
+                      style={{
+                        borderRadius: "4px",
+                        backgroundColor: "#FFFFFF",
+                        borderCOlor: "black",
+                      }}
+                      className="border border-black rounded-md px-6 py-1"
+                    >
+                      {event?.amount === 0 ? "Join Event" : "Buy Ticket"}
+                    </Button>
+                  )}
                 </div>
               </div>
             </Event>
